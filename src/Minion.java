@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public class Minion extends Card {
 
     private int minionAttack;
@@ -9,6 +11,11 @@ public class Minion extends Card {
         super(cardName, cardCost);
     }
 
+    public void minionDeath(Minion minion, LinkedList<Card> cards){
+        if (minionCurrentHealth <= 0){
+            cards.remove(minion);
+        }
+    }
     public void setMinionHealth(int health){
 
 
@@ -28,6 +35,11 @@ public class Minion extends Card {
 
     public int getMinionCurrentHealth() {
         return minionCurrentHealth;
+    }
+
+    public void setMinionCurrentHealth(int newMinionHealth){
+        this.minionCurrentHealth = newMinionHealth;
+
     }
 
 }

@@ -25,9 +25,13 @@ return null;
     public String minionClash(Minion m1, Minion m2){
 
         //minions lack a way to die when hp reaches 0
-        int m2Health = m2.getMinionCurrentHealth()-m1.getMinionAttack();
-        int m1Health = m1.getMinionCurrentHealth()-m2.getMinionAttack();
-        String health = m1Health + " " + m2Health;
+        m2.setMinionCurrentHealth(m2.getMinionCurrentHealth()-m1.getMinionAttack());
+        m1.setMinionCurrentHealth(m1.getMinionCurrentHealth()-m2.getMinionAttack());
+        String health = m1.getMinionCurrentHealth() + "," + m2.getMinionCurrentHealth();
+
+        m1.minionDeath(m1,cardsOnBoard);
+
+        m2.minionDeath(m2,cardsOnBoard);
         return health;
     }
 

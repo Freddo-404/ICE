@@ -4,4 +4,9 @@ public class Hero {
     private int heroHealth;
    private HeroPower heroPower = new HeroPower();
 
+
+
+   public int getHeroHealth(){
+       return heroHealth;
+   }
 }
