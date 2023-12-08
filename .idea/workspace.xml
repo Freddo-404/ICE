@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12536ae4-c44e-40ac-9abd-2db3469133ea" name="Changes" comment="man on main part2">
-      <change afterPath="$PROJECT_DIR$/src/Effect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HeroPower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MinionEffect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SpellEffect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WeaponEffect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WeaponSlot.java" afterDir="false" />
+    <list default="true" id="ca9c4669-d6a2-4ddb-bcde-e836e092d0db" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Minion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Minion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MinionEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MinionEffect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Spell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SpellEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SpellEffect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WeaponEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WeaponEffect.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,75 +22,55 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="UML Sequence" />
-        <option value="Class" />
+        <option value="UML Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="JONAS" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
+  &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="2ZD4furyZr6StvhVkHX9dSmDEn4" />
+  <component name="ProjectId" id="2ZAMdKBjN0XmlW697JfnO5dTnoV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "DefaultPlantUmlFileTemplate": "UML Sequence",
+    "DefaultPlantUmlFileTemplate": "UML Class",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/frederikdupont/Desktop/3D Printning/ICE",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "onboarding.tips.debug.path": "/Users/frederikdupont/Desktop/3D Printning/ICE/src/Main.java",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="12536ae4-c44e-40ac-9abd-2db3469133ea" name="Changes" comment="" />
-      <created>1701943422420</created>
+      <changelist id="ca9c4669-d6a2-4ddb-bcde-e836e092d0db" name="Changes" comment="" />
+      <created>1701860526913</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1701943422420</updated>
-      <workItem from="1701943423471" duration="342000" />
-      <workItem from="1701944410016" duration="1751000" />
-      <workItem from="1701946696496" duration="3146000" />
+      <updated>1701860526913</updated>
+      <workItem from="1701860532929" duration="16634000" />
+      <workItem from="1702030822095" duration="1223000" />
     </task>
-    <task id="LOCAL-00001" summary="man on main">
-      <option name="closed" value="true" />
-      <created>1701947794335</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1701947794335</updated>
-    </task>
-    <task id="LOCAL-00002" summary="man on main part2">
-      <option name="closed" value="true" />
-      <created>1701947896566</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1701947896566</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="man on main" />
-    <MESSAGE value="man on main part2" />
-    <option name="LAST_COMMIT_MESSAGE" value="man on main part2" />
   </component>
 </project>

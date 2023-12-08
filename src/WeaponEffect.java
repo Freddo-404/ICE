@@ -1,2 +1,2 @@
-public class WeaponEffect {
+public class WeaponEffect extends Weapon {
 }
