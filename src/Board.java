@@ -19,7 +19,7 @@ public class Board {
     }
 
     public String drawFatigue(){
-        return null;
+return null;
     }
 
     public String minionClash(Minion m1, Minion m2){
@@ -35,3 +35,17 @@ public class Board {
         return null;
     }
 }
+/*
+_____________________________HERO HEALTH: 30______deck: 20________
+|                                                  mana:4        |
+|        {2/3}    [5/5]         [3/3]                            |
+|                                                                |
+|                                                                |
+|________________________________________________________________|
+|                                                                |
+|                                                                |
+|                                                                |
+|    [2/3]    [5/5]         [3/3]                                |
+|                                                 mana:5         |
+|____________________________HERO HEALTH: 25______deck: 15_______|
+*/

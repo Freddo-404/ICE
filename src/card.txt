@@ -1,0 +1,30 @@
+Name: Whisp, Mana: 0, Attack: 1, Health: 1
+Name: Abusive Sergeant, Mana: 1, Attack: 2, Health: 1
+Name: Scarlet Crusader, Mana: 2, Attack: 3, Health: 2
+Name: Raging Worgen, Mana: 3, Attack: 3, Health: 4
+Name: Cult Master, Mana: 4, Attack: 4, Health: 3
+Name: Earthen Ring Farseer, Mana: 3, Attack: 3, Health: 3
+Name: Mogu'shan Warden, Mana: 4, Attack: 1, Health: 7
+Name: Angry Chicken, Mana: 1, Attack: 2, Health: 1
+Name: Stranglethorn Tiger, Mana: 5, Attack: 5, Health: 5
+Name: Fen Creeper, Mana: 5, Attack: 3, Health: 6
+Name: Abomination, Mana: 5, Attack: 6, Health: 4
+Name: King Mukla, Mana: 3, Attack: 4, Health: 4
+Name: Faerie Dragon, Mana: 2, Attack: 3, Health: 2
+Name: Sheildbearer, Mana: 1, Attack: 1, Health: 3
+Name: Windfurry Harpy, Mana: 6, Attack: 7, Health: 4
+Name: Ravenholdt Assassin, Mana: 7, Attack: 7, Health: 6
+Name: Sea Giant, Mana: 8, Attack: 8, Health: 8
+Name: Mura The Murlock, Mana: 5, Attack: 6, Health: 4
+Name: Sun Walker, Mana: 7, Attack: 3, Health: 9
+Name: Lorewalker Cho, Mana: 4, Attack: 2, Health: 6
+Name: Hogger, Mana: 8, Attack: 10, Health: 4
+Name: Xavius, Mana: 6, Attack: 7, Health: 5
+Name: Faceless Manipulator, Mana: 5, Attack: 5, Health: 5
+Name: Demolisher, Mana: 3, Attack: 4, Health: 2
+Name: Doomsayer, Mana: 3, Attack: 1, Health: 5
+Name: Murlock Warrior, Mana: 2, Attack: 3, Health: 1
+Name: Empoeror Cobra, Mana: 2, Attack: 2, Health: 2
+Name: Alexstrasza, Mana: 9, Attack: 9, Health: 9
+Name: Ysera, Mana: 9, Attack: 5, Health: 14
+Name: Death Wing, Mana:10 , Attack: 11, Health: 11

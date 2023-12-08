@@ -1,8 +1,24 @@
 import java.util.LinkedList;
 
 public class Deck {
-   private LinkedList<Card> cardsInDeck;
+
    private int fatigueCount;
    private FileIO io = new FileIO();
+   private LinkedList<Card> allWeapons = new LinkedList<>();
+   private LinkedList<Card> allMinions = new LinkedList<>();
+   private LinkedList<Card> allSpells = new LinkedList<>();
 
+   public LinkedList<Card> getAllMinions(){
+      allMinions = io.readMinionData("card.txt");
+      return allMinions;
+   }
+
+   public LinkedList<Card> getAllWeapons(){
+      allWeapons = io.readWeaponData("weapons.txt");
+      return allWeapons;
+   }
+   public LinkedList<Card> getAllSpells(){
+      allSpells = io.readSpellData("spells.txt");
+      return allSpells;
+   }
 }
