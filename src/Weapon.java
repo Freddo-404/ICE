@@ -1,6 +1,6 @@
 public class Weapon {
-    int weaponAttack;
-    int weaponDurability;
-    weaponEffect effect;
+    private int weaponAttack;
+    private int weaponDurability;
+    private WeaponEffect effect;
 
 }

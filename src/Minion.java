@@ -1,11 +1,11 @@
 public class Minion {
 
-    int minionAttack;
-    int minionCurrentHealth;
-    int minionMaxHealth;
+    private int minionAttack;
+    private int minionCurrentHealth;
+    private int minionMaxHealth;
     private MinionEffect effect;
 
-    void setMinionHealth(int health){
+    public void setMinionHealth(int health){
 
 
     }

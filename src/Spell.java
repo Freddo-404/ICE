@@ -1,3 +1,3 @@
 public class Spell {
-    spellEffect effect;
+    private SpellEffect effect;
 }
