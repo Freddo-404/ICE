@@ -1,0 +1,189 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+!pragma layout smetana
+
+
+class Main
+abstract Card
+class Board
+class Hero
+class Game
+class TextUI
+class FileIO
+class Player
+class Minion
+class Weapon
+class Spell
+class Deck
+interface FileEditor
+class Hand
+class WeaponSlot
+class HeroPower
+abstract Effect
+class MinionEffect
+class SpellEffect
+class WeaponEffect
+
+
+ Card  <|-- Spell
+ Card  <|-- Minion
+ Card  <|-- Weapon
+ Effect  <|-- SpellEffect
+ Effect  <|-- MinionEffect
+ Effect  <|-- WeaponEffect
+ Deck o-- Card
+ Board -- Deck
+ Board-- Hand
+ Board -- Hero
+ Game-- TextUI
+
+ Game -- Player
+ Main-- Game
+ Deck o-- FileEditor
+ FileEditor <|.- FileIO
+ Player -- Board
+ Hand o-- Card
+ Board o-- Card
+ Hero-- WeaponSlot
+ WeaponSlot o-- Card
+ Hero -- HeroPower
+ Card-- Effect
+ Minion -- MinionEffect
+ Spell-- SpellEffect
+ Weapon *-- WeaponEffect
+
+
+class Main {
++static void main(String[] args)
+
+
+}
+abstract Card {
+-String cardName
+-String heroClass
+-int cardCost
+
+
+}
+interface FileEditor {
++LinkedList<Card> readDeck(String path)
+
+}
+class FileIO {
+-Scanner scan
++LinkedList<Card> readDeck(String path)
+
+}
+class WeaponSlot {
+-int weaponAttack
+-int currentDurability
+
++String equipWeapon()
++String useWeapon()
+
+}
+
+class Game {
+-int turnCount
+-TextUI ui
+-Player player1
+-Player player2
+
++void mainMenu()
++void gameLoop()
++void winCondition()
+
+}
+class Hero {
+-String heroName
+-String heroClass
+-int heroHealth
+-HeroPower heroPower
+
+}
+class Hand {
+-int maxHandSize
+-LinkedList<Card> cardsInHand
++LinkedList<Card> getHand()
+
+}
+class TextUI {
++void displayMessage(String msg)
++void displayHand(Hand hand)
++void displayBoard(Board board)
++void displayEnemyBoard(Board board)
+
+}
+class Board {
+-int maxMana
+-int maxBoardSize
+-LinkedList<Card> cardsOnBoard
+-Hand hand
+-Deck deck
+-Hero hero
+-TextUI ui
+
++String playCard()
++String drawCard()
++String drawFatigue()
+
++String minionClash(Minion m1, Minion m2)
++String minionFace(Minion minion, Hero hero)
+
+}
+class Deck {
+-LinkedList<Card> cardsInDeck
+-int fatigueCount
+-FileIO io
+
+}
+class Player {
+-String playerName
+-Board board
+-int mana
+-TextUI ui
+
++void playerChoiceMenu()
+
+}
+
+class Minion {
+-int minionAttack
+-int minionCurrentHealth
+-int minionMaxHealth
+-minionEffect effect
+
++void setMinionHealth(int health)
+
+}
+
+class Weapon {
+-int weaponAttack
+-int weaponDurability
+-weaponEffect effect
+
+}
+class Spell {
+-spellEffect effect
+
+}
+
+class HeroPower {
+
+
++String useHeroPower(Hero hero)
+
++String mageHeroPower()
++String hunterHeroPower()
++String warlockHeroPower()
++String paladinHeroPower()
++String rogueHeroPower()
+
+
+
+}
+
+
+
+
+@enduml
