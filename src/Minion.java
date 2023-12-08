@@ -5,7 +5,7 @@ public class Minion extends Card {
     private int minionMaxHealth;
     private MinionEffect effect;
 
-    public Minion(String cardName, int cardCost, int minionAttack, int minionCurrentHealth, int minionMaxHealth,MinionEffect effect) {
+    public Minion(String cardName, int cardCost, int minionAttack, int minionMaxHealth) {
         super(cardName, cardCost);
     }
 
@@ -13,10 +13,10 @@ public class Minion extends Card {
 
 
     }
-    public MinionEffect getEffect() {
+   /* public MinionEffect getEffect() {
         return effect;
     }
-
+*/
 
     public int getMinionMaxHealth() {
         return minionMaxHealth;

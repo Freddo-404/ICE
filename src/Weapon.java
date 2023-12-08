@@ -4,7 +4,7 @@ public class Weapon extends Card{
     private WeaponEffect effect;
 
 
-    public Weapon(String cardName, int cardCost, int weaponAttack, int weaponDurability, WeaponEffect effect) {
+    public Weapon(String cardName, int cardCost, int weaponAttack, int weaponDurability) {
         super(cardName, cardCost);
     }
 
@@ -15,8 +15,10 @@ public class Weapon extends Card{
         return weaponDurability;
     }
 
-
+/*
     public WeaponEffect getEffect() {
         return effect;
     }
+
+ */
 }
