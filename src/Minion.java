@@ -9,4 +9,14 @@ public class Minion {
 
 
     }
+
+
+    //Getters
+    public int getMinionCurrentHealth() {
+        return minionCurrentHealth;
+    }
+
+    public int getMinionAttack() {
+        return minionAttack;
+    }
 }

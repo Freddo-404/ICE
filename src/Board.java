@@ -23,7 +23,11 @@ public class Board {
     }
 
     public String minionClash(Minion m1, Minion m2){
-        return null;
+
+        int m2Health = m2.getMinionCurrentHealth()-m1.getMinionAttack();
+        int m1Health = m1.getMinionCurrentHealth()-m2.getMinionAttack();
+        String health = m1Health + " " + m2Health;
+        return health;
     }
 
     public String minionFace(Minion minion, Hero hero){
