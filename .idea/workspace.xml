@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12536ae4-c44e-40ac-9abd-2db3469133ea" name="Changes" comment="man on main part2">
-      <change afterPath="$PROJECT_DIR$/src/Effect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HeroPower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MinionEffect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SpellEffect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WeaponEffect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WeaponSlot.java" afterDir="false" />
+    <list default="true" id="12536ae4-c44e-40ac-9abd-2db3469133ea" name="Changes" comment="man on main part3">
+      <change beforePath="$PROJECT_DIR$/src/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HeroPower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HeroPower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WeaponSlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WeaponSlot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +25,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -42,7 +46,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Fred2-den-er-god",
     "last_opened_file_path": "/Users/frederikdupont/Desktop/3D Printning/ICE",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -52,6 +56,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ClassDiagram" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -62,7 +71,7 @@
       <updated>1701943422420</updated>
       <workItem from="1701943423471" duration="342000" />
       <workItem from="1701944410016" duration="1751000" />
-      <workItem from="1701946696496" duration="3146000" />
+      <workItem from="1701946696496" duration="4587000" />
     </task>
     <task id="LOCAL-00001" summary="man on main">
       <option name="closed" value="true" />
@@ -80,7 +89,31 @@
       <option name="project" value="LOCAL" />
       <updated>1701947896566</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="man on main part3">
+      <option name="closed" value="true" />
+      <created>1702030527490</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1702030527490</updated>
+    </task>
+    <task id="LOCAL-00004" summary="man on main part3">
+      <option name="closed" value="true" />
+      <created>1702030532018</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702030532018</updated>
+    </task>
+    <task id="LOCAL-00005" summary="man on main part3">
+      <option name="closed" value="true" />
+      <created>1702030706264</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702030706264</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,6 +122,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="man on main" />
     <MESSAGE value="man on main part2" />
-    <option name="LAST_COMMIT_MESSAGE" value="man on main part2" />
+    <MESSAGE value="man on main part3" />
+    <option name="LAST_COMMIT_MESSAGE" value="man on main part3" />
   </component>
 </project>
