@@ -24,6 +24,7 @@ public class Board {
 
     public String minionClash(Minion m1, Minion m2){
 
+        //minions lack a way to die when hp reaches 0
         int m2Health = m2.getMinionCurrentHealth()-m1.getMinionAttack();
         int m1Health = m1.getMinionCurrentHealth()-m2.getMinionAttack();
         String health = m1Health + " " + m2Health;
