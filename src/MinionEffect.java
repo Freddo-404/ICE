@@ -1,2 +1,2 @@
-public class MinionEffect {
+public class  MinionEffect extends Minion {
 }

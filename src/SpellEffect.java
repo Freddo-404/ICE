@@ -1,2 +1,2 @@
-public class SpellEffect {
+public class SpellEffect extends Spell{
 }
