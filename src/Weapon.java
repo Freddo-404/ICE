@@ -5,7 +5,10 @@ public class Weapon extends Card{
 
 
     public Weapon(String cardName, int cardCost, int weaponAttack, int weaponDurability) {
+
         super(cardName, cardCost);
+        this.weaponAttack = weaponAttack;
+        this.weaponDurability = weaponDurability;
     }
 
     public int getWeaponAttack() {
