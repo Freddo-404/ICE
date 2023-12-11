@@ -17,6 +17,15 @@ public class Board {
     public String playCard() {
         return null;
     }
+    public void startHand(){
+        drawCard(3);
+        if(player == previousPlayer) {
+            Card coin = new Spell("The coin",0);
+            hand.getHand().add(coin);
+        } else{
+            hand.getHand();
+        }
+    }
 
     public void drawCard(int amount) {
         if (hand.getCardsInHand().size() <= hand.getMaxHandSize()) {
