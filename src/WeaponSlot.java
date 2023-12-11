@@ -19,11 +19,15 @@ public class WeaponSlot {
         return null;
     }
 
+
     public void setWeaponSlotAttack(int weaponSlotAttack) {
         this.weaponSlotAttack = weaponSlotAttack;
     }
 
     public void setCurrentDurability(int currentDurability) {
         this.currentDurability = currentDurability;
+    }
+    public int getWeaponSlotAttack(){
+        return weaponSlotAttack;
     }
 }

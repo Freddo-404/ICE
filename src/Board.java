@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public class Board {
+public class Board{
 
     private int maxMana = 1;
     private int maxBoardSize = 7;
@@ -14,9 +14,10 @@ public class Board {
         this.deck = deck;
     }
 
-    public String playCard(){
+    public String playCard(Hand hand){
        return null;
     }
+
 
     public String drawCard(){
         return null;
@@ -31,7 +32,7 @@ return null;
         //minions lack a way to die when hp reaches 0
         m2.setMinionCurrentHealth(m2.getMinionCurrentHealth()-m1.getMinionAttack());
         m1.setMinionCurrentHealth(m1.getMinionCurrentHealth()-m2.getMinionAttack());
-        String health = m1.getMinionCurrentHealth() + "," + m2.getMinionCurrentHealth();
+        String health = String.valueOf(m1.getMinionCurrentHealth() + "," + m2.getMinionCurrentHealth());
 
         m1.minionDeath(m1,cardsOnBoard);
 
@@ -40,7 +41,20 @@ return null;
     }
 
     public String minionFace(Minion minion, Hero hero){
-        return null;
+        hero.setHeroCurrentHealth(hero.getHeroCurrentHealth()-minion.getMinionAttack());
+        String health = String.valueOf(hero.getHeroCurrentHealth());
+        return health;
+    }
+    public String heroFace(Hero h1, Hero h2){
+        h2.setHeroCurrentHealth(hero.getHeroCurrentHealth()-h1.getWeaponSlot().getWeaponSlotAttack());
+        String health = String.valueOf(h2.getHeroCurrentHealth());
+        return health;
+    }
+    public String heroAttackMinion(Hero hero, Minion minion){
+        minion.setMinionCurrentHealth(minion.getMinionCurrentHealth()-hero.getWeaponSlot().getWeaponSlotAttack());
+        hero.setHeroCurrentHealth(hero.getHeroCurrentHealth()-minion.getMinionAttack());
+        String health = String.valueOf(hero.getHeroCurrentHealth()+ "," +minion.getMinionCurrentHealth());
+        return health;
     }
 }
 /*

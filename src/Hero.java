@@ -5,6 +5,7 @@ public class Hero {
     private int heroMaxHealth;
     private WeaponSlot weaponSlot = new WeaponSlot(0,0);
 
+
     private HeroPower heroPower = new HeroPower();
 
 
@@ -27,4 +28,11 @@ public class Hero {
     public void setHeroCurrentHealth(int heroCurrentHealth) {
         this.heroCurrentHealth = heroCurrentHealth;
     }
+    public WeaponSlot getWeaponSlot(){
+
+        return weaponSlot;
+    }
+
 }
+
+
