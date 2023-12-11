@@ -28,15 +28,16 @@ public class Board {
     }
 
     public void drawCard(int amount) {
-        if (hand.getCardsInHand().size() <= hand.getMaxHandSize()) {
-            if (!deck.getCardsInDeck().isEmpty()) {
-                hand.getCardsInHand().add(deck.getCardsInDeck().poll());
+        for (int i=0; i<amount; i++) {
+            if (hand.getCardsInHand().size() <= hand.getMaxHandSize()) {
+                if (!deck.getCardsInDeck().isEmpty()) {
+                    hand.getCardsInHand().add(deck.getCardsInDeck().poll());
+                } else {
+                    drawFatigue();
+                }
+            } else {
+                deck.getCardsInDeck().remove();
             }
-            else{
-                drawFatigue();
-            }
-        } else {
-            deck.getCardsInDeck().remove();
         }
     }
 
