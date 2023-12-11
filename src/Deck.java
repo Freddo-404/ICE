@@ -13,7 +13,9 @@ public class Deck {
    public Deck(LinkedList<Card> cardsInDeck){
       this.cardsInDeck = cardsInDeck;
    }
-
+public LinkedList<Card> getCardsInDeck(){
+      return cardsInDeck;
+}
 
 
    public LinkedList<Card> getAllMinions(){

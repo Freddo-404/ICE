@@ -18,8 +18,15 @@ public class Board {
        return null;
     }
 
-    public String drawCard(){
-        return null;
+    public void drawCard(int amount) {
+        if (turn == true && hand.size()<=hand.checkHand()) {
+            while (!deck.getCardsInDeck().isEmpty()) {
+                deck.getCardsInDeck().poll();
+                hand.getHand().add(deck.getCardsInDeck().get(0));
+            }
+        } else{
+            deck.getCardsInDeck().remove();
+        }
     }
 
     public String drawFatigue(){
