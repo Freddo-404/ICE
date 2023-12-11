@@ -8,6 +8,14 @@ public class Deck {
    private LinkedList<Card> allMinions = new LinkedList<>();
    private LinkedList<Card> allSpells = new LinkedList<>();
 
+   private LinkedList<Card> cardsInDeck = new LinkedList<>();
+
+   public Deck(LinkedList<Card> cardsInDeck){
+      this.cardsInDeck = cardsInDeck;
+   }
+
+
+
    public LinkedList<Card> getAllMinions(){
       allMinions = io.readMinionData("card.txt");
       return allMinions;

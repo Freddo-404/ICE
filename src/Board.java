@@ -2,13 +2,17 @@ import java.util.LinkedList;
 
 public class Board {
 
-    private int maxMana;
-    private int maxBoardSize;
-    private LinkedList<Card> cardsOnBoard;
-    private Hand hand;
+    private int maxMana = 1;
+    private int maxBoardSize = 7;
+    private LinkedList<Card> cardsOnBoard = new LinkedList<>();
+    private Hand hand = new Hand();
     private Deck deck;
     private Hero hero;
-    private TextUI ui;
+
+    public Board(Hero hero, Deck deck) {
+        this.hero = hero;
+        this.deck = deck;
+    }
 
     public String playCard(){
        return null;
