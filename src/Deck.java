@@ -14,4 +14,13 @@ public LinkedList<Card> getCardsInDeck(){
 }
 
 
+
+   public int getFatigueCount(){
+      return fatigueCount;
+   }
+   public void setFatigueCount(int fatigueCount) {
+      this.fatigueCount = fatigueCount;
+   }
+
+
 }

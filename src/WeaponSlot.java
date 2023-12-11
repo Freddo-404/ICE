@@ -44,6 +44,10 @@ public class WeaponSlot {
         this.weaponSlotAttack = weaponSlotAttack;
     }
 
+    public int getCurrentDurability() {
+        return currentDurability;
+    }
+
     public void setCurrentDurability(int currentDurability) {
         this.currentDurability = currentDurability;
     }
