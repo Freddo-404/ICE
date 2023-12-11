@@ -8,12 +8,11 @@ public class WeaponSlot {
     }
 
 
-    public  String equipWeapon(Weapon weapon){
+    public  void equipWeapon(Weapon weapon){
 
         setWeaponSlotAttack(weapon.getWeaponAttack());
         setCurrentDurability(weapon.getWeaponDurability());
 
-        return "Weapon equipped";
     }
    public String useWeapon(){
         return null;

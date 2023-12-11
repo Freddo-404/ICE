@@ -18,10 +18,5 @@ public class Weapon extends Card{
         return weaponDurability;
     }
 
-/*
-    public WeaponEffect getEffect() {
-        return effect;
-    }
 
- */
 }

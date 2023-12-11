@@ -16,14 +16,7 @@ public class Minion extends Card {
             cards.remove(minion);
         }
     }
-    public void setMinionHealth(int health){
 
-
-    }
-   /* public MinionEffect getEffect() {
-        return effect;
-    }
-*/
 
     public int getMinionMaxHealth() {
         return minionMaxHealth;
