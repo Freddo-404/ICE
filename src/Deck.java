@@ -13,7 +13,7 @@ public class Deck {
    public Deck(LinkedList<Card> cardsInDeck){
       this.cardsInDeck = cardsInDeck;
    }
-public LinkedList<Card> getDeck(){
+public LinkedList<Card> getCardsInDeck(){
       return cardsInDeck;
 }
 

@@ -20,12 +20,12 @@ public class Board {
 
     public void drawCard(int amount) {
         if (turn == true && hand.size()<=hand.checkHand()) {
-            while (!deck.getDeck().isEmpty()) {
-                deck.getDeck().poll();
-                hand.getHand().add(deck.getDeck());
+            while (!deck.getCardsInDeck().isEmpty()) {
+                deck.getCardsInDeck().poll();
+                hand.getHand().add(deck.getCardsInDeck().get(0));
             }
         } else{
-            deck.getDeck().remove();
+            deck.getCardsInDeck().remove();
         }
     }
 
