@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca9c4669-d6a2-4ddb-bcde-e836e092d0db" name="Changes" comment="drawCard fix" />
+    <list default="true" id="ca9c4669-d6a2-4ddb-bcde-e836e092d0db" name="Changes" comment="drawCard bruger amount">
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +42,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Fred-1-branch-3",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -83,7 +85,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702305572677</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Minion, Spell og Weapon effekter constructors fjernet, da der er fejl plus det ikke skal bruges endnu">
+      <option name="closed" value="true" />
+      <created>1702306596072</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702306596072</updated>
+    </task>
+    <task id="LOCAL-00005" summary="drawCard bruger amount">
+      <option name="closed" value="true" />
+      <created>1702320534469</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702320534469</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,6 +111,8 @@
     <MESSAGE value="i am inside your walls" />
     <MESSAGE value="FileIO" />
     <MESSAGE value="drawCard fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="drawCard fix" />
+    <MESSAGE value="Minion, Spell og Weapon effekter constructors fjernet, da der er fejl plus det ikke skal bruges endnu" />
+    <MESSAGE value="drawCard bruger amount" />
+    <option name="LAST_COMMIT_MESSAGE" value="drawCard bruger amount" />
   </component>
 </project>

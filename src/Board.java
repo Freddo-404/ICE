@@ -17,6 +17,7 @@ public class Board {
     public String playCard() {
         return null;
     }
+    /*
     public void startHand(){
         drawCard(3);
         if(player == previousPlayer) {
@@ -26,6 +27,7 @@ public class Board {
             hand.getHand();
         }
     }
+     */
 
     public void drawCard(int amount) {
         for (int i=0; i<amount; i++) {
