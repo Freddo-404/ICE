@@ -32,4 +32,9 @@ public class Hero {
     public void setHeroCurrentHealth(int heroCurrentHealth) {
         this.heroCurrentHealth = heroCurrentHealth;
     }
+    public WeaponSlot getWeaponSlot(){
+
+        return weaponSlot;
+    }
+
 }

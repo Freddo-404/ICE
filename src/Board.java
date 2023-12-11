@@ -46,9 +46,21 @@ return null;
     }
 
     public String minionFace(Minion minion, Hero hero){
-        return null;
+        hero.setHeroCurrentHealth(hero.getHeroCurrentHealth()-minion.getMinionAttack());
+        String health = String.valueOf(hero.getHeroCurrentHealth());
+        return health;
     }
-}
+    public String heroFace(Hero h1, Hero h2){
+        h2.setHeroCurrentHealth(hero.getHeroCurrentHealth()-h1.getWeaponSlot().getWeaponSlotAttack());
+        String health = String.valueOf(h2.getHeroCurrentHealth());
+        return health;
+    }
+    public String heroAttackMinion(Hero hero, Minion minion){
+        minion.setMinionCurrentHealth(minion.getMinionCurrentHealth()-hero.getWeaponSlot().getWeaponSlotAttack());
+        hero.setHeroCurrentHealth(hero.getHeroCurrentHealth()-minion.getMinionAttack());
+        String health = String.valueOf(hero.getHeroCurrentHealth()+ "," +minion.getMinionCurrentHealth());
+        return health;
+    }
 /*
 _____________________________HERO HEALTH: 30______deck: 20________
 |                                                  mana:4        |
