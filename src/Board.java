@@ -19,10 +19,12 @@ public class Board {
     }
 
     public void drawCard(int amount) {
-        if (turn == true && hand.size() <= hand.checkHand()) {
-            while (!deck.getCardsInDeck().isEmpty()) {
-                deck.getCardsInDeck().poll();
-                hand.getHand().add(deck.getCardsInDeck().get(0));
+        if (hand.getCardsInHand().size() <= hand.getMaxHandSize()) {
+            if (!deck.getCardsInDeck().isEmpty()) {
+                hand.getCardsInHand().add(deck.getCardsInDeck().poll());
+            }
+            else{
+                drawFatigue();
             }
         } else {
             deck.getCardsInDeck().remove();

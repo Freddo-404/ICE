@@ -5,12 +5,11 @@ public class Hand {
   private LinkedList<Card>cardsInHand = new LinkedList<>();
 
 
+    public LinkedList<Card> getCardsInHand() {
+        return cardsInHand;
+    }
 
-   public LinkedList<Card> getHand(){return null;}
-
-
-    public int checkHand(){
-      return maxHandSize;
-      }
-
+  public int getMaxHandSize() {
+    return maxHandSize;
+  }
 }
