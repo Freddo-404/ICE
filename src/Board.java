@@ -77,6 +77,10 @@ public class Board {
         String health = String.valueOf(hero.getHeroCurrentHealth() + "," + minion.getMinionCurrentHealth());
         return health;
     }
+
+    public Deck getDeck() {
+        return deck;
+    }
 }
 /*
 _____________________________HERO HEALTH: 30______deck: 20________
