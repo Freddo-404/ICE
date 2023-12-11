@@ -14,53 +14,56 @@ public class Board {
         this.deck = deck;
     }
 
-    public String playCard(){
-       return null;
+    public String playCard() {
+        return null;
     }
 
     public void drawCard(int amount) {
-        if (turn == true && hand.size()<=hand.checkHand()) {
+        if (turn == true && hand.size() <= hand.checkHand()) {
             while (!deck.getCardsInDeck().isEmpty()) {
                 deck.getCardsInDeck().poll();
                 hand.getHand().add(deck.getCardsInDeck().get(0));
             }
-        } else{
+        } else {
             deck.getCardsInDeck().remove();
         }
     }
 
-    public String drawFatigue(){
-return null;
+    public String drawFatigue() {
+        return null;
     }
 
-    public String minionClash(Minion m1, Minion m2){
+    public String minionClash(Minion m1, Minion m2) {
 
-        m2.setMinionCurrentHealth(m2.getMinionCurrentHealth()-m1.getMinionAttack());
-        m1.setMinionCurrentHealth(m1.getMinionCurrentHealth()-m2.getMinionAttack());
+        m2.setMinionCurrentHealth(m2.getMinionCurrentHealth() - m1.getMinionAttack());
+        m1.setMinionCurrentHealth(m1.getMinionCurrentHealth() - m2.getMinionAttack());
         String health = m1.getMinionCurrentHealth() + "," + m2.getMinionCurrentHealth();
 
-        m1.minionDeath(m1,cardsOnBoard);
+        m1.minionDeath(m1, cardsOnBoard);
 
-        m2.minionDeath(m2,cardsOnBoard);
+        m2.minionDeath(m2, cardsOnBoard);
         return health;
     }
 
-    public String minionFace(Minion minion, Hero hero){
-        hero.setHeroCurrentHealth(hero.getHeroCurrentHealth()-minion.getMinionAttack());
+    public String minionFace(Minion minion, Hero hero) {
+        hero.setHeroCurrentHealth(hero.getHeroCurrentHealth() - minion.getMinionAttack());
         String health = String.valueOf(hero.getHeroCurrentHealth());
         return health;
     }
-    public String heroFace(Hero h1, Hero h2){
-        h2.setHeroCurrentHealth(hero.getHeroCurrentHealth()-h1.getWeaponSlot().getWeaponSlotAttack());
+
+    public String heroFace(Hero h1, Hero h2) {
+        h2.setHeroCurrentHealth(hero.getHeroCurrentHealth() - h1.getWeaponSlot().getWeaponSlotAttack());
         String health = String.valueOf(h2.getHeroCurrentHealth());
         return health;
     }
-    public String heroAttackMinion(Hero hero, Minion minion){
-        minion.setMinionCurrentHealth(minion.getMinionCurrentHealth()-hero.getWeaponSlot().getWeaponSlotAttack());
-        hero.setHeroCurrentHealth(hero.getHeroCurrentHealth()-minion.getMinionAttack());
-        String health = String.valueOf(hero.getHeroCurrentHealth()+ "," +minion.getMinionCurrentHealth());
+
+    public String heroAttackMinion(Hero hero, Minion minion) {
+        minion.setMinionCurrentHealth(minion.getMinionCurrentHealth() - hero.getWeaponSlot().getWeaponSlotAttack());
+        hero.setHeroCurrentHealth(hero.getHeroCurrentHealth() - minion.getMinionAttack());
+        String health = String.valueOf(hero.getHeroCurrentHealth() + "," + minion.getMinionCurrentHealth());
         return health;
     }
+}
 /*
 _____________________________HERO HEALTH: 30______deck: 20________
 |                                                  mana:4        |
