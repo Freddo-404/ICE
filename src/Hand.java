@@ -6,7 +6,5 @@ public class Hand {
 
 
 
-   public LinkedList<Card> getHand(){
-        return null;
-    }
+   public LinkedList<Card> getHand(){return null;}
 }

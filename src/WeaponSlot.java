@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public class WeaponSlot {
     private int weaponSlotAttack;
     private int currentDurability;
@@ -15,8 +17,28 @@ public class WeaponSlot {
 
         return "Weapon equipped";
     }
-   public String useWeapon(){
-        return null;
+   public void useWeaponMinion(Minion m, LinkedList<Card> minionsOnOpponentsBoard){
+
+        m.setMinionCurrentHealth(m.getMinionCurrentHealth()-weaponSlotAttack);
+        m.minionDeath(m, minionsOnOpponentsBoard);
+        currentDurability = currentDurability - 1;
+        boolean ifDestroyed = destroyWeapon();
+
+        //boolean er til at printe hvis våbnet blev ødelagt. burde skrive
+        // noget info til brugeren måske om enemy minion og ens våben, evt hero health
+    }
+
+    public void useWeaponFace(Hero enemyHero){
+
+        enemyHero.loseHealth(weaponSlotAttack);
+        currentDurability = currentDurability - 1;
+        boolean ifDestroyed = destroyWeapon();
+    }
+    public boolean destroyWeapon(){
+
+        if(currentDurability <= 0){
+            weaponSlotAttack = 0;
+        } return true;
     }
 
     public void setWeaponSlotAttack(int weaponSlotAttack) {
