@@ -35,9 +35,9 @@ public class Game {
         ui.displayMessage("Please enter a name for Player 2.");
         player2 = new Player(ui.getInput());
         ui.displayMessage("Please choose a class for " + player1.getPlayerName() + "by entering a number between 1 and 5.");
-        player1.chooseHero();
+        player1.chooseHero(ui);
         ui.displayMessage("Please choose a class for " + player2.getPlayerName() + "by entering a number between 1 and 5.");
-        player2.chooseHero();
+        player2.chooseHero(ui);
 
         initializeGame();
     }
@@ -62,6 +62,33 @@ public class Game {
         previousPlayer.getBoard().startHandPlayerPreviousPlayer();
         gameLoop();
 
+    }
+
+    public void playerChoiceMenu(){
+        ui.displayMessage("What would you like to do?");
+        ui.displayMessage("1. Play card \n" + "2. Attack with minion \n" + "3. Attack with hero \n" + "4. Use Hero power \n" + "5. End turn");
+        switch(ui.getInput()){
+
+            case "1":
+                currentPlayer.getBoard().playCard();
+                break;
+            case "2":
+                //currentPlayer.getBoard().pickMinion();
+                break;
+            case "3":
+                //pickTarget(); and attack
+                break;
+            case "4":
+                currentPlayer.getBoard().getHero().getHeroPower().useHeroPower(currentPlayer.getBoard().getHero(), currentPlayer.getBoard());
+                break;
+            case "5":
+                //endTurn();
+                break;
+            default:
+                ui.displayMessage("Your input was not valid, please try again.");
+                playerChoiceMenu();
+                break;
+        }
     }
 
     public void winCondition(){

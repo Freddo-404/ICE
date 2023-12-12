@@ -3,21 +3,14 @@ public class Player {
     private String playerName;
     private Board board;
     private int mana;
-    private TextUI ui;
     private FileIO io = new FileIO();
 
     public Player(String playerName){
         this.playerName=playerName;
     }
-    public void playerChoiceMenu(){
-        ui.displayMessage("What would you like to do?");
-        switch(ui.getInput()){
-            case "0":
-                break;
-        }
-    }
 
-    public void chooseHero(){
+
+    public void chooseHero(TextUI ui){
         ui.displayMessage("1. Rogue \n" + "2. Mage \n" + "3. Warlock \n" + "4. Paladin \n" + "5. Hunter");
         switch(ui.getInput()){
             case "1":
@@ -37,7 +30,7 @@ public class Player {
                 break;
             default:
                 ui.displayMessage("Your input was not valid, please try again.");
-                chooseHero();
+                chooseHero(ui);
                 break;
         }
     }

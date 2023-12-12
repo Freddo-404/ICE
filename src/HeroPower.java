@@ -15,7 +15,7 @@ public class HeroPower {
                 return paladinHeroPower();
                 break;
             case "rogue":
-                return rogueHeroPower();
+                return rogueHeroPower(hero);
                 break;
             default:
                 return "No matching hero class";
