@@ -26,7 +26,7 @@ public class Game {
     }
 
     public void gameLoop(){
-    ui.displayBoard(currentPlayer.getBoard(),previousPlayer.getBoard());
+    //ui.displayBoard(currentPlayer.getBoard(),previousPlayer.getBoard());
     }
 
     public void startUp(){
@@ -70,7 +70,7 @@ public class Game {
         switch(ui.getInput()){
 
             case "1":
-                currentPlayer.getBoard().playCard();
+                //currentPlayer.getBoard().playCard();
                 break;
             case "2":
                 //currentPlayer.getBoard().pickMinion();

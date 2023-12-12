@@ -15,7 +15,7 @@ public abstract class Card {
     }
 
 
-    public float getCardCost() {
+    public int getCardCost() {
         return cardCost;
     }
 }

@@ -2,7 +2,6 @@ public class Player {
 
     private String playerName;
     private Board board;
-    private int mana;
     private FileIO io = new FileIO();
 
     public Player(String playerName){
