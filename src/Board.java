@@ -106,6 +106,10 @@ public class Board {
     public Hero getHero() {
         return hero;
     }
+
+    public LinkedList<Card> getCardsOnBoard() {
+        return cardsOnBoard;
+    }
 }
 /*
 _____________________________HERO HEALTH: 30______deck: 20________

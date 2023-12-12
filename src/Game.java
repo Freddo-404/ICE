@@ -4,7 +4,7 @@ import java.util.Random;
 public class Game {
 
     private int turnCount;
-    private TextUI ui;
+    private TextUI ui = new TextUI();
     private Player player1;
     private Player player2;
     private Player currentPlayer;
@@ -26,7 +26,7 @@ public class Game {
     }
 
     public void gameLoop(){
-    //ui.displayBoard(currentPlayer.getBoard(),previousPlayer.getBoard());
+    ui.displayBoard(currentPlayer.getBoard(),previousPlayer.getBoard());
     }
 
     public void startUp(){
