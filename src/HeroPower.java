@@ -1,14 +1,14 @@
 import java.util.LinkedList;
 
 public class HeroPower {
-    public void useHeroPower(Hero hero, Board board) {
+    public void useHeroPower(Hero hero, Board board, TextUI ui, LinkedList<Minion> minionsOnBoard) {
 
         switch (hero.getHeroClass()) {
             case "mage":
-                mageHeroPower();
+                mageHeroPower(board, ui, minionsOnBoard);
             break;
             case "hunter":
-                hunterHeroPower();
+                hunterHeroPower(hero);
                 break;
             case "warlock":
                 warlockHeroPower(hero, board);
