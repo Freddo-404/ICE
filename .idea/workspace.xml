@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca9c4669-d6a2-4ddb-bcde-e836e092d0db" name="Changes" comment="player chooseHero" />
+    <list default="true" id="ca9c4669-d6a2-4ddb-bcde-e836e092d0db" name="Changes" comment="i am inside your walls">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="JonasNewWork" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,7 +42,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "fred-1-branch-3",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -67,47 +69,7 @@
       <option name="project" value="LOCAL" />
       <updated>1702032297778</updated>
     </task>
-    <task id="LOCAL-00002" summary="drawCard fix">
-      <option name="closed" value="true" />
-      <created>1702305563371</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1702305563371</updated>
-    </task>
-    <task id="LOCAL-00003" summary="drawCard fix">
-      <option name="closed" value="true" />
-      <created>1702305572677</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1702305572677</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Minion, Spell og Weapon effekter constructors fjernet, da der er fejl plus det ikke skal bruges endnu">
-      <option name="closed" value="true" />
-      <created>1702306596072</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1702306596072</updated>
-    </task>
-    <task id="LOCAL-00005" summary="drawCard bruger amount">
-      <option name="closed" value="true" />
-      <created>1702320534469</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1702320534469</updated>
-    </task>
-    <task id="LOCAL-00006" summary="player chooseHero">
-      <option name="closed" value="true" />
-      <created>1702334221647</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1702334221647</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,11 +77,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="i am inside your walls" />
-    <MESSAGE value="FileIO" />
-    <MESSAGE value="drawCard fix" />
-    <MESSAGE value="Minion, Spell og Weapon effekter constructors fjernet, da der er fejl plus det ikke skal bruges endnu" />
-    <MESSAGE value="drawCard bruger amount" />
-    <MESSAGE value="player chooseHero" />
-    <option name="LAST_COMMIT_MESSAGE" value="player chooseHero" />
+    <option name="LAST_COMMIT_MESSAGE" value="i am inside your walls" />
   </component>
 </project>
