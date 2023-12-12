@@ -48,10 +48,10 @@ public class Game {
         Random ran = new Random();
         int ranNum = ran.nextInt(2);
 
-        if (ranNum==1){
+        if (ranNum==0){
             currentPlayer = player1;
             previousPlayer = player2;
-        } else if (ranNum==2) {
+        } else if (ranNum==1) {
             currentPlayer = player2;
             previousPlayer = player1;
         }
