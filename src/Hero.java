@@ -1,7 +1,7 @@
 public class Hero {
     private String heroName;
     private String heroClass;
-    private int heroCurrentHealth;
+    private int heroCurrentHealth = 30;
     private int heroMaxHealth = 30;
     private WeaponSlot weaponSlot = new WeaponSlot(0,0);
 
