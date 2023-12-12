@@ -34,9 +34,9 @@ public class Game {
         player1 = new Player(ui.getInput());
         ui.displayMessage("Please enter a name for Player 2.");
         player2 = new Player(ui.getInput());
-        ui.displayMessage("Please choose a class for " + player1.getPlayerName() + "by entering a number between 1 and 5.");
+        ui.displayMessage("Please choose a class for " + player1.getPlayerName() + " by entering a number between 1 and 5.");
         player1.chooseHero(ui);
-        ui.displayMessage("Please choose a class for " + player2.getPlayerName() + "by entering a number between 1 and 5.");
+        ui.displayMessage("Please choose a class for " + player2.getPlayerName() + " by entering a number between 1 and 5.");
         player2.chooseHero(ui);
 
         initializeGame();
