@@ -11,12 +11,14 @@ public class Minion extends Card {
         super(cardName, cardCost);
     }
 
-    public void minionDeath(Minion minion, LinkedList<Card> cards){
+    public void minionDeath(Minion minion, LinkedList<Card> cardsOnBoard){
         if (minionCurrentHealth <= 0){
-            cards.remove(minion);
+            cardsOnBoard.remove(minion);
         }
     }
-
+    public void loseHealth(int dmgTaken){
+        setMinionCurrentHealth(getMinionCurrentHealth()-dmgTaken);
+    }
 
     public int getMinionMaxHealth() {
         return minionMaxHealth;
