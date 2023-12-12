@@ -5,6 +5,7 @@ public class Board {
     private int maxMana = 1;
     private int maxBoardSize = 7;
     private LinkedList<Card> cardsOnBoard = new LinkedList<>();
+
     private Hand hand = new Hand();
     private Deck deck;
     private Hero hero;
@@ -41,14 +42,22 @@ public class Board {
     }
 
     public String drawFatigue() {
-        return null;
+        if(deck.getCardsInDeck().isEmpty()){
+            int currentFatigue = deck.getFatigueCount();
+            deck.setFatigueCount(currentFatigue+1);
+            hero.setHeroCurrentHealth(hero.getHeroCurrentHealth()-currentFatigue);
+
+
+        }
+        String health = String.valueOf(hero.getHeroCurrentHealth());
+        return health;
     }
 
     public String minionClash(Minion m1, Minion m2) {
 
         m2.setMinionCurrentHealth(m2.getMinionCurrentHealth() - m1.getMinionAttack());
         m1.setMinionCurrentHealth(m1.getMinionCurrentHealth() - m2.getMinionAttack());
-        String health = m1.getMinionCurrentHealth() + "," + m2.getMinionCurrentHealth();
+        String health =    String.valueOf(m1.getMinionCurrentHealth() + "," + m2.getMinionCurrentHealth());
 
         m1.minionDeath(m1, cardsOnBoard);
 
@@ -64,12 +73,17 @@ public class Board {
 
     public String heroFace(Hero h1, Hero h2) {
         h2.setHeroCurrentHealth(hero.getHeroCurrentHealth() - h1.getWeaponSlot().getWeaponSlotAttack());
+        hero.getWeaponSlot().setCurrentDurability(hero.getWeaponSlot().getCurrentDurability()-1);
+        hero.getWeaponSlot().destroyWeapon();
         String health = String.valueOf(h2.getHeroCurrentHealth());
         return health;
     }
 
     public String heroAttackMinion(Hero hero, Minion minion) {
         minion.setMinionCurrentHealth(minion.getMinionCurrentHealth() - hero.getWeaponSlot().getWeaponSlotAttack());
+        hero.getWeaponSlot().setCurrentDurability(hero.getWeaponSlot().getCurrentDurability()-1);
+        hero.getWeaponSlot().destroyWeapon();
+        minion.minionDeath(minion,cardsOnBoard);
         hero.setHeroCurrentHealth(hero.getHeroCurrentHealth() - minion.getMinionAttack());
         String health = String.valueOf(hero.getHeroCurrentHealth() + "," + minion.getMinionCurrentHealth());
         return health;
