@@ -18,17 +18,16 @@ public class Board {
     public String playCard() {
         return null;
     }
-    /*
-    public void startHand(){
+
+    public void startHandCurrentPlayer(){
         drawCard(3);
-        if(player == previousPlayer) {
-            Card coin = new Spell("The coin",0);
-            hand.getHand().add(coin);
-        } else{
-            hand.getHand();
-        }
     }
-     */
+    public void startHandPlayerPreviousPlayer(){
+        drawCard(4);
+        Spell coin = new Spell("The coin",0);
+        hand.getCardsInHand().add(coin);
+    }
+
 
     public void drawCard(int amount) {
         for (int i=0; i<amount; i++) {

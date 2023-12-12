@@ -1,4 +1,5 @@
 import java.util.Collections;
+import java.util.Random;
 
 public class Game {
 
@@ -6,6 +7,8 @@ public class Game {
     private TextUI ui;
     private Player player1;
     private Player player2;
+    private Player currentPlayer;
+    private Player previousPlayer;
 
     public void mainMenu(){
         ui.displayMessage("Hello and welcome to ScuffedStone! \n"+"\n"+"Please select a choice"+"\n"+
@@ -23,7 +26,7 @@ public class Game {
     }
 
     public void gameLoop(){
-
+    ui.displayBoard(currentPlayer.getBoard(),previousPlayer.getBoard());
     }
 
     public void startUp(){
@@ -42,6 +45,22 @@ public class Game {
     public void initializeGame(){
         Collections.shuffle(player1.getBoard().getDeck().getCardsInDeck());
         Collections.shuffle(player2.getBoard().getDeck().getCardsInDeck());
+        Random ran = new Random();
+        int ranNum = ran.nextInt(2);
+
+        if (ranNum==1){
+            currentPlayer = player1;
+            previousPlayer = player2;
+        } else if (ranNum==2) {
+            currentPlayer = player2;
+            previousPlayer = player1;
+        }
+        else{
+            ui.displayMessage("Something went wrong with ranNum");
+        }
+        currentPlayer.getBoard().startHandCurrentPlayer();
+        previousPlayer.getBoard().startHandPlayerPreviousPlayer();
+        gameLoop();
 
     }
 
