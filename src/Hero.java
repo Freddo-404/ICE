@@ -26,6 +26,10 @@ public class Hero {
         return heroClass;
     }
 
+    public HeroPower getHeroPower() {
+        return heroPower;
+    }
+
     public int getHeroCurrentHealth() {
         return heroCurrentHealth;
     }
