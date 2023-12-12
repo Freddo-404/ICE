@@ -143,11 +143,6 @@ public class Board {
         return pickedMinion;
     }
 
-
-
-    public Hero getHero(){
-        return this.hero;
-    }
 }
 /*
 _____________________________HERO HEALTH: 30______deck: 20________
