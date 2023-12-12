@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ca9c4669-d6a2-4ddb-bcde-e836e092d0db" name="Changes" comment="playCard">
     <list default="true" id="ca9c4669-d6a2-4ddb-bcde-e836e092d0db" name="Changes" comment="hunter heropower, changes in board and weaponslot">
+    <list default="true" id="ca9c4669-d6a2-4ddb-bcde-e836e092d0db" name="Changes" comment="i am inside your walls">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
@@ -44,6 +45,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultPlantUmlFileTemplate": "UML Class",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "JonasWinCond",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultPlantUmlFileTemplate": "UML Class",
@@ -97,6 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702375921695</updated>
     </task>
+    <task id="LOCAL-00003" summary="i am inside your walls">
+      <option name="closed" value="true" />
+      <created>1702381987479</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1702381987479</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <task id="LOCAL-00003" summary="hunter heropower, changes in board and weaponslot">
       <option name="closed" value="true" />
       <created>1702382020105</created>
@@ -145,6 +167,7 @@
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="board rettelse" />
     <MESSAGE value="i am inside your walls" />
     <MESSAGE value="board rettelse" />
     <MESSAGE value="initializeGame" />
@@ -155,5 +178,6 @@
     <MESSAGE value="merging time" />
     <MESSAGE value="hunter heropower, changes in board and weaponslot" />
     <option name="LAST_COMMIT_MESSAGE" value="hunter heropower, changes in board and weaponslot" />
+    <option name="LAST_COMMIT_MESSAGE" value="i am inside your walls" />
   </component>
 </project>

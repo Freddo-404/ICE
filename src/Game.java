@@ -10,6 +10,8 @@ public class Game {
     private Player currentPlayer;
     private Player previousPlayer;
 
+
+
     public void mainMenu(){
         ui.displayMessage("Hello and welcome to ScuffedStone! \n"+"\n"+"Please select a choice"+"\n"+
                 "1. Play \n" + "2. Quit");
@@ -92,6 +94,11 @@ public class Game {
     }
 
     public void winCondition(){
+       if(currentPlayer.getBoard().getHero().heroDeath()){
+           ui.displayMessage(currentPlayer.getPlayerName()+ "Wins!!! You will be sent back to the main menu");
+           mainMenu();
+       }
+
 
     }
 

@@ -17,6 +17,7 @@ public class Hero {
         setHeroCurrentHealth(getHeroCurrentHealth()-dmgTaken);
     }
 
+
     public void equipWeapon(Weapon weapon){
         weaponSlot.equipWeapon(weapon);
     }
@@ -36,7 +37,14 @@ public class Hero {
     public void setHeroCurrentHealth(int heroCurrentHealth) {
         this.heroCurrentHealth = heroCurrentHealth;
     }
+    public boolean heroDeath(){
+        if(heroCurrentHealth<=0){
+
+        }return true;
+
+    }
     public WeaponSlot getWeaponSlot(){
+
 
         return weaponSlot;
     }

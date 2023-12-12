@@ -144,6 +144,10 @@ public class Board {
     }
 
 
+
+    public Hero getHero(){
+        return this.hero;
+    }
 }
 /*
 _____________________________HERO HEALTH: 30______deck: 20________
