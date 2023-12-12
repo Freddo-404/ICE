@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public class HeroPower {
     public String useHeroPower(Hero hero, Board board) {
 
@@ -23,8 +25,13 @@ public class HeroPower {
         }
     }
 
-    public String mageHeroPower(){
-        return null;
+    public String mageHeroPower(Board board, TextUI ui, LinkedList<Minion> minionsOnBoard){
+
+        Minion targetMinion = board.targetMinion(ui);
+        targetMinion.loseHealth(1);
+        targetMinion.minionDeath(targetMinion, minionsOnBoard);
+        return "You use Fireblast on " + targetMinion.getCardName() + ". It loses 1 hp.";
+
     }
     public String hunterHeroPower(Hero enemyHero){
 
