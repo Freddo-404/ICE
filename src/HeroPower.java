@@ -26,8 +26,10 @@ public class HeroPower {
     public String mageHeroPower(){
         return null;
     }
-    public String hunterHeroPower(){
-        return null;
+    public String hunterHeroPower(Hero enemyHero){
+
+        enemyHero.loseHealth(2);
+        return "You use Steady Shot. Enemy hero loses 2 hp.";
     }
    public String warlockHeroPower(Hero hero, Board board){
         board.drawCard(1);

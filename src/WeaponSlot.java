@@ -20,7 +20,7 @@ public class WeaponSlot {
 
         m.setMinionCurrentHealth(m.getMinionCurrentHealth()-weaponSlotAttack);
         m.minionDeath(m, minionsOnOpponentsBoard);
-        currentDurability = currentDurability - 1;
+        loseDurability();
         boolean ifDestroyed = destroyWeapon();
 
         //boolean er til at printe hvis våbnet blev ødelagt. burde skrive
@@ -30,7 +30,7 @@ public class WeaponSlot {
     public void useWeaponFace(Hero enemyHero){
 
         enemyHero.loseHealth(weaponSlotAttack);
-        currentDurability = currentDurability - 1;
+        loseDurability();
         boolean ifDestroyed = destroyWeapon();
     }
     public boolean destroyWeapon(){
@@ -38,6 +38,11 @@ public class WeaponSlot {
         if(currentDurability <= 0){
             weaponSlotAttack = 0;
         } return true;
+    }
+
+    public void loseDurability(){
+
+        currentDurability = currentDurability - 1;
     }
 
     public void setWeaponSlotAttack(int weaponSlotAttack) {

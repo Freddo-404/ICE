@@ -71,14 +71,14 @@ public class Board {
     public void heroFace(Hero h1, Hero h2) {
         h2.loseHealth(h1.getWeaponSlot().getWeaponSlotAttack());
 
-        hero.getWeaponSlot().setCurrentDurability(hero.getWeaponSlot().getCurrentDurability()-1);
+        hero.getWeaponSlot().loseDurability();
         hero.getWeaponSlot().destroyWeapon();
 
     }
 
     public void heroAttackMinion(Hero hero, Minion minion) {
         minion.loseHealth(hero.getWeaponSlot().getWeaponSlotAttack());
-        hero.getWeaponSlot().setCurrentDurability(hero.getWeaponSlot().getCurrentDurability()-1);
+        hero.getWeaponSlot().loseDurability();
         hero.getWeaponSlot().destroyWeapon();
         minion.minionDeath(minion,cardsOnBoard);
         hero.loseHealth(minion.getMinionAttack());
