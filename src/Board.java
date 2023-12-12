@@ -3,6 +3,7 @@ import java.util.LinkedList;
 public class Board {
 
     private int maxMana = 1;
+    private int currentMana;
     private int maxBoardSize = 7;
     private LinkedList<Minion> cardsOnBoard = new LinkedList<>();
 
@@ -15,9 +16,22 @@ public class Board {
         this.deck = deck;
     }
 
-    public String playCard() {
-        return null;
+    public void playCard(Minion minion) {
+        if(currentMana>=minion.getCardCost()) {
+            currentMana = currentMana - minion.getCardCost();
+
+        }
+        else{
+           // "Card cost is too high"
+        }
     }
+    public void playCard(Spell spell) {
+        currentMana = currentMana - spell.getCardCost();
+    }
+    public void playCard(Weapon weapon) {
+        currentMana = currentMana - weapon.getCardCost();
+    }
+
 
     public void startHandCurrentPlayer(){
         drawCard(3);
@@ -87,6 +101,14 @@ public class Board {
 
     public Deck getDeck() {
         return deck;
+    }
+
+    public Hero getHero() {
+        return hero;
+    }
+
+    public LinkedList<Card> getCardsOnBoard() {
+        return cardsOnBoard;
     }
 
     /*public Card targetMinion(TextUI ui){

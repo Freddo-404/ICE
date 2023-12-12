@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="ca9c4669-d6a2-4ddb-bcde-e836e092d0db" name="Changes" comment="playCard">
     <list default="true" id="ca9c4669-d6a2-4ddb-bcde-e836e092d0db" name="Changes" comment="hunter heropower, changes in board and weaponslot">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TextUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HeroPower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HeroPower.java" afterDir="false" />
@@ -26,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Fred-1-branch-4" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,6 +44,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultPlantUmlFileTemplate": "UML Class",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Fred-1-branch-5",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultPlantUmlFileTemplate": "UML Class",
@@ -90,6 +106,39 @@
       <updated>1702382020105</updated>
     </task>
     <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00003" summary="initializeGame">
+      <option name="closed" value="true" />
+      <created>1702377235186</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1702377235186</updated>
+    </task>
+    <task id="LOCAL-00004" summary="playerChoiceMenu">
+      <option name="closed" value="true" />
+      <created>1702381626378</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702381626378</updated>
+    </task>
+    <task id="LOCAL-00005" summary="små rettelser">
+      <option name="closed" value="true" />
+      <created>1702384390064</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702384390064</updated>
+    </task>
+    <task id="LOCAL-00006" summary="playCard">
+      <option name="closed" value="true" />
+      <created>1702386742299</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1702386742299</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,6 +147,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="i am inside your walls" />
     <MESSAGE value="board rettelse" />
+    <MESSAGE value="initializeGame" />
+    <MESSAGE value="playerChoiceMenu" />
+    <MESSAGE value="små rettelser" />
+    <MESSAGE value="playCard" />
+    <option name="LAST_COMMIT_MESSAGE" value="playCard" />
     <MESSAGE value="merging time" />
     <MESSAGE value="hunter heropower, changes in board and weaponslot" />
     <option name="LAST_COMMIT_MESSAGE" value="hunter heropower, changes in board and weaponslot" />
