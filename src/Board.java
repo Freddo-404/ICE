@@ -88,6 +88,10 @@ public class Board {
     public Deck getDeck() {
         return deck;
     }
+
+    public Hero getHero(){
+        return this.hero;
+    }
 }
 /*
 _____________________________HERO HEALTH: 30______deck: 20________
