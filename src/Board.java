@@ -146,6 +146,8 @@ public int getCurrentMana(){
         return pickedMinion;
     }
 
+
+
 }
 /*
 _____________________________HERO HEALTH: 30______deck: 20________

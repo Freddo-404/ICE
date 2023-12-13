@@ -53,8 +53,34 @@ public class TextUI {
             return "DisplayMinion Error";
         }
 
-
     }
+
+    public void checkCardtype(Card card){
+        if(card instanceof Spell){
+            return ;
+        }
+    }
+    public void displayHand(Player player, Hand hand) {
+        displayMessage(player.getPlayerName() + "'s hand:");
+        hand.getCardsInHand();
+        int count = -1;
+        for (Card c : hand.getCardsInHand()) {
+            count++;
+            if (c instanceof Spell) {
+                Spell spell = (Spell) c;
+                displayMessage(count + 1 + ". " + "Spell: "+spell.getCardName() + " Mana: "+spell.getCardCost());
+            } else if (c instanceof Weapon) {
+                Weapon weapon = (Weapon) c;
+                displayMessage(count + 1 + ". " + "Weapon: "+weapon.getCardName()+ " Mana: "+weapon.getCardCost()+ " Attack: "+weapon.getWeaponAttack()+" Durability: "+weapon.getWeaponDurability());
+            } else if (c instanceof Minion) {
+
+                    Minion minion = (Minion) c;
+                    displayMessage(count + 1 + ". " +"Minion: "+ minion.getCardName() + " Mana: "+minion.getCardCost() + " Attack: "+minion.getMinionAttack() + " Health: "+minion.getMinionMaxHealth());
+                }else{
+                System.out.println("Program not working uwu");
+                }
+            }
+        }
 
 
     public String displayMinionsOnBoard(LinkedList<Minion> cardsOnBoard){

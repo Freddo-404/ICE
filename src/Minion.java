@@ -9,6 +9,8 @@ public class Minion extends Card {
 
     public Minion(String cardName, int cardCost, int minionAttack, int minionMaxHealth) {
         super(cardName, cardCost);
+        this.minionAttack = minionAttack;
+        this.minionMaxHealth= minionMaxHealth;
     }
 
     public void minionDeath(Minion minion, LinkedList<Minion> cardsOnBoard){
