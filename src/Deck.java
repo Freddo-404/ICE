@@ -2,7 +2,7 @@ import java.util.LinkedList;
 
 public class Deck {
 
-   private int fatigueCount;
+   private int fatigueCount = 0;
 
    private LinkedList<Card> cardsInDeck = new LinkedList<>();
 

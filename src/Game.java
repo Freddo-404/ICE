@@ -3,12 +3,13 @@ import java.util.Random;
 
 public class Game {
 
-    private int turnCount;
     private TextUI ui = new TextUI();
     private Player player1;
     private Player player2;
     private Player currentPlayer;
     private Player enemyPlayer;
+    private Player tempPlayer;
+    private Boolean gameOver;
 
 
 
@@ -28,7 +29,13 @@ public class Game {
     }
 
     public void gameLoop(){
-    ui.displayGame(currentPlayer, enemyPlayer);
+
+        while(!gameOver) {
+            ui.displayGame(currentPlayer, enemyPlayer);
+            playerChoiceMenu();
+            winCondition();
+        }
+        mainMenu();
     }
 
     public void startUp(){
@@ -62,29 +69,37 @@ public class Game {
         }
         currentPlayer.getBoard().startHandCurrentPlayer();
         enemyPlayer.getBoard().startHandEnemyPlayer();
+        gameOver=false;
+
+        //Giver Mana til den spiller der starter
+        currentPlayer.getBoard().setMaxMana(currentPlayer.getBoard().getMaxMana()+1);
+        currentPlayer.getBoard().setCurrentMana(currentPlayer.getBoard().getMaxMana());
+
+        currentPlayer.getBoard().drawCard(1);
+
         gameLoop();
 
     }
 
     public void playerChoiceMenu(){
-        ui.displayMessage("What would you like to do?");
+        ui.displayMessage("\n What would you like to do?");
         ui.displayMessage("1. Play card \n" + "2. Attack with minion \n" + "3. Attack with hero \n" + "4. Use Hero power \n" + "5. End turn");
         switch(ui.getInput()){
 
             case "1":
-                //currentPlayer.getBoard().playCard();
+                playerChoiceMenu();
                 break;
             case "2":
-                //currentPlayer.getBoard().pickMinion();
+                playerChoiceMenu();
                 break;
             case "3":
-                //pickTarget(); and attack
+                playerChoiceMenu();
                 break;
             case "4":
-                currentPlayer.getBoard().getHero().getHeroPower().useHeroPower(currentPlayer.getBoard().getHero(), currentPlayer.getBoard(),ui,enemyPlayer.getBoard().getMinionsOnBoard());
+                playerChoiceMenu();
                 break;
             case "5":
-                //endTurn();
+                endTurn();
                 break;
             default:
                 ui.displayMessage("Your input was not valid, please try again.");
@@ -93,12 +108,27 @@ public class Game {
         }
     }
 
-    public void winCondition(){
-       if(currentPlayer.getBoard().getHero().heroDeath()){
-           ui.displayMessage(currentPlayer.getPlayerName()+ "Wins!!! You will be sent back to the main menu");
-           mainMenu();
-       }
+    public void endTurn(){
+        tempPlayer = currentPlayer;
+        currentPlayer = enemyPlayer;
+        enemyPlayer = tempPlayer;
 
+        //Giver Mana
+        if(currentPlayer.getBoard().getMaxMana()<10) {
+            currentPlayer.getBoard().setMaxMana(currentPlayer.getBoard().getMaxMana() + 1);
+        }
+        currentPlayer.getBoard().setCurrentMana(currentPlayer.getBoard().getMaxMana());
+
+
+        currentPlayer.getBoard().drawCard(1);
+
+
+    }
+    public void winCondition(){
+       if(currentPlayer.getBoard().getHero().heroDeath() || enemyPlayer.getBoard().getHero().heroDeath()){
+           ui.displayMessage(currentPlayer.getPlayerName()+ " Wins!!! You will be sent back to the main menu");
+           gameOver=true;
+       }
 
     }
 

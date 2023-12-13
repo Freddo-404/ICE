@@ -38,10 +38,12 @@ public class Hero {
         this.heroCurrentHealth = heroCurrentHealth;
     }
     public boolean heroDeath(){
-        if(heroCurrentHealth<=0){
-
-        }return true;
-
+        if(heroCurrentHealth<=0) {
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     public WeaponSlot getWeaponSlot(){
 

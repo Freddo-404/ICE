@@ -2,8 +2,8 @@ import java.util.LinkedList;
 
 public class Board {
 
-    private int maxMana;
-    private int currentMana;
+    private int maxMana = 0;
+    private int currentMana = 0;
     private int maxBoardSize = 7;
     private LinkedList<Minion> minionsOnBoard = new LinkedList<>();
 
@@ -120,25 +120,24 @@ public class Board {
 
     public void drawCard(int amount) {
         for (int i=0; i<amount; i++) {
-            if (hand.getCardsInHand().size() <= hand.getMaxHandSize()) {
-                if (!deck.getCardsInDeck().isEmpty()) {
+            if (!deck.getCardsInDeck().isEmpty()) {
+                if (hand.getCardsInHand().size() < hand.getMaxHandSize()) {
                     hand.getCardsInHand().add(deck.getCardsInDeck().poll());
-                } else {
-                    drawFatigue();
                 }
-            } else {
-                deck.getCardsInDeck().remove();
+                    else {
+                        deck.getCardsInDeck().remove();
+                    }
+            }
+            else {
+                drawFatigue();
             }
         }
     }
 
     public void drawFatigue() {
-        if(deck.getCardsInDeck().isEmpty()){
-            int currentFatigue = deck.getFatigueCount();
-            deck.setFatigueCount(currentFatigue+1);
-            hero.loseHealth(currentFatigue);
-
-        }
+        int currentFatigue = deck.getFatigueCount();
+        deck.setFatigueCount(currentFatigue+1);
+        hero.loseHealth(currentFatigue);
 
     }
 
@@ -177,8 +176,16 @@ public class Board {
         return currentMana;
     }
 
+    public void setCurrentMana(int currentMana) {
+        this.currentMana = currentMana;
+    }
+
     public int getMaxMana() {
         return maxMana;
+    }
+
+    public void setMaxMana(int maxMana) {
+        this.maxMana = maxMana;
     }
 
     public Deck getDeck() {
