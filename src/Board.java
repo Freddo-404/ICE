@@ -28,12 +28,24 @@ public int getCurrentMana(){
            // "Card cost is too high"
         }
     }
-    public void playCard(Spell spell) {
-        currentMana = currentMana - spell.getCardCost();
+    public void playCard(Card card) {
+        if (card instanceof Minion) {
+            Minion minion = (Minion) card;
+            currentMana = currentMana - minion.getCardCost();
+        }
+        else if (card instanceof Spell) {
+            Spell spell = (Spell) card;
+            currentMana = currentMana - spell.getCardCost();
+        }
+        else if (card instanceof Weapon) {
+            Weapon weapon = (Weapon) card;
+            currentMana = currentMana - weapon.getCardCost();
+        }
+        else{
+            System.out.println("Something went wrong with instanceof");
+        }
     }
-    public void playCard(Weapon weapon) {
-        currentMana = currentMana - weapon.getCardCost();
-    }
+
 
 
     public void startHandCurrentPlayer(){
