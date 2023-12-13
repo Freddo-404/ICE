@@ -44,49 +44,42 @@ public class TextUI {
         return num;
     }
 
-    public String displayMinion(Card card){
-        if (card instanceof Minion) {
-            Minion minion = (Minion) card;
-            return ("["+minion.getMinionCurrentHealth()+"/"+minion.getMinionAttack())+"]";
-        }
-        else{
-            return "DisplayMinion Error";
-        }
 
-    }
+    public void displayHand(Player currentPlayer) {
+        displayMessage(currentPlayer.getPlayerName() + "'s hand:");
 
-    public void checkCardtype(Card card){
-        if(card instanceof Spell){
-            return ;
-        }
-    }
-    public void displayHand(Player player, Hand hand) {
-        displayMessage(player.getPlayerName() + "'s hand:");
-        hand.getCardsInHand();
-        int count = -1;
-        for (Card c : hand.getCardsInHand()) {
-            count++;
+        int count = 1;
+        for (Card c : currentPlayer.getBoard().getHand().getCardsInHand()) {
+
             if (c instanceof Spell) {
                 Spell spell = (Spell) c;
-                displayMessage(count + 1 + ". " + "Spell: "+spell.getCardName() + " Mana: "+spell.getCardCost());
+                displayMessage(count + ". " + "Spell: "+spell.getCardName() + ", Mana cost: "+spell.getCardCost());
             } else if (c instanceof Weapon) {
                 Weapon weapon = (Weapon) c;
-                displayMessage(count + 1 + ". " + "Weapon: "+weapon.getCardName()+ " Mana: "+weapon.getCardCost()+ " Attack: "+weapon.getWeaponAttack()+" Durability: "+weapon.getWeaponDurability());
+                displayMessage(count + ". " + "Weapon: "+weapon.getCardName()+ ", Mana cost: "+weapon.getCardCost()+ ", Attack: "+weapon.getWeaponAttack()+", Durability: "+weapon.getWeaponDurability());
             } else if (c instanceof Minion) {
-
                     Minion minion = (Minion) c;
-                    displayMessage(count + 1 + ". " +"Minion: "+ minion.getCardName() + " Mana: "+minion.getCardCost() + " Attack: "+minion.getMinionAttack() + " Health: "+minion.getMinionMaxHealth());
+                    displayMessage(count  + ". " +"Minion: "+ minion.getCardName() + ", Mana cost: "+minion.getCardCost() + ", Attack: "+minion.getMinionAttack() + ", Health: "+minion.getMinionMaxHealth());
                 }else{
-                System.out.println("Program not working uwu");
+                System.out.println("Something with instanceof isn't working.");
                 }
+            count++;
             }
         }
+    public void displayNumberOfCardsInHand(Player enemyPlayer){
+        displayMessage(enemyPlayer.getPlayerName() + "'s number of cards in hand: "+enemyPlayer.getBoard().getHand().getCardsInHand().size());
+    }
 
+    public String displayMinion(Minion minion){
 
-    public String displayMinionsOnBoard(LinkedList<Minion> cardsOnBoard){
+        return ("["+minion.getMinionAttack()+"/"+minion.getMinionCurrentHealth())+"]";
+
+    }
+
+    public String displayMinionsOnBoard(LinkedList<Minion> minionsOnBoard){
         String str = "     ";
-        for (Card card : cardsOnBoard) {
-            str+=displayMinion(card);
+        for (Minion m: minionsOnBoard) {
+            str+=displayMinion(m);
             str+="     ";
         }
 
@@ -96,7 +89,7 @@ public class TextUI {
     public void displayBoard(Board myBoard,Board enemyBoard){
         String str = "";
         str+= "_____________________________HERO HEALTH: "+myBoard.getHero().getHeroCurrentHealth()+"______deck: "+enemyBoard.getDeck().getCardsInDeck().size()+"________"+"\n";
-        str+="|                                                  mana: "+enemyBoard.getCurrentMana()+"      |"+"\n";
+        str+="|                                                 mana: "+enemyBoard.getCurrentMana()+"/"+enemyBoard.getMaxMana()+"      |"+"\n";
         str+= displayMinionsOnBoard(enemyBoard.getMinionsOnBoard())+"\n";
         str+="|                                                                |"+"\n";
         str+="|                                                                |"+"\n";
@@ -105,10 +98,15 @@ public class TextUI {
         str+="|                                                                |"+"\n";
         str+="|                                                                |"+"\n";
         str+=displayMinionsOnBoard(myBoard.getMinionsOnBoard())+"\n";
-        str+="|                                                 mana: "+myBoard.getCurrentMana()+"         |"+"\n";
+        str+="|                                                 mana: "+myBoard.getCurrentMana()+"/"+myBoard.getMaxMana()+"      |"+"\n";
         str+="|____________________________HERO HEALTH: "+myBoard.getHero().getHeroCurrentHealth()+"______deck: "+myBoard.getDeck().getCardsInDeck().size()+"_______|"+"\n";
-        System.out.println(str);
+        displayMessage(str);
     }
 
+    public void displayGame(Player currentPlayer,Player enemyPlayer){
+        displayNumberOfCardsInHand(enemyPlayer);
+        displayBoard(currentPlayer.getBoard(), enemyPlayer.getBoard());
+        displayHand(currentPlayer);
+    }
 
 }

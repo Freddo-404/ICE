@@ -2,7 +2,7 @@ import java.util.LinkedList;
 
 public class Board {
 
-    private int maxMana = 1;
+    private int maxMana;
     private int currentMana;
     private int maxBoardSize = 7;
     private LinkedList<Minion> minionsOnBoard = new LinkedList<>();
@@ -17,9 +17,7 @@ public class Board {
         this.deck = deck;
     }
 
-    public int getCurrentMana(){
-       return currentMana;
-}
+
 
 
     public void playCard(Card card) {
@@ -174,6 +172,13 @@ public class Board {
         minion.minionDeath(minion, minionsOnBoard);
         hero.loseHealth(minion.getMinionAttack());
 
+    }
+    public int getCurrentMana(){
+        return currentMana;
+    }
+
+    public int getMaxMana() {
+        return maxMana;
     }
 
     public Deck getDeck() {

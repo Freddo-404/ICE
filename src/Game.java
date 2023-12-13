@@ -28,7 +28,7 @@ public class Game {
     }
 
     public void gameLoop(){
-    ui.displayBoard(currentPlayer.getBoard(),enemyPlayer.getBoard());
+    ui.displayGame(currentPlayer, enemyPlayer);
     }
 
     public void startUp(){
