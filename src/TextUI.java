@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -58,7 +57,7 @@ public class TextUI {
     }
 
 
-    public String displayCardsOnBoard(LinkedList<Card> cardsOnBoard){
+    public String displayMinionsOnBoard(LinkedList<Minion> cardsOnBoard){
         String str = "     ";
         for (Card card : cardsOnBoard) {
             str+=displayMinion(card);
@@ -72,14 +71,14 @@ public class TextUI {
         String str = "";
         str+= "_____________________________HERO HEALTH: "+myBoard.getHero().getHeroCurrentHealth()+"______deck: "+enemyBoard.getDeck().getCardsInDeck().size()+"________"+"\n";
         str+="|                                                  mana: "+enemyBoard.getCurrentMana()+"      |"+"\n";
-        str+= displayCardsOnBoard(enemyBoard.getCardsOnBoard())+"\n";
+        str+= displayMinionsOnBoard(enemyBoard.getMinionsOnBoard())+"\n";
         str+="|                                                                |"+"\n";
         str+="|                                                                |"+"\n";
         str+="|________________________________________________________________|"+"\n";
         str+="|                                                                |"+"\n";
         str+="|                                                                |"+"\n";
         str+="|                                                                |"+"\n";
-        str+=displayCardsOnBoard(myBoard.getCardsOnBoard())+"\n";
+        str+=displayMinionsOnBoard(myBoard.getMinionsOnBoard())+"\n";
         str+="|                                                 mana: "+myBoard.getCurrentMana()+"         |"+"\n";
         str+="|____________________________HERO HEALTH: "+myBoard.getHero().getHeroCurrentHealth()+"______deck: "+myBoard.getDeck().getCardsInDeck().size()+"_______|"+"\n";
         System.out.println(str);
