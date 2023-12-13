@@ -29,15 +29,11 @@ public class Board {
 
         } else if (card instanceof Spell) {
             Spell spell = (Spell) card;
-
-                playSpell(spell, card);
-            }
-
+            playSpell(spell, card);
+        }
         else if (card instanceof Weapon) {
-                Weapon weapon = (Weapon) card;
-                currentMana = currentMana - weapon.getCardCost();
-                getHand().getCardsInHand().remove(card);
-                playWeapon(weapon, card);
+            Weapon weapon = (Weapon) card;
+            playWeapon(weapon, card);
         }
        else {
         System.out.println("Something went wrong with instanceof");
