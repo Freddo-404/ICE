@@ -70,8 +70,8 @@ public class TextUI {
 
     public void displayBoard(Board myBoard,Board enemyBoard){
         String str = "";
-        str+= "_____________________________HERO HEALTH: 30______deck: 20________"+"\n";
-        str+="|                                                  mana:4        |"+"\n";
+        str+= "_____________________________HERO HEALTH: "+myBoard.getHero().getHeroCurrentHealth()+"______deck: "+enemyBoard.getDeck().getCardsInDeck().size()+"________"+"\n";
+        str+="|                                                  mana: "+enemyBoard.getCurrentMana()+"      |"+"\n";
         str+= displayCardsOnBoard(enemyBoard.getCardsOnBoard())+"\n";
         str+="|                                                                |"+"\n";
         str+="|                                                                |"+"\n";
@@ -80,8 +80,8 @@ public class TextUI {
         str+="|                                                                |"+"\n";
         str+="|                                                                |"+"\n";
         str+=displayCardsOnBoard(myBoard.getCardsOnBoard())+"\n";
-        str+="|                                                 mana:5         |"+"\n";
-        str+="|____________________________HERO HEALTH: 25______deck: 15_______|"+"\n";
+        str+="|                                                 mana: "+myBoard.getCurrentMana()+"         |"+"\n";
+        str+="|____________________________HERO HEALTH: "+myBoard.getHero().getHeroCurrentHealth()+"______deck: "+myBoard.getDeck().getCardsInDeck().size()+"_______|"+"\n";
         System.out.println(str);
     }
 
