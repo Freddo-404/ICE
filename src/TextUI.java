@@ -60,11 +60,10 @@ public class TextUI {
             return ;
         }
     }
-    public void displayHand(Player player, Hand hand) {
+    public void displayHand(Player player) {
         displayMessage(player.getPlayerName() + "'s hand:");
-        hand.getCardsInHand();
         int count = -1;
-        for (Card c : hand.getCardsInHand()) {
+        for (Card c : player.getBoard().getHand().getCardsInHand()) {
             count++;
             if (c instanceof Spell) {
                 Spell spell = (Spell) c;

@@ -72,7 +72,7 @@ public class Game {
         switch(ui.getInput()){
 
             case "1":
-                //currentPlayer.getBoard().playCard();
+                currentPlayer.getBoard().pickCard(currentPlayer);
                 break;
             case "2":
                 //currentPlayer.getBoard().pickMinion();

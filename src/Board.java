@@ -21,6 +21,63 @@ public class Board {
        return currentMana;
 }
 
+public Card pickCard(Player player) {
+    ui.displayMessage("Pick a card you want to play");
+    ui.displayHand(player);
+    Card card = null;
+    try {
+        switch (ui.getInput()) {
+            case "1":
+                card = getHand().getCardsInHand().get(0);
+
+                break;
+            case "2":
+                card = getHand().getCardsInHand().get(1);
+
+                break;
+            case "3":
+                card = getHand().getCardsInHand().get(2);
+
+                break;
+            case "4":
+                card = getHand().getCardsInHand().get(3);
+
+                break;
+            case "5":
+                card = getHand().getCardsInHand().get(4);
+
+                break;
+            case "6":
+                card = getHand().getCardsInHand().get(5);
+
+                break;
+            case "7":
+                card = getHand().getCardsInHand().get(6);
+
+                break;
+            case "8":
+                card = getHand().getCardsInHand().get(7);
+
+                break;
+            case "9":
+                card = getHand().getCardsInHand().get(8);
+
+                break;
+            case "10":
+                card = getHand().getCardsInHand().get(9);
+
+                break;
+            default:
+                ui.displayMessage("Your input was invalid, please try again");
+                pickCard(player);
+        }
+    } catch (IndexOutOfBoundsException e) {
+        ui.displayMessage("Please pick a card from the list");
+        pickCard(player);
+    }
+return card;
+
+}
 
     public void playCard(Card card) {
         if (card instanceof Minion) {
@@ -38,6 +95,7 @@ public class Board {
        else {
         System.out.println("Something went wrong with instanceof");
         }
+
     }
 
 
