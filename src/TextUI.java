@@ -91,8 +91,8 @@ public class TextUI {
 
     public void displayBoard(Board myBoard,Board enemyBoard){
         String str = "";
-        str+= "_____________________________HERO HEALTH: "+myBoard.getHero().getHeroCurrentHealth()+"______deck: "+enemyBoard.getDeck().getCardsInDeck().size()+"________"+"\n";
-        str+="|                                                 mana: "+enemyBoard.getCurrentMana()+"/"+enemyBoard.getMaxMana()+"      |"+"\n";
+        str+= "_____________________________HERO HEALTH: "+enemyBoard.getHero().getHeroCurrentHealth()+"______deck: "+enemyBoard.getDeck().getCardsInDeck().size()+"________"+"\n";
+        str+="|                                                 mana: "+enemyBoard.getCurrentMana()+"/"+enemyBoard.getMaxMana()+"      "+"\n";
         str+= displayMinionsOnBoard(enemyBoard.getMinionsOnBoard())+"\n";
         str+="|                                                                |"+"\n";
         str+="|                                                                |"+"\n";
@@ -101,7 +101,7 @@ public class TextUI {
         str+="|                                                                |"+"\n";
         str+="|                                                                |"+"\n";
         str+=displayMinionsOnBoard(myBoard.getMinionsOnBoard())+"\n";
-        str+="|                                                 mana: "+myBoard.getCurrentMana()+"/"+myBoard.getMaxMana()+"      |"+"\n";
+        str+="|                                                 mana: "+myBoard.getCurrentMana()+"/"+myBoard.getMaxMana()+"      "+"\n";
         str+="|____________________________HERO HEALTH: "+myBoard.getHero().getHeroCurrentHealth()+"______deck: "+myBoard.getDeck().getCardsInDeck().size()+"_______|"+"\n";
         displayMessage(str);
     }

@@ -2,11 +2,11 @@ import java.util.LinkedList;
 
 public class Board {
 
-    private int maxMana;
-    private int currentMana;
+    private int maxMana = 0;
+    private int currentMana = 0;
+    private int fatigueCount = 0;
     private int maxBoardSize = 7;
     private LinkedList<Minion> minionsOnBoard = new LinkedList<>();
-
 
     private Hand hand = new Hand();
     private Deck deck;
@@ -121,25 +121,23 @@ public class Board {
 
     public void drawCard(int amount) {
         for (int i=0; i<amount; i++) {
-            if (hand.getCardsInHand().size() <= hand.getMaxHandSize()) {
-                if (!deck.getCardsInDeck().isEmpty()) {
+            if (!deck.getCardsInDeck().isEmpty()) {
+                if (hand.getCardsInHand().size() < hand.getMaxHandSize()) {
                     hand.getCardsInHand().add(deck.getCardsInDeck().poll());
-                } else {
-                    drawFatigue();
                 }
-            } else {
-                deck.getCardsInDeck().remove();
+                    else {
+                        deck.getCardsInDeck().remove();
+                    }
+            }
+            else {
+                drawFatigue();
             }
         }
     }
 
     public void drawFatigue() {
-        if(deck.getCardsInDeck().isEmpty()){
-            int currentFatigue = deck.getFatigueCount();
-            deck.setFatigueCount(currentFatigue+1);
-            hero.loseHealth(currentFatigue);
-
-        }
+        setFatigueCount(getFatigueCount()+1);
+        hero.loseHealth(fatigueCount);
 
     }
 
@@ -178,8 +176,16 @@ public class Board {
         return currentMana;
     }
 
+    public void setCurrentMana(int currentMana) {
+        this.currentMana = currentMana;
+    }
+
     public int getMaxMana() {
         return maxMana;
+    }
+
+    public void setMaxMana(int maxMana) {
+        this.maxMana = maxMana;
     }
 
     public Deck getDeck() {
@@ -255,6 +261,30 @@ public class Board {
     public Hand getHand(){
         return hand;
     }
+
+    public int getFatigueCount(){
+        return fatigueCount;
+    }
+    public void setFatigueCount(int fatigueCount) {
+        this.fatigueCount = fatigueCount;
+    }
+    /*public Card targetMinion(TextUI ui){
+        Card pickedCard = null;
+        for(int i = 0; i<cardsOnBoard.size(); i++) {
+            ui.displayMessage(i+1 + ". " + cardsOnBoard.get(i).getCardName());
+        }
+        ui.displayMessage("Choose a minion.");
+        int numberInput = ui.getNumericInputInt("Please enter a valid number.");
+        if(numberInput<=cardsOnBoard.size() && numberInput > 0){
+            pickedCard = cardsOnBoard.get(numberInput);
+        } else{
+            ui.displayMessage("Invalid number. Please try again.");
+            targetMinion(ui);
+        }
+        return pickedCard;
+    }*/
+
+    public Minion targetMinion(TextUI ui){
     public Minion targetMinion(TextUI ui, Board enemyBoard){
         Minion pickedMinion = null;
         for(int i = 0; i< enemyBoard.minionsOnBoard.size(); i++) {
