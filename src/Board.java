@@ -284,7 +284,7 @@ public class Board {
         return pickedCard;
     }*/
 
-    public Minion targetMinion(TextUI ui){
+
     public Minion targetMinion(TextUI ui, Board enemyBoard){
         Minion pickedMinion = null;
         for(int i = 0; i< enemyBoard.minionsOnBoard.size(); i++) {

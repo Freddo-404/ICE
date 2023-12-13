@@ -47,9 +47,8 @@ public class TextUI {
 
     public void displayHand(Player player) {
         displayMessage(player.getPlayerName() + "'s hand:");
-        int count = -1;
+        int count = 1;
         for (Card c : player.getBoard().getHand().getCardsInHand()) {
-            count++;
 
             if (c instanceof Spell) {
                 Spell spell = (Spell) c;
