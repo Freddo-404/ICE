@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="rettelser" />
+    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="Game fatigue virker!" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702386742299</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Game fatigue virker!">
+      <option name="closed" value="true" />
+      <created>1702483747708</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702483747708</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +141,7 @@
     <MESSAGE value="hunter heropower, changes in board and weaponslot" />
     <MESSAGE value="playCard fix" />
     <MESSAGE value="rettelser" />
-    <option name="LAST_COMMIT_MESSAGE" value="rettelser" />
+    <MESSAGE value="Game fatigue virker!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Game fatigue virker!" />
   </component>
 </project>
