@@ -81,7 +81,7 @@ public class Game {
                 //pickTarget(); and attack
                 break;
             case "4":
-                currentPlayer.getBoard().getHero().getHeroPower().useHeroPower(currentPlayer.getBoard().getHero(), currentPlayer.getBoard());
+                //currentPlayer.getBoard().getHero().getHeroPower().useHeroPower(currentPlayer.getBoard().getHero(), currentPlayer.getBoard());
                 break;
             case "5":
                 //endTurn();
