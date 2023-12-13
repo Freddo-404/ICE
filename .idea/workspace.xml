@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="playCard">
+    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="Game">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TextUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +45,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "Application.Unnamed.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "Fred-1-end-turn",
@@ -54,6 +57,15 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="ICE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -121,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702386742299</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Game">
+      <option name="closed" value="true" />
+      <created>1702479007736</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702479007736</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +158,7 @@
     <MESSAGE value="merging time" />
     <MESSAGE value="hunter heropower, changes in board and weaponslot" />
     <MESSAGE value="playCard fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="playCard fix" />
+    <MESSAGE value="Game" />
+    <option name="LAST_COMMIT_MESSAGE" value="Game" />
   </component>
 </project>

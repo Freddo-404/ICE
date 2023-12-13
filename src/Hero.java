@@ -1,8 +1,8 @@
 public class Hero {
     private String heroName;
     private String heroClass;
-    private int heroCurrentHealth = 30;
-    private int heroMaxHealth = 30;
+    private int heroCurrentHealth;
+    private int heroMaxHealth;
     private WeaponSlot weaponSlot = new WeaponSlot(0,0);
 
     private HeroPower heroPower = new HeroPower();
@@ -10,11 +10,21 @@ public class Hero {
     Hero(String heroName, String heroClass){
         this.heroName = heroName;
         this.heroClass = heroClass;
+        this.heroCurrentHealth = 30;
+        this.heroMaxHealth = 30;
     }
 
 
     public void loseHealth(int dmgTaken){
         setHeroCurrentHealth(getHeroCurrentHealth()-dmgTaken);
+    }
+    public boolean heroDeath(){
+        if(heroCurrentHealth<=0) {
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 
@@ -37,18 +47,13 @@ public class Hero {
     public void setHeroCurrentHealth(int heroCurrentHealth) {
         this.heroCurrentHealth = heroCurrentHealth;
     }
-    public boolean heroDeath(){
-        if(heroCurrentHealth<=0) {
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-    public WeaponSlot getWeaponSlot(){
 
+    public WeaponSlot getWeaponSlot(){
 
         return weaponSlot;
     }
 
+    public String getHeroName() {
+        return heroName;
+    }
 }

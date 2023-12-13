@@ -4,6 +4,7 @@ public class Board {
 
     private int maxMana = 0;
     private int currentMana = 0;
+    private int fatigueCount = 0;
     private int maxBoardSize = 7;
     private LinkedList<Minion> minionsOnBoard = new LinkedList<>();
 
@@ -135,9 +136,8 @@ public class Board {
     }
 
     public void drawFatigue() {
-        int currentFatigue = deck.getFatigueCount();
-        deck.setFatigueCount(currentFatigue+1);
-        hero.loseHealth(currentFatigue);
+        setFatigueCount(getFatigueCount()+1);
+        hero.loseHealth(fatigueCount);
 
     }
 
@@ -202,6 +202,13 @@ public class Board {
 
     public Hand getHand() {
         return hand;
+    }
+
+    public int getFatigueCount(){
+        return fatigueCount;
+    }
+    public void setFatigueCount(int fatigueCount) {
+        this.fatigueCount = fatigueCount;
     }
     /*public Card targetMinion(TextUI ui){
         Card pickedCard = null;

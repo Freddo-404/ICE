@@ -109,6 +109,7 @@ public class Game {
     }
 
     public void endTurn(){
+
         tempPlayer = currentPlayer;
         currentPlayer = enemyPlayer;
         enemyPlayer = tempPlayer;
@@ -125,9 +126,17 @@ public class Game {
 
     }
     public void winCondition(){
-       if(currentPlayer.getBoard().getHero().heroDeath() || enemyPlayer.getBoard().getHero().heroDeath()){
-           ui.displayMessage(currentPlayer.getPlayerName()+ " Wins!!! You will be sent back to the main menu");
+
+        if(currentPlayer.getBoard().getHero().heroDeath() && enemyPlayer.getBoard().getHero().heroDeath()){
+            ui.displayMessage("It's a draw!!  You will be sent back to the main menu \n");
+            gameOver=true;
+        }
+        else if(currentPlayer.getBoard().getHero().heroDeath()){
+           ui.displayMessage(enemyPlayer.getPlayerName()+ " Wins!!! You will be sent back to the main menu \n");
            gameOver=true;
+       } else if (enemyPlayer.getBoard().getHero().heroDeath()) {
+            ui.displayMessage(currentPlayer.getPlayerName()+ " Wins!!! You will be sent back to the main menu \n");
+            gameOver=true;
        }
 
     }

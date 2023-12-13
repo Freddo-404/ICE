@@ -88,7 +88,7 @@ public class TextUI {
 
     public void displayBoard(Board myBoard,Board enemyBoard){
         String str = "";
-        str+= "_____________________________HERO HEALTH: "+myBoard.getHero().getHeroCurrentHealth()+"______deck: "+enemyBoard.getDeck().getCardsInDeck().size()+"________"+"\n";
+        str+= "_____________________________HERO HEALTH: "+enemyBoard.getHero().getHeroCurrentHealth()+"______deck: "+enemyBoard.getDeck().getCardsInDeck().size()+"________"+"\n";
         str+="|                                                 mana: "+enemyBoard.getCurrentMana()+"/"+enemyBoard.getMaxMana()+"      "+"\n";
         str+= displayMinionsOnBoard(enemyBoard.getMinionsOnBoard())+"\n";
         str+="|                                                                |"+"\n";
