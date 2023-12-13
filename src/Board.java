@@ -5,7 +5,7 @@ public class Board {
     private int maxMana = 1;
     private int currentMana;
     private int maxBoardSize = 7;
-    private LinkedList<Card> cardsOnBoard = new LinkedList<>();
+    private LinkedList<Minion> cardsOnBoard = new LinkedList<>();
 
     private Hand hand = new Hand();
     private Deck deck;
@@ -88,14 +88,14 @@ public int getCurrentMana(){
     public void heroFace(Hero h1, Hero h2) {
         h2.loseHealth(h1.getWeaponSlot().getWeaponSlotAttack());
 
-        hero.getWeaponSlot().setCurrentDurability(hero.getWeaponSlot().getCurrentDurability()-1);
+        hero.getWeaponSlot().loseDurability();
         hero.getWeaponSlot().destroyWeapon();
 
     }
 
     public void heroAttackMinion(Hero hero, Minion minion) {
         minion.loseHealth(hero.getWeaponSlot().getWeaponSlotAttack());
-        hero.getWeaponSlot().setCurrentDurability(hero.getWeaponSlot().getCurrentDurability()-1);
+        hero.getWeaponSlot().loseDurability();
         hero.getWeaponSlot().destroyWeapon();
         minion.minionDeath(minion,cardsOnBoard);
         hero.loseHealth(minion.getMinionAttack());
@@ -113,6 +113,39 @@ public int getCurrentMana(){
     public LinkedList<Card> getCardsOnBoard() {
         return cardsOnBoard;
     }
+
+    /*public Card targetMinion(TextUI ui){
+        Card pickedCard = null;
+        for(int i = 0; i<cardsOnBoard.size(); i++) {
+            ui.displayMessage(i+1 + ". " + cardsOnBoard.get(i).getCardName());
+        }
+        ui.displayMessage("Choose a minion.");
+        int numberInput = ui.getNumericInputInt("Please enter a valid number.");
+        if(numberInput<=cardsOnBoard.size() && numberInput > 0){
+            pickedCard = cardsOnBoard.get(numberInput);
+        } else{
+            ui.displayMessage("Invalid number. Please try again.");
+            targetMinion(ui);
+        }
+        return pickedCard;
+    }*/
+
+    public Minion targetMinion(TextUI ui){
+        Minion pickedMinion = null;
+        for(int i = 0; i<cardsOnBoard.size(); i++) {
+            ui.displayMessage(i+1 + ". " + cardsOnBoard.get(i).getCardName());
+        }
+        ui.displayMessage("Choose a minion.");
+        int numberInput = ui.getNumericInputInt("Please enter a valid number.");
+        if(numberInput<=cardsOnBoard.size() && numberInput > 0){
+            pickedMinion = cardsOnBoard.get(numberInput);
+        } else{
+            ui.displayMessage("Invalid number. Please try again.");
+            targetMinion(ui);
+        }
+        return pickedMinion;
+    }
+
 }
 /*
 _____________________________HERO HEALTH: 30______deck: 20________

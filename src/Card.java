@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public abstract class Card {
-    String cardName;
-    String heroClass;
-    int cardCost;
+    private String cardName;
+    private String heroClass;
+    private int cardCost;
 
     public Card(String cardName, int cardCost){
     this.cardName = cardName;

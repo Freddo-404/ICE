@@ -1,12 +1,14 @@
+import java.util.LinkedList;
+
 public class HeroPower {
-    public void useHeroPower(Hero hero, Board board) {
+    public void useHeroPower(Hero hero, Board board, TextUI ui, LinkedList<Minion> minionsOnBoard) {
 
         switch (hero.getHeroClass()) {
             case "mage":
-                mageHeroPower();
+                mageHeroPower(board, ui, minionsOnBoard);
             break;
             case "hunter":
-                hunterHeroPower();
+                hunterHeroPower(hero);
                 break;
             case "warlock":
                 warlockHeroPower(hero, board);
@@ -23,11 +25,18 @@ public class HeroPower {
         }
     }
 
-    public void mageHeroPower(){
+    public void mageHeroPower(Board board, TextUI ui, LinkedList<Minion> minionsOnBoard){
+
+        Minion targetMinion = board.targetMinion(ui);
+        targetMinion.loseHealth(1);
+        targetMinion.minionDeath(targetMinion, minionsOnBoard);
+        //return "You use Fireblast on " + targetMinion.getCardName() + ". It loses 1 hp.";
 
     }
-    public void hunterHeroPower(){
+    public void hunterHeroPower(Hero enemyHero){
 
+        enemyHero.loseHealth(2);
+        //return "You use Steady Shot. Enemy hero loses 2 hp.";
     }
    public void warlockHeroPower(Hero hero, Board board){
         board.drawCard(1);

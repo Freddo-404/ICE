@@ -10,6 +10,8 @@ public class Game {
     private Player currentPlayer;
     private Player previousPlayer;
 
+
+
     public void mainMenu(){
         ui.displayMessage("Hello and welcome to ScuffedStone! \n"+"\n"+"Please select a choice"+"\n"+
                 "1. Play \n" + "2. Quit");
@@ -34,9 +36,9 @@ public class Game {
         player1 = new Player(ui.getInput());
         ui.displayMessage("Please enter a name for Player 2.");
         player2 = new Player(ui.getInput());
-        ui.displayMessage("Please choose a class for " + player1.getPlayerName() + "by entering a number between 1 and 5.");
+        ui.displayMessage("Please choose a class for " + player1.getPlayerName() + " by entering a number between 1 and 5.");
         player1.chooseHero(ui);
-        ui.displayMessage("Please choose a class for " + player2.getPlayerName() + "by entering a number between 1 and 5.");
+        ui.displayMessage("Please choose a class for " + player2.getPlayerName() + " by entering a number between 1 and 5.");
         player2.chooseHero(ui);
 
         initializeGame();
@@ -92,6 +94,11 @@ public class Game {
     }
 
     public void winCondition(){
+       if(currentPlayer.getBoard().getHero().heroDeath()){
+           ui.displayMessage(currentPlayer.getPlayerName()+ "Wins!!! You will be sent back to the main menu");
+           mainMenu();
+       }
+
 
     }
 
