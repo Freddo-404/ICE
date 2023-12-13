@@ -16,6 +16,9 @@ public class Board {
         this.deck = deck;
     }
 
+public int getCurrentMana(){
+       return currentMana;
+}
     public void playCard(Minion minion) {
         if(currentMana>=minion.getCardCost()) {
             currentMana = currentMana - minion.getCardCost();
