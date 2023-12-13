@@ -16,7 +16,7 @@ public class WeaponSlot {
         setCurrentDurability(weapon.getWeaponDurability());
 
     }
-   public void useWeaponMinion(Minion m, LinkedList<Card> minionsOnOpponentsBoard){
+   public void useWeaponMinion(Minion m, LinkedList<Minion> minionsOnOpponentsBoard){
 
         m.setMinionCurrentHealth(m.getMinionCurrentHealth()-weaponSlotAttack);
         m.minionDeath(m, minionsOnOpponentsBoard);

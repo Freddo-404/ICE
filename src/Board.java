@@ -10,48 +10,114 @@ public class Board {
     private Hand hand = new Hand();
     private Deck deck;
     private Hero hero;
+    private TextUI ui = new TextUI();
 
     public Board(Hero hero, Deck deck) {
         this.hero = hero;
         this.deck = deck;
     }
 
-public int getCurrentMana(){
+    public int getCurrentMana(){
        return currentMana;
 }
-    public void playCard(Minion minion) {
-        if(currentMana>=minion.getCardCost()) {
-            currentMana = currentMana - minion.getCardCost();
 
-        }
-        else{
-           // "Card cost is too high"
-        }
-    }
+
     public void playCard(Card card) {
         if (card instanceof Minion) {
             Minion minion = (Minion) card;
-            currentMana = currentMana - minion.getCardCost();
-        }
-        else if (card instanceof Spell) {
+            playMinion(minion, card);
+
+        } else if (card instanceof Spell) {
             Spell spell = (Spell) card;
-            currentMana = currentMana - spell.getCardCost();
-        }
+
+                playSpell(spell, card);
+            }
+
         else if (card instanceof Weapon) {
-            Weapon weapon = (Weapon) card;
-            currentMana = currentMana - weapon.getCardCost();
+                Weapon weapon = (Weapon) card;
+                currentMana = currentMana - weapon.getCardCost();
+                getHand().getCardsInHand().remove(card);
+                playWeapon(weapon, card);
         }
-        else{
-            System.out.println("Something went wrong with instanceof");
+       else {
+        System.out.println("Something went wrong with instanceof");
         }
     }
 
+
+
+    public void playMinion(Minion minion, Card card){
+        if(minionsOnBoard.size()>=maxBoardSize){
+            ui.displayMessage("Board is full. You can not play more minions.");
+        }
+        else {
+            if (currentMana >= minion.getCardCost()) {
+                currentMana = currentMana - minion.getCardCost();
+                putMinionBoard(minion);
+                getHand().getCardsInHand().remove(card);
+            } else {
+                ui.displayMessage("Card cost is too high.");
+            }
+        }
+    }
+    public void playSpell(Spell spell, Card card){
+        if (currentMana >= spell.getCardCost()) {
+            currentMana = currentMana - spell.getCardCost();
+            ui.displayMessage("You got scammed.");
+            getHand().getCardsInHand().remove(card);
+        } else {
+          ui.displayMessage("Card cost is too high.");
+        }
+
+    }
+    public void playWeapon(Weapon weapon, Card card){
+        if (currentMana >= weapon.getCardCost()) {
+            currentMana = currentMana - weapon.getCardCost();
+            getHero().equipWeapon(weapon);
+            getHand().getCardsInHand().remove(card);
+
+        } else {
+          ui.displayMessage("Card cost is too high.");
+        }
+    }
+
+    public void putMinionBoard(Minion minion) {
+        ui.displayMessage("Choose the spot to place your minion");
+        ui.displayMessage("1. Spot 1 \n" + "2. Spot 2 \n" + "3. Spot 3 \n" + "4. Spot 4 \n" + "5. Spot 5\n" + "6. Spot 6\n" + "7. Spot 7");
+        switch (ui.getInput()) {
+            case "1":
+                minionsOnBoard.add(0,minion);
+                break;
+            case "2":
+                minionsOnBoard.add(1,minion);
+                break;
+            case "3":
+                minionsOnBoard.add(2,minion);
+                break;
+            case "4":
+                minionsOnBoard.add(3,minion);
+                break;
+            case "5":
+                minionsOnBoard.add(4,minion);
+                break;
+            case "6":
+                minionsOnBoard.add(5,minion);
+                break;
+            case "7":
+                minionsOnBoard.add(6,minion);
+                break;
+            default:
+                ui.displayMessage("Your input was not valid, please try again.");
+                break;
+
+        }
+    }
 
 
     public void startHandCurrentPlayer(){
         drawCard(3);
     }
-    public void startHandPlayerPreviousPlayer(){
+    public void startHandEnemyPlayer(){
         drawCard(4);
         Spell coin = new Spell("The coin",0);
         hand.getCardsInHand().add(coin);
@@ -126,6 +192,9 @@ public int getCurrentMana(){
         return minionsOnBoard;
     }
 
+    public Hand getHand() {
+        return hand;
+    }
     /*public Card targetMinion(TextUI ui){
         Card pickedCard = null;
         for(int i = 0; i<cardsOnBoard.size(); i++) {
