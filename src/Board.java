@@ -7,6 +7,7 @@ public class Board {
     private int maxBoardSize = 7;
     private LinkedList<Minion> minionsOnBoard = new LinkedList<>();
 
+
     private Hand hand = new Hand();
     private Deck deck;
     private Hero hero;
@@ -193,37 +194,79 @@ public class Board {
         return minionsOnBoard;
     }
 
-    public Hand getHand() {
+    public Card pickCard(Player player) {
+        ui.displayMessage("Pick a card you want to play");
+        ui.displayHand(player);
+        Card card = null;
+        try {
+            switch (ui.getInput()) {
+                case "1":
+                    card = getHand().getCardsInHand().get(0);
+
+                    break;
+                case "2":
+                    card = getHand().getCardsInHand().get(1);
+
+                    break;
+                case "3":
+                    card = getHand().getCardsInHand().get(2);
+
+                    break;
+                case "4":
+                    card = getHand().getCardsInHand().get(3);
+
+                    break;
+                case "5":
+                    card = getHand().getCardsInHand().get(4);
+
+                    break;
+                case "6":
+                    card = getHand().getCardsInHand().get(5);
+
+                    break;
+                case "7":
+                    card = getHand().getCardsInHand().get(6);
+
+                    break;
+                case "8":
+                    card = getHand().getCardsInHand().get(7);
+
+                    break;
+                case "9":
+                    card = getHand().getCardsInHand().get(8);
+
+                    break;
+                case "10":
+                    card = getHand().getCardsInHand().get(9);
+
+                    break;
+                default:
+                    ui.displayMessage("Your input was invalid, please try again");
+                    pickCard(player);
+            }
+        } catch (IndexOutOfBoundsException e) {
+            ui.displayMessage("Please pick a card from the list");
+            pickCard(player);
+        }
+        return card;
+
+    }
+
+    public Hand getHand(){
         return hand;
     }
-    /*public Card targetMinion(TextUI ui){
-        Card pickedCard = null;
-        for(int i = 0; i<cardsOnBoard.size(); i++) {
-            ui.displayMessage(i+1 + ". " + cardsOnBoard.get(i).getCardName());
-        }
-        ui.displayMessage("Choose a minion.");
-        int numberInput = ui.getNumericInputInt("Please enter a valid number.");
-        if(numberInput<=cardsOnBoard.size() && numberInput > 0){
-            pickedCard = cardsOnBoard.get(numberInput);
-        } else{
-            ui.displayMessage("Invalid number. Please try again.");
-            targetMinion(ui);
-        }
-        return pickedCard;
-    }*/
-
-    public Minion targetMinion(TextUI ui){
+    public Minion targetMinion(TextUI ui, Board enemyBoard){
         Minion pickedMinion = null;
-        for(int i = 0; i< minionsOnBoard.size(); i++) {
-            ui.displayMessage(i+1 + ". " + minionsOnBoard.get(i).getCardName());
+        for(int i = 0; i< enemyBoard.minionsOnBoard.size(); i++) {
+            ui.displayMessage(i+1 + ". " + enemyBoard.minionsOnBoard.get(i).getCardName());
         }
         ui.displayMessage("Choose a minion.");
         int numberInput = ui.getNumericInputInt("Please enter a valid number.");
-        if(numberInput<= minionsOnBoard.size() && numberInput > 0){
-            pickedMinion = minionsOnBoard.get(numberInput);
+        if(numberInput<= enemyBoard.minionsOnBoard.size() && numberInput > 0){
+            pickedMinion = enemyBoard.minionsOnBoard.get(numberInput);
         } else{
             ui.displayMessage("Invalid number. Please try again.");
-            targetMinion(ui);
+            targetMinion(ui, enemyBoard);
         }
         return pickedMinion;
     }

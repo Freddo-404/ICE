@@ -45,11 +45,11 @@ public class TextUI {
     }
 
 
-    public void displayHand(Player currentPlayer) {
-        displayMessage(currentPlayer.getPlayerName() + "'s hand:");
-
-        int count = 1;
-        for (Card c : currentPlayer.getBoard().getHand().getCardsInHand()) {
+    public void displayHand(Player player) {
+        displayMessage(player.getPlayerName() + "'s hand:");
+        int count = -1;
+        for (Card c : player.getBoard().getHand().getCardsInHand()) {
+            count++;
 
             if (c instanceof Spell) {
                 Spell spell = (Spell) c;
@@ -58,14 +58,15 @@ public class TextUI {
                 Weapon weapon = (Weapon) c;
                 displayMessage(count + ". " + "Weapon: "+weapon.getCardName()+ ", Mana cost: "+weapon.getCardCost()+ ", Attack: "+weapon.getWeaponAttack()+", Durability: "+weapon.getWeaponDurability());
             } else if (c instanceof Minion) {
-                    Minion minion = (Minion) c;
-                    displayMessage(count  + ". " +"Minion: "+ minion.getCardName() + ", Mana cost: "+minion.getCardCost() + ", Attack: "+minion.getMinionAttack() + ", Health: "+minion.getMinionMaxHealth());
-                }else{
+                Minion minion = (Minion) c;
+                displayMessage(count  + ". " +"Minion: "+ minion.getCardName() + ", Mana cost: "+minion.getCardCost() + ", Attack: "+minion.getMinionAttack() + ", Health: "+minion.getMinionMaxHealth());
+            }else{
                 System.out.println("Something with instanceof isn't working.");
-                }
-            count++;
             }
+            count++;
         }
+    }
+
     public void displayNumberOfCardsInHand(Player enemyPlayer){
         displayMessage(enemyPlayer.getPlayerName() + "'s number of cards in hand: "+enemyPlayer.getBoard().getHand().getCardsInHand().size());
     }
@@ -85,6 +86,8 @@ public class TextUI {
 
         return str;
     }
+
+
 
     public void displayBoard(Board myBoard,Board enemyBoard){
         String str = "";

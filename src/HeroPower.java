@@ -25,11 +25,11 @@ public class HeroPower {
         }
     }
 
-    public void mageHeroPower(Board board, TextUI ui, LinkedList<Minion> minionsOnBoard){
+    public void mageHeroPower(Board board, TextUI ui, LinkedList<Minion> enemyMinionsOnBoard){
 
-        Minion targetMinion = board.targetMinion(ui);
+        Minion targetMinion = board.targetMinion(ui, board);
         targetMinion.loseHealth(1);
-        targetMinion.minionDeath(targetMinion, minionsOnBoard);
+        targetMinion.minionDeath(targetMinion, enemyMinionsOnBoard);
         //return "You use Fireblast on " + targetMinion.getCardName() + ". It loses 1 hp.";
 
     }
