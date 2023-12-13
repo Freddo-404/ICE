@@ -8,7 +8,7 @@ public class Game {
     private Player player1;
     private Player player2;
     private Player currentPlayer;
-    private Player previousPlayer;
+    private Player enemyPlayer;
 
 
 
@@ -28,7 +28,7 @@ public class Game {
     }
 
     public void gameLoop(){
-    ui.displayBoard(currentPlayer.getBoard(),previousPlayer.getBoard());
+    ui.displayBoard(currentPlayer.getBoard(),enemyPlayer.getBoard());
     }
 
     public void startUp(){
@@ -52,16 +52,16 @@ public class Game {
 
         if (ranNum==0){
             currentPlayer = player1;
-            previousPlayer = player2;
+            enemyPlayer = player2;
         } else if (ranNum==1) {
             currentPlayer = player2;
-            previousPlayer = player1;
+            enemyPlayer = player1;
         }
         else{
             ui.displayMessage("Something went wrong with ranNum");
         }
         currentPlayer.getBoard().startHandCurrentPlayer();
-        previousPlayer.getBoard().startHandPlayerPreviousPlayer();
+        enemyPlayer.getBoard().startHandEnemyPlayer();
         gameLoop();
 
     }
@@ -81,7 +81,7 @@ public class Game {
                 //pickTarget(); and attack
                 break;
             case "4":
-                currentPlayer.getBoard().getHero().getHeroPower().useHeroPower(currentPlayer.getBoard().getHero(), currentPlayer.getBoard(),ui,previousPlayer.getBoard().getMinionsOnBoard());
+                currentPlayer.getBoard().getHero().getHeroPower().useHeroPower(currentPlayer.getBoard().getHero(), currentPlayer.getBoard(),ui,enemyPlayer.getBoard().getMinionsOnBoard());
                 break;
             case "5":
                 //endTurn();
