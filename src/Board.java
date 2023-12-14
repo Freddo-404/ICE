@@ -311,7 +311,7 @@ public class Board {
             ui.displayMessage("Please pick a minion from the list");
             pickMinion(minionList);
         }
-        return null;
+        return pickMinion(minionList);
     }
 
     public Minion targetMinion(TextUI ui, Board enemyBoard){
