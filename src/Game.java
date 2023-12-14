@@ -162,7 +162,7 @@ public class Game {
 
                 if (!enemyPlayer.getBoard().getMinionsOnBoard().isEmpty()) {
                     ui.displayMessage("Do you want to attack an enemy minion or the enemy hero?");
-                    ui.displayMessage("1. Enemy minion \n" + "2. Enemy hero \n");
+                    ui.displayMessage("1. Enemy minion \n" + "2. Enemy hero");
                     switch (ui.getInput()) {
                         case "1":
                             ui.displayMessage("Pick a minion to attack");
