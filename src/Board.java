@@ -244,7 +244,20 @@ public class Board {
         }
         return pickedMinion;
     }
+    public Hero targetHero(TextUI ui, Board board, Hero hero){
+        ui.displayMessage("Choose which hero to target");
+        int numberInput = ui.getNumericInputInt("1. Enemy hero \n 2. Friendly hero");
 
+        if(numberInput==1){ //target enemy hero
+            return board.getHero();
+        }else if (numberInput==2){ //target friendly hero
+            return hero;
+        }else {
+            ui.displayMessage("Number is invalid, try again");
+            return targetHero(ui,board,hero);
+        }
+
+    }
 
     public int getCurrentMana(){
         return currentMana;
