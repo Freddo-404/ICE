@@ -1,0 +1,33 @@
+Minion; Name: Dark Iron Dwarf; Mana: 4; Attack: 4; Health: 4
+Minion; Name: Dark Iron Dwarf; Mana: 4; Attack: 4; Health: 4
+Minion; Name: Defender of Argus; Mana: 3; Attack: 3; Health: 3
+Minion; Name: Defender of Argus; Mana: 3; Attack: 3; Health: 3
+Spell; Name: Equality; Mana: 2; Info: Change all minions health to 1
+Spell; Name: Equality; Mana: 2; Info: Change all minions health to 1
+Spell; Name: Consecration; Mana: 3; Info: Deal 2 damage to all enemies
+Spell; Name: Consecration; Mana: 3; Info: Deal 2 damage to all enemies
+Spell; Name: Divine favor; Mana: 3; Info: Draw cards until you have as many as your opponent
+Spell; Name: Divine favor; Mana: 3; Info: Draw cards until you have as many as your opponent
+Weapon; Name: Truesilver Champion; Mana: 4; Attack: 4; Durability 2
+Weapon; Name: Truesilver Champion; Mana: 4; Attack: 4; Durability 2
+Minion; Name: Abusive Sergeant; Mana: 1; Attack: 1; Health: 1
+Minion; Name: Abusive Sergeant; Mana: 1; Attack: 1; Health: 1
+Minion; Name: Argent Squire; Mana: 1; Attack: 1; Health: 1
+Minion; Name: Argent Squire; Mana: 1; Attack: 1; Health: 1
+Minion; Name: Elven Archer; Mana: 1; Attack: 1; Health: 1
+Minion; Name: Elven Archer; Mana: 1; Attack: 1; Health: 1
+Minion; Name: Leper Gnome; Mana: 1; Attack: 2; Health: 1
+Minion; Name: Leper Gnome; Mana: 1; Attack: 2; Health: 1
+Minion; Name: Worgen Infiltrator; Mana: 1; Attack: 1; Health: 1
+Minion; Name: Worgen Infiltrator; Mana: 1; Attack: 1; Health: 1
+Minion; Name: Bluegill Warrior; Mana: 2; Attack: 1; Health: 1
+Minion; Name: Bluegill Warrior; Mana: 2; Attack: 1; Health: 1
+Minion; Name: Ironbeak Owl; Mana: 3; Attack: 1; Health: 1
+Minion; Name: Ironbeak Owl; Mana: 3; Attack: 1; Health: 1
+Minion; Name: Wolfrider; Mana: 3; Attack: 3; Health: 1
+Minion; Name: Wolfrider; Mana: 3; Attack: 3; Health: 1
+Minion; Name: Senjin Shieldmasta; Mana: 4; Attack: 3; Health: 5
+Minion; Name: Leeroy Jenkins; Mana: 5; Attack: 6; Health: 2
+
+
+
