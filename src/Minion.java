@@ -5,12 +5,14 @@ public class Minion extends Card {
     private int minionAttack;
     private int minionCurrentHealth;
     private int minionMaxHealth;
+    private Boolean minionReadyToAttack;
     private MinionEffect effect;
 
     public Minion(String cardName, int cardCost, int minionAttack, int minionMaxHealth) {
         super(cardName, cardCost);
         this.minionAttack = minionAttack;
         this.minionMaxHealth= minionMaxHealth;
+        this.minionReadyToAttack = false;
     }
 
     public void minionDeath(Minion minion, LinkedList<Minion> cardsOnBoard){
@@ -39,6 +41,11 @@ public class Minion extends Card {
         this.minionCurrentHealth = newMinionHealth;
 
     }
+    public void setMinionReadyToAttack(Boolean minionReadyToAttack) {
+        this.minionReadyToAttack = minionReadyToAttack;
+    }
 
-
+    public Boolean getMinionReadyToAttack() {
+        return minionReadyToAttack;
+    }
 }

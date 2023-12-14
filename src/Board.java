@@ -221,19 +221,21 @@ public class Board {
 
     }
 
-    public void minionClash(Minion m1, Minion m2) {
+    public void minionClash(Minion myMinion, Minion enemyMinion, Board enemyBoard) {
 
-        m2.loseHealth(m1.getMinionAttack());
-        m1.loseHealth(m2.getMinionAttack());
+        enemyMinion.loseHealth(myMinion.getMinionAttack());
+        myMinion.loseHealth(enemyMinion.getMinionAttack());
 
-        m1.minionDeath(m1, minionsOnBoard);
-        m2.minionDeath(m2, minionsOnBoard);
+        myMinion.minionDeath(myMinion, minionsOnBoard);
+        enemyMinion.minionDeath(enemyMinion, enemyBoard.getMinionsOnBoard());
+
+        myMinion.setMinionReadyToAttack(false);
 
     }
 
     public void minionFace(Minion minion, Hero hero) {
         hero.loseHealth(minion.getMinionAttack());
-
+        minion.setMinionReadyToAttack(false);
     }
 
     public void heroFace(Hero h1, Hero h2) {
@@ -252,6 +254,66 @@ public class Board {
         hero.loseHealth(minion.getMinionAttack());
 
     }
+/*
+    public Minion pickMinion(){
+        ui.displayMinionsOnBoardlist(minionsOnBoard);
+        try {
+            switch (ui.getInput()) {
+                case "1":
+                    return minionsOnBoard.get(0);
+                case "2":
+                    return minionsOnBoard.get(1);
+                case "3":
+                    return minionsOnBoard.get(2);
+                case "4":
+                    return minionsOnBoard.get(3);
+                case "5":
+                    return minionsOnBoard.get(4);
+                case "6":
+                    return minionsOnBoard.get(5);
+                case "7":
+                    return minionsOnBoard.get(6);
+                default:
+                    ui.displayMessage("Your input was invalid, please try again");
+                    pickMinion();
+            }
+        } catch (IndexOutOfBoundsException e) {
+            ui.displayMessage("Please pick a minion from the list");
+            pickMinion();
+        }
+        return null;
+    }
+
+ */
+    public Minion pickMinion(LinkedList<Minion> minionList){
+        ui.displayMinionsOnBoardlist(minionList);
+        try {
+            switch (ui.getInput()) {
+                case "1":
+                    return minionList.get(0);
+                case "2":
+                    return minionList.get(1);
+                case "3":
+                    return minionList.get(2);
+                case "4":
+                    return minionList.get(3);
+                case "5":
+                    return minionList.get(4);
+                case "6":
+                    return minionList.get(5);
+                case "7":
+                    return minionList.get(6);
+                default:
+                    ui.displayMessage("Your input was invalid, please try again");
+                    pickMinion(minionList);
+            }
+        } catch (IndexOutOfBoundsException e) {
+            ui.displayMessage("Please pick a minion from the list");
+            pickMinion(minionList);
+        }
+        return null;
+    }
+
     public Minion targetMinion(TextUI ui, Board enemyBoard){
         Minion pickedMinion = null;
         for(int i = 0; i< enemyBoard.minionsOnBoard.size(); i++) {
@@ -307,7 +369,15 @@ public class Board {
     public void setFatigueCount(int fatigueCount) {
         this.fatigueCount = fatigueCount;
     }
-
+    public LinkedList<Minion> getMinionReadyToAttackList(){
+        LinkedList<Minion> minionReadyToAttackList = new LinkedList<>();
+        for(Minion m : minionsOnBoard){
+            if(m.getMinionReadyToAttack()){
+                minionReadyToAttackList.add(m);
+            }
+        }
+        return minionReadyToAttackList;
+    }
 
 }
 

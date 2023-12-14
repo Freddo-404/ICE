@@ -44,6 +44,14 @@ public class TextUI {
         return num;
     }
 
+    public void displayMinionsOnBoardlist(LinkedList<Minion> minionsOnBoard){
+        int count = 1;
+        for (Minion m : minionsOnBoard){
+            displayMessage(count + ". " +m.getCardName() + ", Attack: "+m.getMinionAttack() + ", Health: "+m.getMinionCurrentHealth());
+            count++;
+        }
+
+    }
 
     public void displayHand(Player player) {
         displayMessage(player.getPlayerName() + "'s hand:");
@@ -71,7 +79,12 @@ public class TextUI {
     }
 
     public String displayMinion(Minion minion){
-        return ("["+minion.getMinionAttack()+"/"+minion.getMinionCurrentHealth())+"]";
+        String ready = "";
+        if(minion.getMinionReadyToAttack()){
+            ready="*";
+        }
+
+        return ("["+minion.getMinionAttack()+"/"+minion.getMinionCurrentHealth())+"]"+ready;
 
     }
 

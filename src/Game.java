@@ -1,4 +1,5 @@
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.Random;
 
 public class Game {
@@ -90,7 +91,7 @@ public class Game {
                 currentPlayer.getBoard().pickCard(currentPlayer);
                 break;
             case "2":
-                playerChoiceMenu();
+                attackWithMinion();
                 break;
             case "3":
                 playerChoiceMenu();
@@ -123,6 +124,11 @@ public class Game {
 
         currentPlayer.getBoard().drawCard(1);
 
+        //Minion ready to attack
+        for(Minion m : currentPlayer.getBoard().getMinionsOnBoard()){
+            m.setMinionReadyToAttack(true);
+        }
+
 
     }
     public void winCondition(){
@@ -139,6 +145,43 @@ public class Game {
             gameOver=true;
        }
 
+    }
+    public void attackWithMinion(){
+        if(!currentPlayer.getBoard().getMinionsOnBoard().isEmpty()) {
+
+            if(!currentPlayer.getBoard().getMinionReadyToAttackList().isEmpty()) {
+
+                ui.displayMessage("Pick a minion you want to attack with");
+                Minion pickedMinion = currentPlayer.getBoard().pickMinion(currentPlayer.getBoard().getMinionReadyToAttackList());
+
+                if (!enemyPlayer.getBoard().getMinionsOnBoard().isEmpty()) {
+                    ui.displayMessage("Do you want to attack an enemy minion or the enemy hero?");
+                    ui.displayMessage("1. Enemy minion \n" + "2. Enemy hero \n");
+                    switch (ui.getInput()) {
+                        case "1":
+                            ui.displayMessage("Pick a minion to attack");
+                            currentPlayer.getBoard().minionClash(pickedMinion, enemyPlayer.getBoard().pickMinion(enemyPlayer.getBoard().getMinionsOnBoard()), enemyPlayer.getBoard());
+                            break;
+                        case "2":
+                            currentPlayer.getBoard().minionFace(pickedMinion, enemyPlayer.getBoard().getHero());
+                            break;
+                        default:
+                            ui.displayMessage("Your input was not valid, please try again.");
+                            playerChoiceMenu();
+                    }
+                } else {
+                    currentPlayer.getBoard().minionFace(pickedMinion, enemyPlayer.getBoard().getHero());
+                }
+
+            }
+            else{
+                ui.displayMessage("You have no minions on the board that can attack this turn");
+            }
+
+        }
+        else{
+            ui.displayMessage("You have no minions on the board to attack with");
+        }
     }
 
 }
