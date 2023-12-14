@@ -229,18 +229,18 @@ public class Board {
         hero.loseHealth(minion.getMinionAttack());
 
     }
-    public Minion targetMinion(TextUI ui, Board enemyBoard){
+    public Minion targetMinion(TextUI ui, Board board){
         Minion pickedMinion = null;
-        for(int i = 0; i< enemyBoard.minionsOnBoard.size(); i++) {
-            ui.displayMessage(i+1 + ". " + enemyBoard.minionsOnBoard.get(i).getCardName());
+        for(int i = 0; i< board.minionsOnBoard.size(); i++) {
+            ui.displayMessage(i+1 + ". " + board.minionsOnBoard.get(i).getCardName());
         }
         ui.displayMessage("Choose a minion.");
         int numberInput = ui.getNumericInputInt("Please enter a valid number.");
-        if(numberInput<= enemyBoard.minionsOnBoard.size() && numberInput > 0){
-            pickedMinion = enemyBoard.minionsOnBoard.get(numberInput);
+        if(numberInput<= board.minionsOnBoard.size() && numberInput > 0){
+            pickedMinion = board.minionsOnBoard.get(numberInput);
         } else{
             ui.displayMessage("Invalid number. Please try again.");
-            targetMinion(ui, enemyBoard);
+            targetMinion(ui, board);
         }
         return pickedMinion;
     }
