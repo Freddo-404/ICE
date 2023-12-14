@@ -268,7 +268,47 @@ public class Board {
         return pickedMinion;
     }
 
+    public Hero targetHero(TextUI ui, Board board, Hero hero){
+        ui.displayMessage("Choose which hero to target");
+        int numberInput = ui.getNumericInputInt("1. Enemy hero \n 2. Friendly hero");
 
+        if(numberInput==1){ //target enemy hero
+            return board.getHero();
+        }else if (numberInput==2){ //target friendly hero
+            return hero;
+        }else {
+            ui.displayMessage("Number is invalid, try again");
+            return targetHero(ui,board,hero);
+        }
+
+    }
+
+    public void targetAny(TextUI ui, Board enemyBoard, Board friendlyBoard, Hero enemyHero) {
+
+        int input = ui.getNumericInputInt("Pick the desired type of target. \n 1. Minion \n 2. Heroes");
+        switch (input) {
+            case 1:
+                int inputMinion = ui.getNumericInputInt("Would you like to target an enemy minion or a friendly minion? \n 1. Enemy \n 2. Friendly");
+                switch (inputMinion) {
+                    case 1:
+                        enemyBoard.targetMinion(ui, enemyBoard);
+                        break;
+                    case 2:
+                        friendlyBoard.targetMinion(ui, friendlyBoard);
+                }
+                break;
+            case 2:
+                int inputHero = ui.getNumericInputInt("Would you like to target an enemy hero or a friendly hero?");
+                switch (inputHero) {
+                    case 1:
+                        targetHero(ui, enemyBoard, enemyHero);
+                        break;
+                    case 2:
+                        targetHero(ui,friendlyBoard,getHero());
+                        break;
+                }
+        }
+    }
     public int getCurrentMana(){
         return currentMana;
     }
@@ -289,7 +329,7 @@ public class Board {
         return deck;
     }
 
-    public Hero getHero() {
+    public Hero getHero(){
         return hero;
     }
 

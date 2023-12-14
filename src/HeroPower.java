@@ -25,10 +25,11 @@ public class HeroPower {
         }
     }
 
-    public void mageHeroPower(Board board, TextUI ui, LinkedList<Minion> enemyMinionsOnBoard, LinkedList<Minion> friendlyMinionsOnBoard){
+    public void mageHeroPower(Board board, TextUI ui, Board enemyBoard, Board friendlyBoard, Hero enemyHero){
 
         Minion targetMinion;
-        ui.displayMessage("Please pick a target type. \n 1. Friendly minion \n 2. Enemy minion \n 3. Friendly hero \n 4. Enemy hero");
+        board.targetAny(ui, enemyBoard, friendlyBoard, enemyHero);
+        /*ui.displayMessage("Please pick a target type. \n 1. Enemy minion \n 2. Enemy hero \n 3. Friendly minion \n 4. Enemy hero");
         String input = ui.getInput();
         switch(input){
             case "1":
@@ -40,7 +41,7 @@ public class HeroPower {
                 targetMinion = board.targetMinion(ui,board);
                 targetMinion.loseHealth(1);
                 targetMinion.minionDeath(targetMinion, enemyMinionsOnBoard);
-        }
+        }*/
 
         //return "You use Fireblast on " + targetMinion.getCardName() + ". It loses 1 hp.";
 
