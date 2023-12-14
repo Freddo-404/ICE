@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="Paladin Deck">
-      <change afterPath="$PROJECT_DIR$/src/druid.txt" afterDir="false" />
-    </list>
+    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="Paladin Deck" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

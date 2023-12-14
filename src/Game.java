@@ -40,7 +40,7 @@ public class Game {
 
     public void startUp(){
         new Thread(() -> {
-            BackgroundMusic.playBackgroundMusic("/Users/frederikdupont/Downloads/hearthstonemusic.wav");
+            //BackgroundMusic.playBackgroundMusic("/Users/frederikdupont/Downloads/hearthstonemusic.wav");
         }).start();
         ui.displayMessage("Please enter a name for Player 1.");
         player1 = new Player(ui.getInput());
