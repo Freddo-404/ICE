@@ -58,7 +58,7 @@ public class Board {
     public void playSpell(Spell spell, Card card, Player currentPlayer){
         if (currentMana >= spell.getCardCost()) {
             currentMana = currentMana - spell.getCardCost();
-            spell.getSpellEffect().useSpellEffect(spell, currentPlayer.getBoard());
+            spell.getSpellEffect().useSpellEffect(currentPlayer.getBoard());
             getHand().getCardsInHand().remove(card);
         } else {
           ui.displayMessage("Card cost is too high.");
@@ -107,59 +107,59 @@ public class Board {
 
         }
     }
-    public Card pickCard(Player player) {
+    public Card pickCard(Player currentPlayer) {
         ui.displayMessage("Pick a card you want to play");
-        ui.displayHand(player);
+        ui.displayHand(currentPlayer);
         Card card = null;
         try {
             switch (ui.getInput()) {
                 case "1":
                     card = getHand().getCardsInHand().get(0);
-                    playCard(card);
+                    playCard(card, currentPlayer);
                     break;
                 case "2":
                     card = getHand().getCardsInHand().get(1);
-                    playCard(card);
+                    playCard(card, currentPlayer);
                     break;
                 case "3":
                     card = getHand().getCardsInHand().get(2);
-                    playCard(card);
+                    playCard(card, currentPlayer);
                     break;
                 case "4":
                     card = getHand().getCardsInHand().get(3);
-                    playCard(card);
+                    playCard(card, currentPlayer);
                     break;
                 case "5":
                     card = getHand().getCardsInHand().get(4);
-                    playCard(card);
+                    playCard(card, currentPlayer);
                     break;
                 case "6":
                     card = getHand().getCardsInHand().get(5);
-                    playCard(card);
+                    playCard(card, currentPlayer);
                     break;
                 case "7":
                     card = getHand().getCardsInHand().get(6);
-                    playCard(card);
+                    playCard(card, currentPlayer);
                     break;
                 case "8":
                     card = getHand().getCardsInHand().get(7);
-                    playCard(card);
+                    playCard(card, currentPlayer);
                     break;
                 case "9":
                     card = getHand().getCardsInHand().get(8);
-                    playCard(card);
+                    playCard(card, currentPlayer);
                     break;
                 case "10":
                     card = getHand().getCardsInHand().get(9);
-                    playCard(card);
+                    playCard(card, currentPlayer);
                     break;
                 default:
                     ui.displayMessage("Your input was invalid, please try again");
-                    pickCard(player);
+                    pickCard(currentPlayer);
             }
         } catch (IndexOutOfBoundsException e) {
             ui.displayMessage("Please pick a card from the list");
-            pickCard(player);
+            pickCard(currentPlayer);
         }
         return card;
 
