@@ -21,14 +21,14 @@ public class Board {
 
 
 
-    public void playCard(Card card) {
+    public void playCard(Card card, Player currentPlayer) {
         if (card instanceof Minion) {
             Minion minion = (Minion) card;
             playMinion(minion, card);
 
         } else if (card instanceof Spell) {
             Spell spell = (Spell) card;
-            playSpell(spell, card);
+            playSpell(spell, card, currentPlayer);
         }
         else if (card instanceof Weapon) {
             Weapon weapon = (Weapon) card;
@@ -47,18 +47,18 @@ public class Board {
         }
         else {
             if (currentMana >= minion.getCardCost()) {
-                currentMana = currentMana - minion.getCardCost();
                 putMinionBoard(minion);
+                currentMana = currentMana - minion.getCardCost();
                 getHand().getCardsInHand().remove(card);
             } else {
                 ui.displayMessage("Card cost is too high.");
             }
         }
     }
-    public void playSpell(Spell spell, Card card){
+    public void playSpell(Spell spell, Card card, Player currentPlayer){
         if (currentMana >= spell.getCardCost()) {
             currentMana = currentMana - spell.getCardCost();
-            ui.displayMessage("You got scammed.");
+            spell.getSpellEffect().useSpellEffect(currentPlayer.getBoard());
             getHand().getCardsInHand().remove(card);
         } else {
           ui.displayMessage("Card cost is too high.");
@@ -84,22 +84,46 @@ public class Board {
                 minionsOnBoard.add(0,minion);
                 break;
             case "2":
-                minionsOnBoard.add(1,minion);
+                if(minionsOnBoard.size()>=1){
+                    minionsOnBoard.add(1,minion);
+                }
+                else{
+                minionsOnBoard.add(minion);}
                 break;
             case "3":
-                minionsOnBoard.add(2,minion);
+                if(minionsOnBoard.size()>=2){
+                    minionsOnBoard.add(2,minion);
+                }
+                else{
+                    minionsOnBoard.add(minion);}
                 break;
             case "4":
-                minionsOnBoard.add(3,minion);
+                if(minionsOnBoard.size()>=3){
+                    minionsOnBoard.add(3,minion);
+                }
+                else{
+                    minionsOnBoard.add(minion);}
                 break;
             case "5":
-                minionsOnBoard.add(4,minion);
+                if(minionsOnBoard.size()>=4){
+                    minionsOnBoard.add(4,minion);
+                }
+                else{
+                    minionsOnBoard.add(minion);}
                 break;
             case "6":
-                minionsOnBoard.add(5,minion);
+                if(minionsOnBoard.size()>=5){
+                    minionsOnBoard.add(5,minion);
+                }
+                else{
+                    minionsOnBoard.add(minion);}
                 break;
             case "7":
-                minionsOnBoard.add(6,minion);
+                if(minionsOnBoard.size()>=6){
+                    minionsOnBoard.add(6,minion);
+                }
+                else{
+                    minionsOnBoard.add(minion);}
                 break;
             default:
                 ui.displayMessage("Your input was not valid, please try again.");
@@ -107,61 +131,60 @@ public class Board {
 
         }
     }
-    public Card pickCard(Player player) {
+    public void pickCard(Player currentPlayer) {
         ui.displayMessage("Pick a card you want to play");
-        ui.displayHand(player);
-        Card card = null;
+        ui.displayHand(currentPlayer);
+        Card card;
         try {
             switch (ui.getInput()) {
                 case "1":
                     card = getHand().getCardsInHand().get(0);
-
+                    playCard(card, currentPlayer);
                     break;
                 case "2":
                     card = getHand().getCardsInHand().get(1);
-
+                    playCard(card, currentPlayer);
                     break;
                 case "3":
                     card = getHand().getCardsInHand().get(2);
-
+                    playCard(card, currentPlayer);
                     break;
                 case "4":
                     card = getHand().getCardsInHand().get(3);
-
+                    playCard(card, currentPlayer);
                     break;
                 case "5":
                     card = getHand().getCardsInHand().get(4);
-
+                    playCard(card, currentPlayer);
                     break;
                 case "6":
                     card = getHand().getCardsInHand().get(5);
-
+                    playCard(card, currentPlayer);
                     break;
                 case "7":
                     card = getHand().getCardsInHand().get(6);
-
+                    playCard(card, currentPlayer);
                     break;
                 case "8":
                     card = getHand().getCardsInHand().get(7);
-
+                    playCard(card, currentPlayer);
                     break;
                 case "9":
                     card = getHand().getCardsInHand().get(8);
-
+                    playCard(card, currentPlayer);
                     break;
                 case "10":
                     card = getHand().getCardsInHand().get(9);
-
+                    playCard(card, currentPlayer);
                     break;
                 default:
                     ui.displayMessage("Your input was invalid, please try again");
-                    pickCard(player);
+                    pickCard(currentPlayer);
             }
         } catch (IndexOutOfBoundsException e) {
             ui.displayMessage("Please pick a card from the list");
-            pickCard(player);
+            pickCard(currentPlayer);
         }
-        return card;
 
     }
 
