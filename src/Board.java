@@ -21,14 +21,14 @@ public class Board {
 
 
 
-    public void playCard(Card card) {
+    public void playCard(Card card, Player currentPlayer) {
         if (card instanceof Minion) {
             Minion minion = (Minion) card;
             playMinion(minion, card);
 
         } else if (card instanceof Spell) {
             Spell spell = (Spell) card;
-            playSpell(spell, card);
+            playSpell(spell, card, currentPlayer);
         }
         else if (card instanceof Weapon) {
             Weapon weapon = (Weapon) card;
@@ -55,10 +55,10 @@ public class Board {
             }
         }
     }
-    public void playSpell(Spell spell, Card card){
+    public void playSpell(Spell spell, Card card, Player currentPlayer){
         if (currentMana >= spell.getCardCost()) {
             currentMana = currentMana - spell.getCardCost();
-            ui.displayMessage("You got scammed.");
+            spell.getSpellEffect().useSpellEffect(spell, currentPlayer.getBoard());
             getHand().getCardsInHand().remove(card);
         } else {
           ui.displayMessage("Card cost is too high.");
