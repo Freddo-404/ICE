@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="mage deck" />
+    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="Paladin Deck">
+      <change afterPath="$PROJECT_DIR$/src/druid.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,15 +146,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702550825939</updated>
     </task>
-    <task id="LOCAL-00009" summary="mage deck">
+    <task id="LOCAL-00009" summary="Warlock deck">
       <option name="closed" value="true" />
-      <created>1702565171666</created>
+      <created>1702564279615</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1702565171666</updated>
+      <updated>1702564279615</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Paladin Deck">
+      <option name="closed" value="true" />
+      <created>1702565221698</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1702565221698</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +183,8 @@
     <MESSAGE value="Game fatigue virker!" />
     <MESSAGE value="the coin pls virk" />
     <MESSAGE value="Target Hero" />
-    <MESSAGE value="mage deck" />
-    <option name="LAST_COMMIT_MESSAGE" value="mage deck" />
+    <MESSAGE value="Warlock deck" />
+    <MESSAGE value="Paladin Deck" />
+    <option name="LAST_COMMIT_MESSAGE" value="Paladin Deck" />
   </component>
 </project>
