@@ -10,6 +10,15 @@ public SpellEffect(String spellName){
            case "The coin":
                myBoard.setCurrentMana(myBoard.getCurrentMana()+1);
                break;
+           case "FireBall":
+                //mangler
+               break;
+           case "Arcane Intellect":
+                myBoard.drawCard(2);
+                break;
+           case "Polymorph":
+               //Mangler
+               break;
            default:
                System.out.println("Spell missing in SpellEffect");
                break;
