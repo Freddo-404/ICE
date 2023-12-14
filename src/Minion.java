@@ -31,6 +31,7 @@ public class Minion extends Card {
 
 
     public int getMinionCurrentHealth() {
+        this.minionCurrentHealth=minionMaxHealth;
         return minionCurrentHealth;
     }
 

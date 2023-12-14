@@ -71,7 +71,6 @@ public class TextUI {
     }
 
     public String displayMinion(Minion minion){
-
         return ("["+minion.getMinionAttack()+"/"+minion.getMinionCurrentHealth())+"]";
 
     }
