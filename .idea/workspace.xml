@@ -7,6 +7,8 @@
     <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="Minion attack stadig mange bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Minion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Minion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +29,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -79,7 +84,9 @@
       <workItem from="1701860532929" duration="16634000" />
       <workItem from="1702030822095" duration="1223000" />
       <workItem from="1702469473665" duration="3410000" />
-      <workItem from="1702567176399" duration="338000" />
+      <workItem from="1702567176399" duration="587000" />
+      <workItem from="1702584769191" duration="22000" />
+      <workItem from="1702586359344" duration="3212000" />
     </task>
     <task id="LOCAL-00001" summary="i am inside your walls">
       <option name="closed" value="true" />
@@ -161,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702566142012</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Minion attack stadig mange bugs">
+      <option name="closed" value="true" />
+      <created>1702567761546</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1702567761546</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

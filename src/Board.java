@@ -287,31 +287,40 @@ public class Board {
  */
     public Minion pickMinion(LinkedList<Minion> minionList){
         ui.displayMinionsOnBoardlist(minionList);
+        Minion minion = null;
+
         try {
             switch (ui.getInput()) {
                 case "1":
-                    return minionList.get(0);
+                    minion = minionList.get(0);
+                    break;
                 case "2":
-                    return minionList.get(1);
+                    minion = minionList.get(1);
+                    break;
                 case "3":
-                    return minionList.get(2);
+                    minion = minionList.get(2);
+                    break;
                 case "4":
-                    return minionList.get(3);
+                    minion = minionList.get(3);
+                    break;
                 case "5":
-                    return minionList.get(4);
+                    minion = minionList.get(4);
+                    break;
                 case "6":
-                    return minionList.get(5);
+                    minion = minionList.get(5);
+                    break;
                 case "7":
-                    return minionList.get(6);
+                    minion = minionList.get(6);
+                    break;
                 default:
                     ui.displayMessage("Your input was invalid, please try again");
-                    pickMinion(minionList);
+                    return pickMinion(minionList);
             }
         } catch (IndexOutOfBoundsException e) {
             ui.displayMessage("Please pick a minion from the list");
-            pickMinion(minionList);
+            return pickMinion(minionList);
         }
-        return pickMinion(minionList);
+        return minion;
     }
 
     public Minion targetMinion(TextUI ui, Board enemyBoard){

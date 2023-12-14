@@ -11,7 +11,8 @@ public class Minion extends Card {
     public Minion(String cardName, int cardCost, int minionAttack, int minionMaxHealth) {
         super(cardName, cardCost);
         this.minionAttack = minionAttack;
-        this.minionMaxHealth= minionMaxHealth;
+        this.minionMaxHealth = minionMaxHealth;
+        this.minionCurrentHealth = minionMaxHealth;
         this.minionReadyToAttack = false;
     }
 
@@ -33,7 +34,6 @@ public class Minion extends Card {
 
 
     public int getMinionCurrentHealth() {
-        this.minionCurrentHealth=minionMaxHealth;
         return minionCurrentHealth;
     }
 

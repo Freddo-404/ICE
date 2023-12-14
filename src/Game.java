@@ -128,6 +128,9 @@ public class Game {
         for(Minion m : currentPlayer.getBoard().getMinionsOnBoard()){
             m.setMinionReadyToAttack(true);
         }
+        for(Minion m : enemyPlayer.getBoard().getMinionsOnBoard()){
+            m.setMinionReadyToAttack(false);
+        }
 
 
     }
