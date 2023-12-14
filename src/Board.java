@@ -254,37 +254,7 @@ public class Board {
         hero.loseHealth(minion.getMinionAttack());
 
     }
-/*
-    public Minion pickMinion(){
-        ui.displayMinionsOnBoardlist(minionsOnBoard);
-        try {
-            switch (ui.getInput()) {
-                case "1":
-                    return minionsOnBoard.get(0);
-                case "2":
-                    return minionsOnBoard.get(1);
-                case "3":
-                    return minionsOnBoard.get(2);
-                case "4":
-                    return minionsOnBoard.get(3);
-                case "5":
-                    return minionsOnBoard.get(4);
-                case "6":
-                    return minionsOnBoard.get(5);
-                case "7":
-                    return minionsOnBoard.get(6);
-                default:
-                    ui.displayMessage("Your input was invalid, please try again");
-                    pickMinion();
-            }
-        } catch (IndexOutOfBoundsException e) {
-            ui.displayMessage("Please pick a minion from the list");
-            pickMinion();
-        }
-        return null;
-    }
 
- */
     public Minion pickMinion(LinkedList<Minion> minionList){
         ui.displayMinionsOnBoardlist(minionList);
         Minion minion = null;
