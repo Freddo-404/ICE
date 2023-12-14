@@ -115,43 +115,43 @@ public class Board {
             switch (ui.getInput()) {
                 case "1":
                     card = getHand().getCardsInHand().get(0);
-
+                    playCard(card);
                     break;
                 case "2":
                     card = getHand().getCardsInHand().get(1);
-
+                    playCard(card);
                     break;
                 case "3":
                     card = getHand().getCardsInHand().get(2);
-
+                    playCard(card);
                     break;
                 case "4":
                     card = getHand().getCardsInHand().get(3);
-
+                    playCard(card);
                     break;
                 case "5":
                     card = getHand().getCardsInHand().get(4);
-
+                    playCard(card);
                     break;
                 case "6":
                     card = getHand().getCardsInHand().get(5);
-
+                    playCard(card);
                     break;
                 case "7":
                     card = getHand().getCardsInHand().get(6);
-
+                    playCard(card);
                     break;
                 case "8":
                     card = getHand().getCardsInHand().get(7);
-
+                    playCard(card);
                     break;
                 case "9":
                     card = getHand().getCardsInHand().get(8);
-
+                    playCard(card);
                     break;
                 case "10":
                     card = getHand().getCardsInHand().get(9);
-
+                    playCard(card);
                     break;
                 default:
                     ui.displayMessage("Your input was invalid, please try again");

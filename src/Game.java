@@ -87,7 +87,7 @@ public class Game {
         switch(ui.getInput()){
 
             case "1":
-                playerChoiceMenu();
+                currentPlayer.getBoard().pickCard(currentPlayer);
                 break;
             case "2":
                 playerChoiceMenu();
