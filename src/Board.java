@@ -47,8 +47,8 @@ public class Board {
         }
         else {
             if (currentMana >= minion.getCardCost()) {
-                currentMana = currentMana - minion.getCardCost();
                 putMinionBoard(minion);
+                currentMana = currentMana - minion.getCardCost();
                 getHand().getCardsInHand().remove(card);
             } else {
                 ui.displayMessage("Card cost is too high.");
@@ -84,22 +84,46 @@ public class Board {
                 minionsOnBoard.add(0,minion);
                 break;
             case "2":
-                minionsOnBoard.add(1,minion);
+                if(minionsOnBoard.size()>=1){
+                    minionsOnBoard.add(1,minion);
+                }
+                else{
+                minionsOnBoard.add(minion);}
                 break;
             case "3":
-                minionsOnBoard.add(2,minion);
+                if(minionsOnBoard.size()>=2){
+                    minionsOnBoard.add(2,minion);
+                }
+                else{
+                    minionsOnBoard.add(minion);}
                 break;
             case "4":
-                minionsOnBoard.add(3,minion);
+                if(minionsOnBoard.size()>=3){
+                    minionsOnBoard.add(3,minion);
+                }
+                else{
+                    minionsOnBoard.add(minion);}
                 break;
             case "5":
-                minionsOnBoard.add(4,minion);
+                if(minionsOnBoard.size()>=4){
+                    minionsOnBoard.add(4,minion);
+                }
+                else{
+                    minionsOnBoard.add(minion);}
                 break;
             case "6":
-                minionsOnBoard.add(5,minion);
+                if(minionsOnBoard.size()>=5){
+                    minionsOnBoard.add(5,minion);
+                }
+                else{
+                    minionsOnBoard.add(minion);}
                 break;
             case "7":
-                minionsOnBoard.add(6,minion);
+                if(minionsOnBoard.size()>=6){
+                    minionsOnBoard.add(6,minion);
+                }
+                else{
+                    minionsOnBoard.add(minion);}
                 break;
             default:
                 ui.displayMessage("Your input was not valid, please try again.");
@@ -107,10 +131,10 @@ public class Board {
 
         }
     }
-    public Card pickCard(Player currentPlayer) {
+    public void pickCard(Player currentPlayer) {
         ui.displayMessage("Pick a card you want to play");
         ui.displayHand(currentPlayer);
-        Card card = null;
+        Card card;
         try {
             switch (ui.getInput()) {
                 case "1":
@@ -161,7 +185,6 @@ public class Board {
             ui.displayMessage("Please pick a card from the list");
             pickCard(currentPlayer);
         }
-        return card;
 
     }
 
