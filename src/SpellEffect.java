@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class SpellEffect extends Effect {
     private String spellName;
 
@@ -31,6 +33,47 @@ public class SpellEffect extends Effect {
                 pickedMinion.setMinionAttack(1);
                 pickedMinion.setCardName("Sheep");
                 ui.displayMessage("Your target is now a sheep. Mæææ!");
+                break;
+            case "Arcane Missiles":
+                Random ran = new Random();
+                int ranNum;
+
+                for (int i = 0; i < 3 ; i++) {
+                    ranNum = ran.nextInt(enemyBoard.getMinionsOnBoard().size() + 1);
+                    switch (ranNum) {
+                        case 0:
+                            enemyBoard.getHero().loseHealth(1);
+                            break;
+                        case 1:
+                            enemyBoard.getMinionsOnBoard().get(0).loseHealth(1);
+                            break;
+                        case 2:
+                            enemyBoard.getMinionsOnBoard().get(1).loseHealth(1);
+                            break;
+                        case 3:
+                            enemyBoard.getMinionsOnBoard().get(2).loseHealth(1);
+                            break;
+                        case 4:
+                            enemyBoard.getMinionsOnBoard().get(3).loseHealth(1);
+                            break;
+                        case 5:
+                            enemyBoard.getMinionsOnBoard().get(4).loseHealth(1);
+                            break;
+                        case 6:
+                            enemyBoard.getMinionsOnBoard().get(5).loseHealth(1);
+                            break;
+                        case 7:
+                            enemyBoard.getMinionsOnBoard().get(6).loseHealth(1);
+                            break;
+                        default:
+                            ui.displayMessage("Something went wrong with ranNum in Arcane Missiles.");
+
+                    }
+                }
+                ui.displayMessage("You deal 3 damage randomly split among all enemy characters");
+                break;
+            case "Ice Lance":
+
                 break;
             default:
                 System.out.println("Spell missing in SpellEffect");

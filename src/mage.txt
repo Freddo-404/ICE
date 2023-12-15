@@ -2,8 +2,8 @@ Spell; Name: Arcane Missiles; Mana: 1; Info: Deal 3 damage randomly split among 
 Spell; Name: Arcane Missiles; Mana: 1; Info: Deal 3 damage randomly split among all enemy characters
 Minion; Name: Leper Gnome; Mana: 1 Attack: 2; Health: 1; Info: DEATHRATTLE deal 2 damage to the enemy hero
 Minion; Name: Leper Gnome; Mana: 1 Attack: 2; Health: 1; Info: DEATHRATTLE deal 2 damage to the enemy hero
-Spell; Name; Ice LanceName; Mana 1; Info: FREEZE a character. If it was already FROZEN deal 4 damage instead
-Spell; Name; Ice LanceName; Mana 1; Info: FREEZE a character. If it was already FROZEN deal 4 damage instead
+Spell; Name; Ice Lance; Mana 1; Info: FREEZE a character. If it was already FROZEN deal 4 damage instead
+Spell; Name; Ice Lance; Mana 1; Info: FREEZE a character. If it was already FROZEN deal 4 damage instead
 Minion; Name: Mana Wyrm; Mana: 1 Attack: 1; Health: 3; Info: Whenever you cast a spell gain 1+ attack
 Minion; Name: Mana Wyrm; Mana: 1 Attack: 1; Health: 3; Info: Whenever you cast a spell gain 1+ attack
 Spell; Name: Mirror Image; Mana: 1; Info: Summon two 0/2 minions with taunt
