@@ -316,6 +316,9 @@ public class Board {
                         case 2:
                             fireballMinion(dmg, minionsOnBoard);
                             break;
+                        default:
+                            ui.displayMessage("Your input was invalid. Please try again.");
+                            fireballAny(dmg,enemyBoard);
                     }
                     break;
                 case 2:
@@ -328,8 +331,13 @@ public class Board {
                         case 2:
                             fireballHero(dmg,hero);
                             break;
-                    }
-            }
+                        default:
+                            ui.displayMessage("Your input was invalid. Please try again.");
+                            fireballAny(dmg,enemyBoard);
+                    } default:
+                        ui.displayMessage("Your input was invalid. Please try again.");
+                        fireballAny(dmg,enemyBoard);
+            } 
         }
         public int getCurrentMana () {
             return currentMana;
