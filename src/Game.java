@@ -212,6 +212,7 @@ public class Game {
                         break;
                     case "2":
                       currentPlayer.getBoard().heroFace(currentPlayer.getBoard().getHero(), enemyPlayer.getBoard().getHero());
+                        heroReadyToAttack = false;
                         break;
                     default:
                         ui.displayMessage("Your input was not valid, please try again.");
