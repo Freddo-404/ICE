@@ -3,11 +3,11 @@ import java.util.LinkedList;
 public class HeroPower {
 
 
-    public void useHeroPower(String heroClass, Board enemyBoard, Board friendlyBoard, TextUI ui, Hero enemyHero) {
+    public void useHeroPower(String heroClass, Board friendlyBoard, Board enemyBoard, TextUI ui) {
 
         switch (heroClass) {
             case "Mage":
-                mageHeroPower(ui, enemyBoard, friendlyBoard, enemyHero);
+                mageHeroPower(friendlyBoard, enemyBoard, ui);
             break;
             case "Hunter":
                 hunterHeroPower(enemyBoard.getHero(), ui);
@@ -27,24 +27,9 @@ public class HeroPower {
         }
     }
 
-    public void mageHeroPower(TextUI ui, Board enemyBoard, Board friendlyBoard, Hero enemyHero){
-
-        friendlyBoard.targetAny(ui, enemyBoard, friendlyBoard, enemyHero);
-        /*ui.displayMessage("Please pick a target type. \n 1. Enemy minion \n 2. Enemy hero \n 3. Friendly minion \n 4. Enemy hero");
-        String input = ui.getInput();
-        switch(input){
-            case "1":
-                targetMinion = board.targetMinion(ui,board);
-                targetMinion.loseHealth(1);
-                targetMinion.minionDeath(targetMinion, friendlyMinionsOnBoard);
-                break;
-            case "2":
-                targetMinion = board.targetMinion(ui,board);
-                targetMinion.loseHealth(1);
-                targetMinion.minionDeath(targetMinion, enemyMinionsOnBoard);
-        }*/
-
-        //return "You use Fireblast on " + targetMinion.getCardName() + ". It loses 1 hp.";
+    public void mageHeroPower(Board friendlyBoard, Board enemyBoard, TextUI ui){
+        friendlyBoard.fireballAny(1, enemyBoard);
+        ui.displayMessage("Your target is hit by Fireblast and loses 1 hp.");
 
 
     }

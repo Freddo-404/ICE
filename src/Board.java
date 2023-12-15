@@ -294,38 +294,16 @@ public class Board {
     }
 
 
-        public Minion targetMinion (TextUI ui, Board board){
-            Minion pickedMinion = null;
-            for (int i = 0; i < board.minionsOnBoard.size(); i++) {
-                ui.displayMessage(i + 1 + ". " + board.minionsOnBoard.get(i).getCardName());
-            }
-            ui.displayMessage("Choose a minion.");
-            int numberInput = ui.getNumericInputInt("Please enter a valid number.");
-            if (numberInput <= board.minionsOnBoard.size() && numberInput > 0) {
-                pickedMinion = board.minionsOnBoard.get(numberInput);
-            } else {
-                ui.displayMessage("Invalid number. Please try again.");
-                targetMinion(ui, board);
-            }
-            return pickedMinion;
+        public void fireballMinion (int dmg, LinkedList<Minion> minionList){
+            Minion pickedMinion = pickMinion(minionList);
+            pickedMinion.loseHealth(dmg);
         }
 
-        public Hero targetHero (TextUI ui, Board board, Hero hero){
-            ui.displayMessage("Choose which hero to target");
-            int numberInput = ui.getNumericInputInt("1. Enemy hero \n 2. Friendly hero");
-
-            if (numberInput == 1) { //target enemy hero
-                return board.getHero();
-            } else if (numberInput == 2) { //target friendly hero
-                return hero;
-            } else {
-                ui.displayMessage("Number is invalid, try again");
-                return targetHero(ui, board, hero);
-            }
-
+        public void fireballHero (int dmg, Hero heroTarget){
+            heroTarget.loseHealth(dmg);
         }
 
-        public void targetAny (TextUI ui, Board enemyBoard, Board friendlyBoard, Hero enemyHero){
+        public void fireballAny (int dmg, Board enemyBoard){
 
             int input = ui.getNumericInputInt("Pick the desired type of target. \n 1. Minion \n 2. Heroes");
             switch (input) {
@@ -333,20 +311,22 @@ public class Board {
                     int inputMinion = ui.getNumericInputInt("Would you like to target an enemy minion or a friendly minion? \n 1. Enemy \n 2. Friendly");
                     switch (inputMinion) {
                         case 1:
-                            enemyBoard.targetMinion(ui, enemyBoard);
+                            fireballMinion(dmg, enemyBoard.minionsOnBoard);
                             break;
                         case 2:
-                            friendlyBoard.targetMinion(ui, friendlyBoard);
+                            fireballMinion(dmg, minionsOnBoard);
+                            break;
                     }
                     break;
                 case 2:
                     int inputHero = ui.getNumericInputInt("Would you like to target an enemy hero or a friendly hero?");
                     switch (inputHero) {
                         case 1:
-                            targetHero(ui, enemyBoard, enemyHero);
+                            fireballHero(dmg,enemyBoard.getHero());
+
                             break;
                         case 2:
-                            targetHero(ui, friendlyBoard, getHero());
+                            fireballHero(dmg,hero);
                             break;
                     }
             }
