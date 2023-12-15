@@ -28,13 +28,27 @@ public class HeroPower {
     }
 
     public void mageHeroPower(Board myBoard, Board enemyBoard, TextUI ui){
-/*
-        Minion targetMinion = board.targetMinion(ui, board);
-        targetMinion.loseHealth(1);
-        targetMinion.minionDeath(targetMinion, enemyMinionsOnBoard);
-        ui.displayMessage("You use Fireblast. Your target loses 1 hp.");
 
- */
+        if (!enemyBoard.getMinionsOnBoard().isEmpty()) {
+            ui.displayMessage("Do you want to attack an enemy minion, the enemy hero, one of your own minions or your own hero?");
+            ui.displayMessage("1. Enemy minion \n" + "2. Enemy hero \n"+"3. Your minion \n"+ "4. Your hero");
+            switch (ui.getInput()) {
+                case "1":
+                    ui.displayMessage("Pick a minion to attack");
+
+                    break;
+                case "2":
+
+                    break;
+                default:
+                    ui.displayMessage("Your input was not valid, please try again.");
+                    mageHeroPower(myBoard, enemyBoard, ui);
+            }
+        } else {
+
+        }
+
+
     }
     public void hunterHeroPower(Hero enemyHero, TextUI ui){
         enemyHero.loseHealth(2);
