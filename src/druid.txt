@@ -23,7 +23,7 @@ Minion; Name: Big Game Hunter; Mana: 4; Attack: 4; Health: 2
 Minion; Name: Big Game Hunter; Mana: 4; Attack: 4; Health: 2
 Minion; Name: Violet Teacher; Mana: 4; Attack: 3 Health: 5
 Minion; Name: Senjin Shieldmasta; Mana: 4; Attack: 3; Health: 5
-Minion; Name: Senjin Shieldmasta; Mana: 4; Attack: 3; Health: 5
+Minion; Name: Senjin Shieldmasta; Mana: 4; Attack: 3; Health:
 Minion; Name: Leeroy Jenkins; Mana: 5; Attack: 6; Health: 2
 Minion; Name: Azure Drake; Mana: 5; Attack: 4; Health: 5
 Minion; Name: Azure Drake; Mana: 5; Attack: 4; Health: 5

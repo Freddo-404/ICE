@@ -11,8 +11,8 @@ Minion; Name: Knife Juggler; Mana: 2; Attack: 3; Health: 2
 Minion; Name: Knife Juggler; Mana: 2; Attack: 3; Health: 3
 Minion; Name: Dire Wolf Alpha; Mana: 2; Attack: 2; Health: 2
 Minion; Name: Dire Wolf Alpha; Mana: 2; Attack: 2; Health: 2
-Minion; Name: Knife Juggler; Mana: 2; Attack: 3; Health: 2
-Minion; Name: Knife Juggler; Mana: 2; Attack: 3; Health: 2
+Spell; Name: Arcane Shot; Mana: 1; Info: Deal 2 damage
+Spell; Name: Arcane Shot; Mana: 1; Info: Deal 2 damage
 Minion; Name: IronBeak Owl; Mana: 3; Attack: 2; Health: 1
 Minion; Name: Ironbeak Owl; Mana: 3; Attack: 2; Health: 1
 Minion; Name: Shattered Sun Cleric; Mana: 3; Attack: 3; Health: 2
