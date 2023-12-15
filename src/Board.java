@@ -19,8 +19,6 @@ public class Board {
     }
 
 
-
-
     public void playCard(Card card, Player currentPlayer) {
         if (card instanceof Minion) {
             Minion minion = (Minion) card;
@@ -29,23 +27,19 @@ public class Board {
         } else if (card instanceof Spell) {
             Spell spell = (Spell) card;
             playSpell(spell, card, currentPlayer);
-        }
-        else if (card instanceof Weapon) {
+        } else if (card instanceof Weapon) {
             Weapon weapon = (Weapon) card;
             playWeapon(weapon, card);
-        }
-       else {
-        System.out.println("Something went wrong with instanceof");
+        } else {
+            System.out.println("Something went wrong with instanceof");
         }
     }
 
 
-
-    public void playMinion(Minion minion, Card card){
-        if(minionsOnBoard.size()>=maxBoardSize){
+    public void playMinion(Minion minion, Card card) {
+        if (minionsOnBoard.size() >= maxBoardSize) {
             ui.displayMessage("Board is full. You can not play more minions.");
-        }
-        else {
+        } else {
             if (currentMana >= minion.getCardCost()) {
                 putMinionBoard(minion);
                 currentMana = currentMana - minion.getCardCost();
@@ -55,24 +49,26 @@ public class Board {
             }
         }
     }
-    public void playSpell(Spell spell, Card card, Player currentPlayer){
+
+    public void playSpell(Spell spell, Card card, Player currentPlayer) {
         if (currentMana >= spell.getCardCost()) {
             currentMana = currentMana - spell.getCardCost();
             spell.getSpellEffect().useSpellEffect(currentPlayer.getBoard());
             getHand().getCardsInHand().remove(card);
         } else {
-          ui.displayMessage("Card cost is too high.");
+            ui.displayMessage("Card cost is too high.");
         }
 
     }
-    public void playWeapon(Weapon weapon, Card card){
+
+    public void playWeapon(Weapon weapon, Card card) {
         if (currentMana >= weapon.getCardCost()) {
             currentMana = currentMana - weapon.getCardCost();
             getHero().equipWeapon(weapon);
             getHand().getCardsInHand().remove(card);
 
         } else {
-          ui.displayMessage("Card cost is too high.");
+            ui.displayMessage("Card cost is too high.");
         }
     }
 
@@ -81,49 +77,49 @@ public class Board {
         ui.displayMessage("1. Spot 1 \n" + "2. Spot 2 \n" + "3. Spot 3 \n" + "4. Spot 4 \n" + "5. Spot 5\n" + "6. Spot 6\n" + "7. Spot 7");
         switch (ui.getInput()) {
             case "1":
-                minionsOnBoard.add(0,minion);
+                minionsOnBoard.add(0, minion);
                 break;
             case "2":
-                if(minionsOnBoard.size()>=1){
-                    minionsOnBoard.add(1,minion);
+                if (minionsOnBoard.size() >= 1) {
+                    minionsOnBoard.add(1, minion);
+                } else {
+                    minionsOnBoard.add(minion);
                 }
-                else{
-                minionsOnBoard.add(minion);}
                 break;
             case "3":
-                if(minionsOnBoard.size()>=2){
-                    minionsOnBoard.add(2,minion);
+                if (minionsOnBoard.size() >= 2) {
+                    minionsOnBoard.add(2, minion);
+                } else {
+                    minionsOnBoard.add(minion);
                 }
-                else{
-                    minionsOnBoard.add(minion);}
                 break;
             case "4":
-                if(minionsOnBoard.size()>=3){
-                    minionsOnBoard.add(3,minion);
+                if (minionsOnBoard.size() >= 3) {
+                    minionsOnBoard.add(3, minion);
+                } else {
+                    minionsOnBoard.add(minion);
                 }
-                else{
-                    minionsOnBoard.add(minion);}
                 break;
             case "5":
-                if(minionsOnBoard.size()>=4){
-                    minionsOnBoard.add(4,minion);
+                if (minionsOnBoard.size() >= 4) {
+                    minionsOnBoard.add(4, minion);
+                } else {
+                    minionsOnBoard.add(minion);
                 }
-                else{
-                    minionsOnBoard.add(minion);}
                 break;
             case "6":
-                if(minionsOnBoard.size()>=5){
-                    minionsOnBoard.add(5,minion);
+                if (minionsOnBoard.size() >= 5) {
+                    minionsOnBoard.add(5, minion);
+                } else {
+                    minionsOnBoard.add(minion);
                 }
-                else{
-                    minionsOnBoard.add(minion);}
                 break;
             case "7":
-                if(minionsOnBoard.size()>=6){
-                    minionsOnBoard.add(6,minion);
+                if (minionsOnBoard.size() >= 6) {
+                    minionsOnBoard.add(6, minion);
+                } else {
+                    minionsOnBoard.add(minion);
                 }
-                else{
-                    minionsOnBoard.add(minion);}
                 break;
             default:
                 ui.displayMessage("Your input was not valid, please try again.");
@@ -131,6 +127,7 @@ public class Board {
 
         }
     }
+
     public void pickCard(Player currentPlayer) {
         ui.displayMessage("Pick a card you want to play");
         ui.displayHand(currentPlayer);
@@ -189,34 +186,33 @@ public class Board {
     }
 
 
-    public void startHandCurrentPlayer(){
+    public void startHandCurrentPlayer() {
         drawCard(3);
     }
-    public void startHandEnemyPlayer(){
+
+    public void startHandEnemyPlayer() {
         drawCard(4);
-        Spell coin = new Spell("The coin",0);
+        Spell coin = new Spell("The coin", 0);
         hand.getCardsInHand().add(coin);
     }
 
 
     public void drawCard(int amount) {
-        for (int i=0; i<amount; i++) {
+        for (int i = 0; i < amount; i++) {
             if (!deck.getCardsInDeck().isEmpty()) {
                 if (hand.getCardsInHand().size() < hand.getMaxHandSize()) {
                     hand.getCardsInHand().add(deck.getCardsInDeck().poll());
+                } else {
+                    deck.getCardsInDeck().remove();
                 }
-                    else {
-                        deck.getCardsInDeck().remove();
-                    }
-            }
-            else {
+            } else {
                 drawFatigue();
             }
         }
     }
 
     public void drawFatigue() {
-        setFatigueCount(getFatigueCount()+1);
+        setFatigueCount(getFatigueCount() + 1);
         hero.loseHealth(fatigueCount);
 
     }
@@ -254,150 +250,153 @@ public class Board {
         hero.loseHealth(minion.getMinionAttack());
 
     }
-    public Minion targetMinion(TextUI ui, Board board){
 
-    public Minion pickMinion(LinkedList<Minion> minionList){
+
+
+    public Minion pickMinion (LinkedList <Minion> minionList) {
         ui.displayMinionsOnBoardlist(minionList);
         Minion minion = null;
 
-        try {
-            switch (ui.getInput()) {
-                case "1":
-                    minion = minionList.get(0);
-                    break;
-                case "2":
-                    minion = minionList.get(1);
-                    break;
-                case "3":
-                    minion = minionList.get(2);
-                    break;
-                case "4":
-                    minion = minionList.get(3);
-                    break;
-                case "5":
-                    minion = minionList.get(4);
-                    break;
-                case "6":
-                    minion = minionList.get(5);
-                    break;
-                case "7":
-                    minion = minionList.get(6);
-                    break;
-                default:
-                    ui.displayMessage("Your input was invalid, please try again");
-                    return pickMinion(minionList);
+            try {
+                switch (ui.getInput()) {
+                    case "1":
+                        minion = minionList.get(0);
+                        break;
+                    case "2":
+                        minion = minionList.get(1);
+                        break;
+                    case "3":
+                        minion = minionList.get(2);
+                        break;
+                    case "4":
+                        minion = minionList.get(3);
+                        break;
+                    case "5":
+                        minion = minionList.get(4);
+                        break;
+                    case "6":
+                        minion = minionList.get(5);
+                        break;
+                    case "7":
+                        minion = minionList.get(6);
+                        break;
+                    default:
+                        ui.displayMessage("Your input was invalid, please try again");
+                        return pickMinion(minionList);
+                }
+            } catch (IndexOutOfBoundsException e) {
+                ui.displayMessage("Please pick a minion from the list");
+                return pickMinion(minionList);
             }
-        } catch (IndexOutOfBoundsException e) {
-            ui.displayMessage("Please pick a minion from the list");
-            return pickMinion(minionList);
+            return minion;
         }
-        return minion;
-    }
 
-    public Minion targetMinion(TextUI ui, Board enemyBoard){
-        Minion pickedMinion = null;
-        for(int i = 0; i< board.minionsOnBoard.size(); i++) {
-            ui.displayMessage(i+1 + ". " + board.minionsOnBoard.get(i).getCardName());
+
+        public Minion targetMinion (TextUI ui, Board board){
+            Minion pickedMinion = null;
+            for (int i = 0; i < board.minionsOnBoard.size(); i++) {
+                ui.displayMessage(i + 1 + ". " + board.minionsOnBoard.get(i).getCardName());
+            }
+            ui.displayMessage("Choose a minion.");
+            int numberInput = ui.getNumericInputInt("Please enter a valid number.");
+            if (numberInput <= board.minionsOnBoard.size() && numberInput > 0) {
+                pickedMinion = board.minionsOnBoard.get(numberInput);
+            } else {
+                ui.displayMessage("Invalid number. Please try again.");
+                targetMinion(ui, board);
+            }
+            return pickedMinion;
         }
-        ui.displayMessage("Choose a minion.");
-        int numberInput = ui.getNumericInputInt("Please enter a valid number.");
-        if(numberInput<= board.minionsOnBoard.size() && numberInput > 0){
-            pickedMinion = board.minionsOnBoard.get(numberInput);
-        } else{
-            ui.displayMessage("Invalid number. Please try again.");
-            targetMinion(ui, board);
+
+        public Hero targetHero (TextUI ui, Board board, Hero hero){
+            ui.displayMessage("Choose which hero to target");
+            int numberInput = ui.getNumericInputInt("1. Enemy hero \n 2. Friendly hero");
+
+            if (numberInput == 1) { //target enemy hero
+                return board.getHero();
+            } else if (numberInput == 2) { //target friendly hero
+                return hero;
+            } else {
+                ui.displayMessage("Number is invalid, try again");
+                return targetHero(ui, board, hero);
+            }
+
         }
-        return pickedMinion;
-    }
 
-    public Hero targetHero(TextUI ui, Board board, Hero hero){
-        ui.displayMessage("Choose which hero to target");
-        int numberInput = ui.getNumericInputInt("1. Enemy hero \n 2. Friendly hero");
+        public void targetAny (TextUI ui, Board enemyBoard, Board friendlyBoard, Hero enemyHero){
 
-        if(numberInput==1){ //target enemy hero
-            return board.getHero();
-        }else if (numberInput==2){ //target friendly hero
+            int input = ui.getNumericInputInt("Pick the desired type of target. \n 1. Minion \n 2. Heroes");
+            switch (input) {
+                case 1:
+                    int inputMinion = ui.getNumericInputInt("Would you like to target an enemy minion or a friendly minion? \n 1. Enemy \n 2. Friendly");
+                    switch (inputMinion) {
+                        case 1:
+                            enemyBoard.targetMinion(ui, enemyBoard);
+                            break;
+                        case 2:
+                            friendlyBoard.targetMinion(ui, friendlyBoard);
+                    }
+                    break;
+                case 2:
+                    int inputHero = ui.getNumericInputInt("Would you like to target an enemy hero or a friendly hero?");
+                    switch (inputHero) {
+                        case 1:
+                            targetHero(ui, enemyBoard, enemyHero);
+                            break;
+                        case 2:
+                            targetHero(ui, friendlyBoard, getHero());
+                            break;
+                    }
+            }
+        }
+        public int getCurrentMana () {
+            return currentMana;
+        }
+
+        public void setCurrentMana ( int currentMana){
+            this.currentMana = currentMana;
+        }
+
+        public int getMaxMana () {
+            return maxMana;
+        }
+
+        public void setMaxMana ( int maxMana){
+            this.maxMana = maxMana;
+        }
+
+        public Deck getDeck () {
+            return deck;
+        }
+
+        public Hero getHero () {
             return hero;
-        }else {
-            ui.displayMessage("Number is invalid, try again");
-            return targetHero(ui,board,hero);
         }
 
-    }
-
-    public void targetAny(TextUI ui, Board enemyBoard, Board friendlyBoard, Hero enemyHero) {
-
-        int input = ui.getNumericInputInt("Pick the desired type of target. \n 1. Minion \n 2. Heroes");
-        switch (input) {
-            case 1:
-                int inputMinion = ui.getNumericInputInt("Would you like to target an enemy minion or a friendly minion? \n 1. Enemy \n 2. Friendly");
-                switch (inputMinion) {
-                    case 1:
-                        enemyBoard.targetMinion(ui, enemyBoard);
-                        break;
-                    case 2:
-                        friendlyBoard.targetMinion(ui, friendlyBoard);
-                }
-                break;
-            case 2:
-                int inputHero = ui.getNumericInputInt("Would you like to target an enemy hero or a friendly hero?");
-                switch (inputHero) {
-                    case 1:
-                        targetHero(ui, enemyBoard, enemyHero);
-                        break;
-                    case 2:
-                        targetHero(ui,friendlyBoard,getHero());
-                        break;
-                }
+        public LinkedList<Minion> getMinionsOnBoard () {
+            return minionsOnBoard;
         }
-    }
-    public int getCurrentMana(){
-        return currentMana;
-    }
 
-    public void setCurrentMana(int currentMana) {
-        this.currentMana = currentMana;
-    }
+        public Hand getHand () {
+            return hand;
+        }
 
-    public int getMaxMana() {
-        return maxMana;
-    }
-
-    public void setMaxMana(int maxMana) {
-        this.maxMana = maxMana;
-    }
-
-    public Deck getDeck() {
-        return deck;
-    }
-
-    public Hero getHero(){
-        return hero;
-    }
-
-    public LinkedList<Minion> getMinionsOnBoard() {
-        return minionsOnBoard;
-    }
-
-    public Hand getHand(){
-        return hand;
-    }
-
-    public int getFatigueCount(){
-        return fatigueCount;
-    }
-    public void setFatigueCount(int fatigueCount) {
-        this.fatigueCount = fatigueCount;
-    }
-    public LinkedList<Minion> getMinionReadyToAttackList(){
-        LinkedList<Minion> minionReadyToAttackList = new LinkedList<>();
-        for(Minion m : minionsOnBoard){
-            if(m.getMinionReadyToAttack()){
-                minionReadyToAttackList.add(m);
+        public int getFatigueCount () {
+            return fatigueCount;
+        }
+        public void setFatigueCount ( int fatigueCount){
+            this.fatigueCount = fatigueCount;
+        }
+        public LinkedList<Minion> getMinionReadyToAttackList () {
+            LinkedList<Minion> minionReadyToAttackList = new LinkedList<>();
+            for (Minion m : minionsOnBoard) {
+                if (m.getMinionReadyToAttack()) {
+                    minionReadyToAttackList.add(m);
+                }
             }
+            return minionReadyToAttackList;
         }
-        return minionReadyToAttackList;
+
     }
 
-}
 

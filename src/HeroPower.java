@@ -3,23 +3,23 @@ import java.util.LinkedList;
 public class HeroPower {
 
 
-    public void useHeroPower(String heroClass,Board myBoard, Board enemyBoard, TextUI ui) {
+    public void useHeroPower(String heroClass, Board enemyBoard, Board friendlyBoard, TextUI ui, Hero enemyHero) {
 
         switch (heroClass) {
             case "Mage":
-                mageHeroPower(myBoard, enemyBoard, ui);
+                mageHeroPower(ui, enemyBoard, friendlyBoard, enemyHero);
             break;
             case "Hunter":
                 hunterHeroPower(enemyBoard.getHero(), ui);
                 break;
             case "Warlock":
-                warlockHeroPower(myBoard,ui);
+                warlockHeroPower(friendlyBoard,ui);
                 break;
             case "Paladin":
-                paladinHeroPower(myBoard,ui);
+                paladinHeroPower(friendlyBoard,ui);
                 break;
             case "Rogue":
-                rogueHeroPower(myBoard.getHero(),ui);
+                rogueHeroPower(friendlyBoard.getHero(),ui);
                 break;
             default:
                 System.out.println("No matching hero class");
@@ -27,10 +27,9 @@ public class HeroPower {
         }
     }
 
-    public void mageHeroPower(Board board, TextUI ui, Board enemyBoard, Board friendlyBoard, Hero enemyHero){
+    public void mageHeroPower(TextUI ui, Board enemyBoard, Board friendlyBoard, Hero enemyHero){
 
-        Minion targetMinion;
-        board.targetAny(ui, enemyBoard, friendlyBoard, enemyHero);
+        friendlyBoard.targetAny(ui, enemyBoard, friendlyBoard, enemyHero);
         /*ui.displayMessage("Please pick a target type. \n 1. Enemy minion \n 2. Enemy hero \n 3. Friendly minion \n 4. Enemy hero");
         String input = ui.getInput();
         switch(input){

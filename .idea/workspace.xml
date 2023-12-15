@@ -7,9 +7,8 @@
     <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="Hero power update">
       <change afterPath="$PROJECT_DIR$/src/rouge.txt" afterDir="false" />
     <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="mage heropower (wip)">
+    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="targetany metode i board, mageheropower er ikke færdig">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HeroPower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HeroPower.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,6 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702554442446</updated>
     </task>
+    <task id="LOCAL-00009" summary="targetany metode i board, mageheropower er ikke færdig">
+      <option name="closed" value="true" />
+      <created>1702558194452</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702558194452</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <task id="LOCAL-00009" summary="minion spot fix">
       <option name="closed" value="true" />
       <created>1702553268758</created>
@@ -214,6 +222,8 @@
     <MESSAGE value="Game fatigue virker!" />
     <MESSAGE value="the coin pls virk" />
     <MESSAGE value="mage heropower (wip)" />
+    <MESSAGE value="targetany metode i board, mageheropower er ikke færdig" />
+    <option name="LAST_COMMIT_MESSAGE" value="targetany metode i board, mageheropower er ikke færdig" />
     <option name="LAST_COMMIT_MESSAGE" value="mage heropower (wip)" />
     <MESSAGE value="minion spot fix" />
     <MESSAGE value="Minion attack stadig mange bugs" />
