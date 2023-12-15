@@ -122,7 +122,7 @@ public class SpellEffect extends Effect {
                 int randomCompanion =3;
 
                 for (int i = 0; i < 3; i++) {
-                    ranNum = ran1.nextInt(enemyBoard.getMinionsOnBoard().size() + 1);
+                    randomCompanion = ran1.nextInt(enemyBoard.getMinionsOnBoard().size() + 1);
                     switch (randomCompanion) {
                         case 0:
                             if (myBoard.getMinionsOnBoard().size() < 7) {
