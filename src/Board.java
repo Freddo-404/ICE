@@ -21,14 +21,14 @@ public class Board {
 
 
 
-    public void playCard(Card card, Player currentPlayer) {
+    public void playCard(Card card, Board myBoard, Board enemyPlayer) {
         if (card instanceof Minion) {
             Minion minion = (Minion) card;
             playMinion(minion, card);
 
         } else if (card instanceof Spell) {
             Spell spell = (Spell) card;
-            playSpell(spell, card, currentPlayer);
+            playSpell(spell, card, myBoard, enemyPlayer);
         }
         else if (card instanceof Weapon) {
             Weapon weapon = (Weapon) card;
@@ -55,10 +55,10 @@ public class Board {
             }
         }
     }
-    public void playSpell(Spell spell, Card card, Player currentPlayer){
+    public void playSpell(Spell spell, Card card, Board myBoard, Board enemyBoard){
         if (currentMana >= spell.getCardCost()) {
             currentMana = currentMana - spell.getCardCost();
-            spell.getSpellEffect().useSpellEffect(currentPlayer.getBoard());
+            spell.getSpellEffect().useSpellEffect(myBoard,enemyBoard,ui);
             getHand().getCardsInHand().remove(card);
         } else {
           ui.displayMessage("Card cost is too high.");
@@ -132,7 +132,7 @@ public class Board {
         }
     }
 
-    public void pickCard(Player currentPlayer) {
+    public void pickCard(Player currentPlayer, Player enemyPlayer) {
         ui.displayMessage("Pick a card you want to play");
         ui.displayHand(currentPlayer);
         Card card;
@@ -140,51 +140,51 @@ public class Board {
             switch (ui.getInput()) {
                 case "1":
                     card = getHand().getCardsInHand().get(0);
-                    playCard(card, currentPlayer);
+                    playCard(card, currentPlayer.getBoard(),enemyPlayer.getBoard());
                     break;
                 case "2":
                     card = getHand().getCardsInHand().get(1);
-                    playCard(card, currentPlayer);
+                    playCard(card, currentPlayer.getBoard(),enemyPlayer.getBoard());
                     break;
                 case "3":
                     card = getHand().getCardsInHand().get(2);
-                    playCard(card, currentPlayer);
+                    playCard(card, currentPlayer.getBoard(),enemyPlayer.getBoard());
                     break;
                 case "4":
                     card = getHand().getCardsInHand().get(3);
-                    playCard(card, currentPlayer);
+                    playCard(card, currentPlayer.getBoard(),enemyPlayer.getBoard());
                     break;
                 case "5":
                     card = getHand().getCardsInHand().get(4);
-                    playCard(card, currentPlayer);
+                    playCard(card, currentPlayer.getBoard(),enemyPlayer.getBoard());
                     break;
                 case "6":
                     card = getHand().getCardsInHand().get(5);
-                    playCard(card, currentPlayer);
+                    playCard(card, currentPlayer.getBoard(),enemyPlayer.getBoard());
                     break;
                 case "7":
                     card = getHand().getCardsInHand().get(6);
-                    playCard(card, currentPlayer);
+                    playCard(card, currentPlayer.getBoard(),enemyPlayer.getBoard());
                     break;
                 case "8":
                     card = getHand().getCardsInHand().get(7);
-                    playCard(card, currentPlayer);
+                    playCard(card, currentPlayer.getBoard(),enemyPlayer.getBoard());
                     break;
                 case "9":
                     card = getHand().getCardsInHand().get(8);
-                    playCard(card, currentPlayer);
+                    playCard(card, currentPlayer.getBoard(),enemyPlayer.getBoard());
                     break;
                 case "10":
                     card = getHand().getCardsInHand().get(9);
-                    playCard(card, currentPlayer);
+                    playCard(card, currentPlayer.getBoard(),enemyPlayer.getBoard());
                     break;
                 default:
                     ui.displayMessage("Your input was invalid, please try again");
-                    pickCard(currentPlayer);
+                    pickCard(currentPlayer,enemyPlayer);
             }
         } catch (IndexOutOfBoundsException e) {
             ui.displayMessage("Please pick a card from the list");
-            pickCard(currentPlayer);
+            pickCard(currentPlayer,enemyPlayer);
         }
 
     }

@@ -41,6 +41,15 @@ public class Minion extends Card {
         this.minionCurrentHealth = newMinionHealth;
 
     }
+
+    public void setMinionMaxHealth(int minionMaxHealth) {
+        this.minionMaxHealth = minionMaxHealth;
+    }
+
+    public void setMinionAttack(int minionAttack) {
+        this.minionAttack = minionAttack;
+    }
+
     public void setMinionReadyToAttack(Boolean minionReadyToAttack) {
         this.minionReadyToAttack = minionReadyToAttack;
     }

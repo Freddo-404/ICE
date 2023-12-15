@@ -18,4 +18,8 @@ public abstract class Card {
     public int getCardCost() {
         return cardCost;
     }
+
+    public void setCardName(String cardName) {
+        this.cardName = cardName;
+    }
 }
