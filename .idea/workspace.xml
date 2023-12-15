@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="Hero power update">
+    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="Hero power update"/>
       <change afterPath="$PROJECT_DIR$/src/rouge.txt" afterDir="false" />
-    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="mage heropower (wip)">
-    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="targetany metode i board, mageheropower er ikke færdig">
+    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="mage heropower (wip)"/>
+    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="targetany metode i board, mageheropower er ikke færdig"/>
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="Paladin Deck">
       <change afterPath="$PROJECT_DIR$/src/hunter.txt" afterDir="false" />
@@ -45,7 +45,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
+  <component name="PropertiesComponent"/>{
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
@@ -173,7 +173,7 @@
       <option name="project" value="LOCAL" />
       <updated>1702558194452</updated>
     </task>
-    <task id="LOCAL-00009" summary="Warlock deck">
+    <task id="LOCAL-00009" summary="Warlock deck"/>
     <option name="localTasksCounter" value="10" />
     <task id="LOCAL-00009" summary="minion spot fix">
       <option name="closed" value="true" />

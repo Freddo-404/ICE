@@ -4,6 +4,7 @@ public class Hero {
     private int heroCurrentHealth;
     private int heroMaxHealth;
     private WeaponSlot weaponSlot = new WeaponSlot(0,0);
+    private boolean heroReadyToAttack;
 
     private HeroPower heroPower = new HeroPower();
 
@@ -13,6 +14,7 @@ public class Hero {
         this.heroCurrentHealth = 30;
         this.heroMaxHealth = 30;
     }
+
 
 
     public void loseHealth(int dmgTaken){
