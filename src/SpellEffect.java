@@ -112,6 +112,55 @@ public class SpellEffect extends Effect {
                     }
                     ui.displayMessage("You use Flamestrike and deal 4 damage to all enemy minion.");
                 break;
+            //Hunter spells
+            case "Arcane Shot":
+                myBoard.fireballAny(2, enemyBoard);
+                ui.displayMessage("Your target is hit by Arcane Shot and loses 2 hp.");
+                break;
+            case "Animal Companion":
+                Random ran1 = new Random();
+                int randomCompanion =3;
+
+                for (int i = 0; i < 3; i++) {
+                    ranNum = ran1.nextInt(enemyBoard.getMinionsOnBoard().size() + 1);
+                    switch (randomCompanion) {
+                        case 0:
+                            if (myBoard.getMinionsOnBoard().size() < 7) {
+                                Minion animalCompanion = new Minion("Animal Companion", 3, 4, 3);
+                                myBoard.getMinionsOnBoard().add(animalCompanion);
+                                ui.displayMessage("You summon a 4/3 BJØRN.");
+                            } else {
+                                ui.displayMessage("Not enough space on board for a companion");
+                            }
+                            break;
+                        case 1:
+                            if (myBoard.getMinionsOnBoard().size() < 7) {
+                                Minion animalCompanion2 = new Minion("Animal Companion", 3, 2, 4);
+                                myBoard.getMinionsOnBoard().add(animalCompanion2);
+                                ui.displayMessage("You summon a 2/4 Monkey.");
+                            } else {
+                                ui.displayMessage("Not enough space on board for a companion");
+                            }
+
+                            break;
+                        case 2:
+                            if (myBoard.getMinionsOnBoard().size() < 7) {
+                                Minion animalCompanion3 = new Minion("Animal Companion", 3, 2, 4);
+                                myBoard.getMinionsOnBoard().add(animalCompanion3);
+                                ui.displayMessage("You summon a 4/2 Boar.");
+                            } else {
+                                ui.displayMessage("Not enough space on board for a companion");
+                            }
+                            break;
+
+                        default:
+                            System.out.println("Spell missing in SpellEffect");
+                            break;
+
+                    }
+
+
+                }
             default:
                 System.out.println("Spell missing in SpellEffect");
                 break;
