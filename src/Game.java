@@ -229,10 +229,6 @@ public class Game {
 
 
 
-    {
-        ui.displayMessage("You have no weapon equipped.");
-    }
-
 
 
 
