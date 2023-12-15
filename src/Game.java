@@ -1,4 +1,5 @@
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.Random;
 
 public class Game {
@@ -9,6 +10,7 @@ public class Game {
     private Player currentPlayer;
     private Player enemyPlayer;
     private Player tempPlayer;
+    private Boolean heroPowerUsed;
     private Boolean gameOver;
 
 
@@ -39,6 +41,9 @@ public class Game {
     }
 
     public void startUp(){
+        new Thread(() -> {
+            //BackgroundMusic.playBackgroundMusic("/Users/frederikdupont/Downloads/hearthstonemusic.wav");
+        }).start();
         ui.displayMessage("Please enter a name for Player 1.");
         player1 = new Player(ui.getInput());
         ui.displayMessage("Please enter a name for Player 2.");
@@ -70,6 +75,7 @@ public class Game {
         currentPlayer.getBoard().startHandCurrentPlayer();
         enemyPlayer.getBoard().startHandEnemyPlayer();
         gameOver=false;
+        heroPowerUsed=false;
 
         //Giver Mana til den spiller der starter
         currentPlayer.getBoard().setMaxMana(currentPlayer.getBoard().getMaxMana()+1);
@@ -90,13 +96,13 @@ public class Game {
                 currentPlayer.getBoard().pickCard(currentPlayer);
                 break;
             case "2":
-                playerChoiceMenu();
+                attackWithMinion();
                 break;
             case "3":
                 playerChoiceMenu();
                 break;
             case "4":
-                playerChoiceMenu();
+                heroPower();
                 break;
             case "5":
                 endTurn();
@@ -114,6 +120,8 @@ public class Game {
         currentPlayer = enemyPlayer;
         enemyPlayer = tempPlayer;
 
+        heroPowerUsed=false;
+
         //Giver Mana
         if(currentPlayer.getBoard().getMaxMana()<10) {
             currentPlayer.getBoard().setMaxMana(currentPlayer.getBoard().getMaxMana() + 1);
@@ -122,6 +130,14 @@ public class Game {
 
 
         currentPlayer.getBoard().drawCard(1);
+
+        //Minion ready to attack
+        for(Minion m : currentPlayer.getBoard().getMinionsOnBoard()){
+            m.setMinionReadyToAttack(true);
+        }
+        for(Minion m : enemyPlayer.getBoard().getMinionsOnBoard()){
+            m.setMinionReadyToAttack(false);
+        }
 
 
     }
@@ -140,5 +156,66 @@ public class Game {
        }
 
     }
+    public void attackWithMinion(){
+        if(!currentPlayer.getBoard().getMinionsOnBoard().isEmpty()) {
+
+            if(!currentPlayer.getBoard().getMinionReadyToAttackList().isEmpty()) {
+
+                ui.displayMessage("Pick a minion you want to attack with");
+                Minion pickedMinion = currentPlayer.getBoard().pickMinion(currentPlayer.getBoard().getMinionReadyToAttackList());
+
+                if (!enemyPlayer.getBoard().getMinionsOnBoard().isEmpty()) {
+                    ui.displayMessage("Do you want to attack an enemy minion or the enemy hero?");
+                    ui.displayMessage("1. Enemy minion \n" + "2. Enemy hero");
+                    switch (ui.getInput()) {
+                        case "1":
+                            ui.displayMessage("Pick a minion to attack");
+                            currentPlayer.getBoard().minionClash(pickedMinion, enemyPlayer.getBoard().pickMinion(enemyPlayer.getBoard().getMinionsOnBoard()), enemyPlayer.getBoard());
+                            break;
+                        case "2":
+                            currentPlayer.getBoard().minionFace(pickedMinion, enemyPlayer.getBoard().getHero());
+                            break;
+                        default:
+                            ui.displayMessage("Your input was not valid, please try again.");
+                            playerChoiceMenu();
+                    }
+                } else {
+                    currentPlayer.getBoard().minionFace(pickedMinion, enemyPlayer.getBoard().getHero());
+                }
+
+            }
+            else{
+                ui.displayMessage("You have no minions on the board that can attack this turn");
+            }
+
+        }
+        else{
+            ui.displayMessage("You have no minions on the board to attack with");
+        }
+    }
+
+    public void heroPower(){
+        if(!heroPowerUsed) {
+            if (currentPlayer.getBoard().getCurrentMana() > 1) {
+
+                currentPlayer.getBoard().setCurrentMana(currentPlayer.getBoard().getCurrentMana() - 2);
+                currentPlayer.getBoard().getHero().getHeroPower().useHeroPower(currentPlayer.getBoard().getHero().getHeroClass(), currentPlayer.getBoard(), enemyPlayer.getBoard(), ui);
+                heroPowerUsed = true;
+
+                //Tænkt at være paladin lmao
+                if (currentPlayer.getBoard().getHero().getHeroClass().equals("Paladin") && currentPlayer.getBoard().getMinionsOnBoard().size() >= 7) {
+                    currentPlayer.getBoard().setCurrentMana(currentPlayer.getBoard().getCurrentMana() + 2);
+                    heroPowerUsed = false;
+                }
+
+            } else {
+                ui.displayMessage("You don't have enough mana to use your hero power. 2 mana required.");
+            }
+        }
+        else{
+            ui.displayMessage("Hero power can only be used once per turn.");
+        }
+    }
+
 
 }

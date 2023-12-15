@@ -4,6 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="Hero power update">
+      <change afterPath="$PROJECT_DIR$/src/rouge.txt" afterDir="false" />
     <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="mage heropower (wip)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
@@ -24,10 +26,13 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Fred-playCard-spot-fix" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -80,6 +85,9 @@
       <workItem from="1701860532929" duration="16634000" />
       <workItem from="1702030822095" duration="1223000" />
       <workItem from="1702469473665" duration="3410000" />
+      <workItem from="1702567176399" duration="587000" />
+      <workItem from="1702584769191" duration="22000" />
+      <workItem from="1702586359344" duration="3212000" />
     </task>
     <task id="LOCAL-00001" summary="i am inside your walls">
       <option name="closed" value="true" />
@@ -145,7 +153,47 @@
       <option name="project" value="LOCAL" />
       <updated>1702554442446</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="minion spot fix">
+      <option name="closed" value="true" />
+      <created>1702553268758</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702553268758</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Minion attack stadig mange bugs">
+      <option name="closed" value="true" />
+      <created>1702566142012</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1702566142012</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Minion attack stadig mange bugs">
+      <option name="closed" value="true" />
+      <created>1702567761546</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1702567761546</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Jeg har ikke den musik fil, fred2">
+      <option name="closed" value="true" />
+      <created>1702591697707</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1702591697707</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Hero power update">
+      <option name="closed" value="true" />
+      <created>1702595597303</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1702595597303</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,5 +215,10 @@
     <MESSAGE value="the coin pls virk" />
     <MESSAGE value="mage heropower (wip)" />
     <option name="LAST_COMMIT_MESSAGE" value="mage heropower (wip)" />
+    <MESSAGE value="minion spot fix" />
+    <MESSAGE value="Minion attack stadig mange bugs" />
+    <MESSAGE value="Jeg har ikke den musik fil, fred2" />
+    <MESSAGE value="Hero power update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hero power update" />
   </component>
 </project>
