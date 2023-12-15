@@ -2,31 +2,27 @@ import java.util.LinkedList;
 
 public class HeroPower {
 
-    private String heroClass;
 
-    public HeroPower(String heroClass){
-        this.heroClass=heroClass;
-    }
-    public void useHeroPower(Board myBoard, Board enemyBoard, TextUI ui) {
+    public void useHeroPower(String heroClass,Board myBoard, Board enemyBoard, TextUI ui) {
 
         switch (heroClass) {
-            case "mage":
+            case "Mage":
                 mageHeroPower(myBoard, enemyBoard, ui);
             break;
-            case "hunter":
+            case "Hunter":
                 hunterHeroPower(enemyBoard.getHero(), ui);
                 break;
-            case "warlock":
+            case "Warlock":
                 warlockHeroPower(myBoard,ui);
                 break;
-            case "paladin":
+            case "Paladin":
                 paladinHeroPower(myBoard,ui);
                 break;
-            case "rogue":
+            case "Rogue":
                 rogueHeroPower(myBoard.getHero(),ui);
                 break;
             default:
-                //"No matching hero class";
+                System.out.println("No matching hero class");
                 break;
         }
     }
@@ -57,8 +53,6 @@ public class HeroPower {
         }
         else{
             ui.displayMessage("You can't use Reinforce. You board is full.");
-            //Giver mana tilbage fra at bruge hero power
-            myBoard.setCurrentMana(myBoard.getCurrentMana()+2);
         }
 
     }

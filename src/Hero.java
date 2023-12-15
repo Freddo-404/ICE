@@ -5,7 +5,7 @@ public class Hero {
     private int heroMaxHealth;
     private WeaponSlot weaponSlot = new WeaponSlot(0,0);
 
-    private HeroPower heroPower = new HeroPower(getHeroClass());
+    private HeroPower heroPower = new HeroPower();
 
     Hero(String heroName, String heroClass){
         this.heroName = heroName;

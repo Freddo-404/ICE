@@ -10,6 +10,7 @@ public class Game {
     private Player currentPlayer;
     private Player enemyPlayer;
     private Player tempPlayer;
+    private Boolean heroPowerUsed;
     private Boolean gameOver;
 
 
@@ -74,6 +75,7 @@ public class Game {
         currentPlayer.getBoard().startHandCurrentPlayer();
         enemyPlayer.getBoard().startHandEnemyPlayer();
         gameOver=false;
+        heroPowerUsed=false;
 
         //Giver Mana til den spiller der starter
         currentPlayer.getBoard().setMaxMana(currentPlayer.getBoard().getMaxMana()+1);
@@ -100,7 +102,7 @@ public class Game {
                 playerChoiceMenu();
                 break;
             case "4":
-                playerChoiceMenu();
+                heroPower();
                 break;
             case "5":
                 endTurn();
@@ -117,6 +119,8 @@ public class Game {
         tempPlayer = currentPlayer;
         currentPlayer = enemyPlayer;
         enemyPlayer = tempPlayer;
+
+        heroPowerUsed=false;
 
         //Giver Mana
         if(currentPlayer.getBoard().getMaxMana()<10) {
@@ -189,5 +193,29 @@ public class Game {
             ui.displayMessage("You have no minions on the board to attack with");
         }
     }
+
+    public void heroPower(){
+        if(!heroPowerUsed) {
+            if (currentPlayer.getBoard().getCurrentMana() > 1) {
+
+                currentPlayer.getBoard().setCurrentMana(currentPlayer.getBoard().getCurrentMana() - 2);
+                currentPlayer.getBoard().getHero().getHeroPower().useHeroPower(currentPlayer.getBoard().getHero().getHeroClass(), currentPlayer.getBoard(), enemyPlayer.getBoard(), ui);
+                heroPowerUsed = true;
+
+                //Tænkt at være paladin lmao
+                if (currentPlayer.getBoard().getHero().getHeroClass().equals("Paladin") && currentPlayer.getBoard().getMinionsOnBoard().size() >= 7) {
+                    currentPlayer.getBoard().setCurrentMana(currentPlayer.getBoard().getCurrentMana() + 2);
+                    heroPowerUsed = false;
+                }
+
+            } else {
+                ui.displayMessage("You don't have enough mana to use your hero power. 2 mana required.");
+            }
+        }
+        else{
+            ui.displayMessage("Hero power can only be used once per turn.");
+        }
+    }
+
 
 }

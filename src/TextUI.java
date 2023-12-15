@@ -89,10 +89,10 @@ public class TextUI {
     }
 
     public String displayMinionsOnBoard(LinkedList<Minion> minionsOnBoard){
-        String str = "     ";
+        String str = "   ";
         for (Minion m: minionsOnBoard) {
             str+=displayMinion(m);
-            str+="     ";
+            str+="   ";
         }
 
         return str;
