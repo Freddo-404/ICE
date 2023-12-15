@@ -75,6 +75,16 @@ public class SpellEffect extends Effect {
             case "Ice Lance":
 
                 break;
+            case "Backstab":
+            ui.displayMessage("Do you want to Backstab an enemy minion or a friendly minion?");
+                Minion pickedMinion1 = enemyOrFriendlyMinion(myBoard, enemyBoard, ui);
+                if(pickedMinion1.getMinionCurrentHealth()==pickedMinion1.getMinionMaxHealth()){
+                    pickedMinion1.setMinionCurrentHealth(pickedMinion1.getMinionCurrentHealth()-2);
+                }else{
+                    ui.displayMessage("You can not target damaged minions");
+                }
+                break;
+
             default:
                 System.out.println("Spell missing in SpellEffect");
                 break;
