@@ -246,12 +246,12 @@ public class Board {
 
     }
 
-    public void heroAttackMinion(Hero hero, Minion minion) {
-        minion.loseHealth(hero.getWeaponSlot().getWeaponSlotAttack());
+    public void heroAttackMinion(Hero hero, Minion enemyMinion, Board enemyBoard) {
+        enemyMinion.loseHealth(hero.getWeaponSlot().getWeaponSlotAttack());
         hero.getWeaponSlot().loseDurability();
         hero.getWeaponSlot().destroyWeapon();
-        minion.minionDeath(minion, minionsOnBoard);
-        hero.loseHealth(minion.getMinionAttack());
+        enemyMinion.minionDeath(enemyMinion, enemyBoard.getMinionsOnBoard());
+        hero.loseHealth(enemyMinion.getMinionAttack());
 
     }
 

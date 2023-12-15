@@ -12,14 +12,14 @@ public class Game {
     private Player tempPlayer;
     private Boolean heroPowerUsed;
     private Boolean gameOver;
+    private Boolean heroReadyToAttack;
 
 
-
-    public void mainMenu(){
-        ui.displayMessage("Hello and welcome to ScuffedStone! \n"+"\n"+"Please select a choice"+"\n"+
+    public void mainMenu() {
+        ui.displayMessage("Hello and welcome to ScuffedStone! \n" + "\n" + "Please select a choice" + "\n" +
                 "1. Play \n" + "2. Quit");
         String input = ui.getInput();
-        switch (input){
+        switch (input) {
             case "1":
                 startUp();
                 break;
@@ -30,9 +30,9 @@ public class Game {
 
     }
 
-    public void gameLoop(){
+    public void gameLoop() {
 
-        while(!gameOver) {
+        while (!gameOver) {
             ui.displayGame(currentPlayer, enemyPlayer);
             playerChoiceMenu();
             winCondition();
@@ -40,7 +40,7 @@ public class Game {
         mainMenu();
     }
 
-    public void startUp(){
+    public void startUp() {
         new Thread(() -> {
             //BackgroundMusic.playBackgroundMusic("/Users/frederikdupont/Downloads/hearthstonemusic.wav");
         }).start();
@@ -56,29 +56,28 @@ public class Game {
         initializeGame();
     }
 
-    public void initializeGame(){
+    public void initializeGame() {
         Collections.shuffle(player1.getBoard().getDeck().getCardsInDeck());
         Collections.shuffle(player2.getBoard().getDeck().getCardsInDeck());
         Random ran = new Random();
         int ranNum = ran.nextInt(2);
 
-        if (ranNum==0){
+        if (ranNum == 0) {
             currentPlayer = player1;
             enemyPlayer = player2;
-        } else if (ranNum==1) {
+        } else if (ranNum == 1) {
             currentPlayer = player2;
             enemyPlayer = player1;
-        }
-        else{
+        } else {
             ui.displayMessage("Something went wrong with ranNum");
         }
         currentPlayer.getBoard().startHandCurrentPlayer();
         enemyPlayer.getBoard().startHandEnemyPlayer();
-        gameOver=false;
-        heroPowerUsed=false;
+        gameOver = false;
+        heroPowerUsed = false;
 
         //Giver Mana til den spiller der starter
-        currentPlayer.getBoard().setMaxMana(currentPlayer.getBoard().getMaxMana()+1);
+        currentPlayer.getBoard().setMaxMana(currentPlayer.getBoard().getMaxMana() + 1);
         currentPlayer.getBoard().setCurrentMana(currentPlayer.getBoard().getMaxMana());
 
         currentPlayer.getBoard().drawCard(1);
@@ -87,10 +86,10 @@ public class Game {
 
     }
 
-    public void playerChoiceMenu(){
+    public void playerChoiceMenu() {
         ui.displayMessage("\n What would you like to do?");
         ui.displayMessage("1. Play card \n" + "2. Attack with minion \n" + "3. Attack with hero \n" + "4. Use Hero power \n" + "5. End turn");
-        switch(ui.getInput()){
+        switch (ui.getInput()) {
 
             case "1":
                 currentPlayer.getBoard().pickCard(currentPlayer);
@@ -99,7 +98,7 @@ public class Game {
                 attackWithMinion();
                 break;
             case "3":
-                playerChoiceMenu();
+                attackWithWeapon();
                 break;
             case "4":
                 heroPower();
@@ -114,16 +113,17 @@ public class Game {
         }
     }
 
-    public void endTurn(){
+    public void endTurn() {
 
         tempPlayer = currentPlayer;
         currentPlayer = enemyPlayer;
         enemyPlayer = tempPlayer;
 
-        heroPowerUsed=false;
+        heroPowerUsed = false;
+        heroReadyToAttack = true;
 
         //Giver Mana
-        if(currentPlayer.getBoard().getMaxMana()<10) {
+        if (currentPlayer.getBoard().getMaxMana() < 10) {
             currentPlayer.getBoard().setMaxMana(currentPlayer.getBoard().getMaxMana() + 1);
         }
         currentPlayer.getBoard().setCurrentMana(currentPlayer.getBoard().getMaxMana());
@@ -132,34 +132,35 @@ public class Game {
         currentPlayer.getBoard().drawCard(1);
 
         //Minion ready to attack
-        for(Minion m : currentPlayer.getBoard().getMinionsOnBoard()){
+        for (Minion m : currentPlayer.getBoard().getMinionsOnBoard()) {
             m.setMinionReadyToAttack(true);
         }
-        for(Minion m : enemyPlayer.getBoard().getMinionsOnBoard()){
+        for (Minion m : enemyPlayer.getBoard().getMinionsOnBoard()) {
             m.setMinionReadyToAttack(false);
         }
 
 
     }
-    public void winCondition(){
 
-        if(currentPlayer.getBoard().getHero().heroDeath() && enemyPlayer.getBoard().getHero().heroDeath()){
+    public void winCondition() {
+
+        if (currentPlayer.getBoard().getHero().heroDeath() && enemyPlayer.getBoard().getHero().heroDeath()) {
             ui.displayMessage("It's a draw!!  You will be sent back to the main menu \n");
-            gameOver=true;
+            gameOver = true;
+        } else if (currentPlayer.getBoard().getHero().heroDeath()) {
+            ui.displayMessage(enemyPlayer.getPlayerName() + " Wins!!! You will be sent back to the main menu \n");
+            gameOver = true;
+        } else if (enemyPlayer.getBoard().getHero().heroDeath()) {
+            ui.displayMessage(currentPlayer.getPlayerName() + " Wins!!! You will be sent back to the main menu \n");
+            gameOver = true;
         }
-        else if(currentPlayer.getBoard().getHero().heroDeath()){
-           ui.displayMessage(enemyPlayer.getPlayerName()+ " Wins!!! You will be sent back to the main menu \n");
-           gameOver=true;
-       } else if (enemyPlayer.getBoard().getHero().heroDeath()) {
-            ui.displayMessage(currentPlayer.getPlayerName()+ " Wins!!! You will be sent back to the main menu \n");
-            gameOver=true;
-       }
 
     }
-    public void attackWithMinion(){
-        if(!currentPlayer.getBoard().getMinionsOnBoard().isEmpty()) {
 
-            if(!currentPlayer.getBoard().getMinionReadyToAttackList().isEmpty()) {
+    public void attackWithMinion() {
+        if (!currentPlayer.getBoard().getMinionsOnBoard().isEmpty()) {
+
+            if (!currentPlayer.getBoard().getMinionReadyToAttackList().isEmpty()) {
 
                 ui.displayMessage("Pick a minion you want to attack with");
                 Minion pickedMinion = currentPlayer.getBoard().pickMinion(currentPlayer.getBoard().getMinionReadyToAttackList());
@@ -183,16 +184,56 @@ public class Game {
                     currentPlayer.getBoard().minionFace(pickedMinion, enemyPlayer.getBoard().getHero());
                 }
 
-            }
-            else{
+            } else {
                 ui.displayMessage("You have no minions on the board that can attack this turn");
             }
 
-        }
-        else{
+        } else {
             ui.displayMessage("You have no minions on the board to attack with");
         }
     }
+
+    public void attackWithWeapon() {
+        if(heroReadyToAttack){
+        if (currentPlayer.getBoard().getHero().getWeaponSlot().getCurrentDurability() != 0) {
+
+                ui.displayMessage("Do you want to attack an enemy minion or the enemy hero?");
+                ui.displayMessage("1. Enemy minion \n" + "2. Enemy hero");
+                switch (ui.getInput()) {
+                    case "1":
+                        if (!enemyPlayer.getBoard().getMinionsOnBoard().isEmpty()) {
+                            ui.displayMessage("Pick a minion to attack");
+                            currentPlayer.getBoard().heroAttackMinion(currentPlayer.getBoard().getHero(), enemyPlayer.getBoard().pickMinion(enemyPlayer.getBoard().getMinionsOnBoard()),enemyPlayer.getBoard());
+                            heroReadyToAttack = false;
+                        } else  {
+                            ui.displayMessage("There are no enemy minions to attack");
+                            playerChoiceMenu();
+                        }
+                        break;
+                    case "2":
+                      currentPlayer.getBoard().heroFace(currentPlayer.getBoard().getHero(), enemyPlayer.getBoard().getHero());
+                        break;
+                    default:
+                        ui.displayMessage("Your input was not valid, please try again.");
+                        playerChoiceMenu();
+                }
+            } else {
+               ui.displayMessage("You have no weapon equipped.");
+            }
+
+        }else{
+        ui.displayMessage("You have already attacked.");}
+    }
+
+
+
+
+    {
+        ui.displayMessage("You have no weapon equipped.");
+    }
+
+
+
 
     public void heroPower(){
         if(!heroPowerUsed) {
