@@ -297,6 +297,7 @@ public class Board {
         public void fireballMinion (int dmg, LinkedList<Minion> minionList){
             Minion pickedMinion = pickMinion(minionList);
             pickedMinion.loseHealth(dmg);
+            pickedMinion.minionDeath(pickedMinion, minionList);
         }
 
         public void fireballHero (int dmg, Hero heroTarget){
