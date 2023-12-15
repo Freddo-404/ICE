@@ -337,7 +337,7 @@ public class Board {
                     } default:
                         ui.displayMessage("Your input was invalid. Please try again.");
                         fireballAny(dmg,enemyBoard);
-            } 
+            }
         }
         public int getCurrentMana () {
             return currentMana;
