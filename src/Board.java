@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.Random;
 
 public class Board {
 
@@ -219,6 +220,16 @@ public class Board {
         setFatigueCount(getFatigueCount() + 1);
         hero.loseHealth(fatigueCount);
 
+    }
+    public void discardCard(int amount){
+        int ranNum;
+        for (int i = 0; i < amount; i++) {
+            if (!getHand().getCardsInHand().isEmpty()) {
+                Random ran = new Random();
+                ranNum = ran.nextInt(getHand().getCardsInHand().size());
+                getHand().getCardsInHand().remove(ranNum);
+            }
+        }
     }
 
     public void minionClash(Minion myMinion, Minion enemyMinion, Board enemyBoard) {

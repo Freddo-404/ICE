@@ -25,6 +25,7 @@ public class SpellEffect extends Effect {
                 ui.displayMessage("You draw 2 cards.");
                 break;
             case "Polymorph":
+
                 ui.displayMessage("Do you want to Polymorph an enemy minion or a friendly minion?");
                 Minion pickedMinion = enemyOrFriendlyMinion(myBoard, enemyBoard, ui);
 
@@ -112,6 +113,7 @@ public class SpellEffect extends Effect {
                     }
                     ui.displayMessage("You use Flamestrike and deal 4 damage to all enemy minion.");
                 break;
+
             //Hunter spells
             case "Arcane Shot":
                 myBoard.fireballAny(2, enemyBoard);
@@ -119,14 +121,14 @@ public class SpellEffect extends Effect {
                 break;
             case "Animal Companion":
                 Random ran1 = new Random();
-                int randomCompanion =3;
+                int randomCompanion;
 
                 for (int i = 0; i < 3; i++) {
-                    randomCompanion = ran1.nextInt(enemyBoard.getMinionsOnBoard().size() + 1);
+                    randomCompanion = ran1.nextInt(3);
                     switch (randomCompanion) {
                         case 0:
                             if (myBoard.getMinionsOnBoard().size() < 7) {
-                                Minion animalCompanion = new Minion("Animal Companion", 3, 4, 3);
+                                Minion animalCompanion = new Minion("Misha", 3, 4, 3);
                                 myBoard.getMinionsOnBoard().add(animalCompanion);
                                 ui.displayMessage("You summon a 4/3 BJØRN.");
                             } else {
@@ -135,9 +137,9 @@ public class SpellEffect extends Effect {
                             break;
                         case 1:
                             if (myBoard.getMinionsOnBoard().size() < 7) {
-                                Minion animalCompanion2 = new Minion("Animal Companion", 3, 2, 4);
+                                Minion animalCompanion2 = new Minion("Leokk", 3, 2, 4);
                                 myBoard.getMinionsOnBoard().add(animalCompanion2);
-                                ui.displayMessage("You summon a 2/4 Monkey.");
+                                ui.displayMessage("You summon a 2/4 Leokk.");
                             } else {
                                 ui.displayMessage("Not enough space on board for a companion");
                             }
@@ -145,22 +147,59 @@ public class SpellEffect extends Effect {
                             break;
                         case 2:
                             if (myBoard.getMinionsOnBoard().size() < 7) {
-                                Minion animalCompanion3 = new Minion("Animal Companion", 3, 2, 4);
+                                Minion animalCompanion3 = new Minion("Animal Companion", 3, 4, 2);
                                 myBoard.getMinionsOnBoard().add(animalCompanion3);
-                                ui.displayMessage("You summon a 4/2 Boar.");
+                                ui.displayMessage("You summon a 4/2 Huffer.");
                             } else {
                                 ui.displayMessage("Not enough space on board for a companion");
                             }
                             break;
 
                         default:
-                            System.out.println("Spell missing in SpellEffect");
+                            System.out.println("Random i animal companion virker ikke");
                             break;
 
                     }
 
 
                 }
+                //Paladin spells
+            case "Equality":
+                for (Minion m : myBoard.getMinionsOnBoard()){
+                    m.setMinionCurrentHealth(1);
+                    m.setMinionMaxHealth(1);
+                }
+                for (Minion m : enemyBoard.getMinionsOnBoard()){
+                    m.setMinionCurrentHealth(1);
+                    m.setMinionMaxHealth(1);
+                }
+                ui.displayMessage("The health of all minions is changed to 1. They all suck now, but at least they are equal :).");
+                break;
+            case "Consecration":
+                for(Minion m : enemyBoard.getMinionsOnBoard()){
+                    m.loseHealth(2);
+                }
+                for(Minion m : enemyBoard.getMinionsOnBoard()){
+                    m.minionDeath(m, enemyBoard.getMinionsOnBoard());
+                }
+
+                enemyBoard.getHero().loseHealth(2);
+
+                ui.displayMessage("You use Consecration and deal 2 damage to all enemies.");
+                break;
+            case "Divine favor":
+                while(enemyBoard.getHand().getCardsInHand().size()>myBoard.getHand().getCardsInHand().size()){
+                    myBoard.drawCard(1);
+                }
+                ui.displayMessage("You draw cards until you have as many as your opponent.");
+                break;
+                //Warlock spells
+            case "Soul Fire":
+                myBoard.fireballAny(4, enemyBoard);
+                myBoard.discardCard(1);
+
+                ui.displayMessage("Your target is hit by Soul Fire and loses 4 hp. A random card from your card got discarded.");
+                break;
             default:
                 System.out.println("Spell missing in SpellEffect");
                 break;
@@ -186,6 +225,7 @@ public class SpellEffect extends Effect {
         }
         return minion;
     }
+
 
 
 

@@ -1,7 +1,7 @@
 Minion; Name: Flame Imp; Mana: 1; Attack: 3; Health: 2
 Minion; Name: Flame Imp; Mana: 1; Attack: 3; Health: 2
-Spell; Name: SoulFire; Mana: 1; Info: Deal 4 damage but discards a random card
-Spell; Name: SoulFire; Mana: 1; Info: Deal 4 damage but discards a random card
+Spell; Name: Soul Fire; Mana: 1; Info: Deal 4 damage but discards a random card
+Spell; Name: Soul Fire; Mana: 1; Info: Deal 4 damage but discards a random card
 Minion; Name: VoidWalker; Mana: 1; Attack: 1; Health: 3
 Minion; Name: VoidWalker; Mana: 1; Attack: 1; Health: 3
 Minion; Name: Abusive Sergeant; Mana: 1; Attack: 1; Health: 1
