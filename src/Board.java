@@ -342,16 +342,33 @@ public class Board {
                             case 1:
                                 fireballHero(dmg, enemyBoard.getHero());
 
-                            break;
-                        case 2:
-                            fireballHero(dmg,hero);
-                            break;
-                        default:
-                            ui.displayMessage("Your input was invalid. Please try again.");
-                            fireballAny(dmg,enemyBoard);
-                    } default:
+                                break;
+                            case 2:
+                                fireballHero(dmg, hero);
+                                break;
+                            default:
+                                ui.displayMessage("Your input was invalid. Please try again.");
+                                fireballAny(dmg, enemyBoard);
+                        }
+                    default:
                         ui.displayMessage("Your input was invalid. Please try again.");
-                        fireballAny(dmg,enemyBoard);
+                        fireballAny(dmg, enemyBoard);
+                }
+            }
+            else{
+                int inputHero = ui.getNumericInputInt("Would you like to target an enemy hero or a friendly hero? \n 1. Enemy \n 2. Friendly");
+                switch (inputHero) {
+                    case 1:
+                        fireballHero(dmg, enemyBoard.getHero());
+
+                        break;
+                    case 2:
+                        fireballHero(dmg, hero);
+                        break;
+                    default:
+                        ui.displayMessage("Your input was invalid. Please try again.");
+                        fireballAny(dmg, enemyBoard);
+                }
             }
         }
         public int getCurrentMana () {
