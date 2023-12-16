@@ -25,6 +25,9 @@ public class Game {
                 break;
             case "2":
                 break;
+            default:
+                ui.displayMessage("Invalid input. Redirecting back to start menu.");
+                mainMenu();
         }
 
 
@@ -114,32 +117,35 @@ public class Game {
     }
 
     public void endTurn() {
+        /*try {
+            Thread.sleep(1300);*/
+            tempPlayer = currentPlayer;
+            currentPlayer = enemyPlayer;
+            enemyPlayer = tempPlayer;
 
-        tempPlayer = currentPlayer;
-        currentPlayer = enemyPlayer;
-        enemyPlayer = tempPlayer;
+            heroPowerUsed = false;
+            heroReadyToAttack = true;
 
-        heroPowerUsed = false;
-        heroReadyToAttack = true;
-
-        //Giver Mana
-        if (currentPlayer.getBoard().getMaxMana() < 10) {
-            currentPlayer.getBoard().setMaxMana(currentPlayer.getBoard().getMaxMana() + 1);
-        }
-        currentPlayer.getBoard().setCurrentMana(currentPlayer.getBoard().getMaxMana());
-
-
-        currentPlayer.getBoard().drawCard(1);
-
-        //Minion ready to attack
-        for (Minion m : currentPlayer.getBoard().getMinionsOnBoard()) {
-            m.setMinionReadyToAttack(true);
-        }
-        for (Minion m : enemyPlayer.getBoard().getMinionsOnBoard()) {
-            m.setMinionReadyToAttack(false);
-        }
+            //Giver Mana
+            if (currentPlayer.getBoard().getMaxMana() < 10) {
+                currentPlayer.getBoard().setMaxMana(currentPlayer.getBoard().getMaxMana() + 1);
+            }
+            currentPlayer.getBoard().setCurrentMana(currentPlayer.getBoard().getMaxMana());
 
 
+            currentPlayer.getBoard().drawCard(1);
+
+            //Minion ready to attack
+            for (Minion m : currentPlayer.getBoard().getMinionsOnBoard()) {
+                m.setMinionReadyToAttack(true);
+            }
+            for (Minion m : enemyPlayer.getBoard().getMinionsOnBoard()) {
+                m.setMinionReadyToAttack(false);
+            }
+
+        /*} catch(InterruptedException e){
+            ui.displayMessage("Something's gone terribly wrong.");
+        }*/
     }
 
     public void winCondition() {
@@ -194,36 +200,41 @@ public class Game {
     }
 
     public void attackWithWeapon() {
-        if(heroReadyToAttack){
-        if (currentPlayer.getBoard().getHero().getWeaponSlot().getCurrentDurability() != 0) {
+        if (currentPlayer.getBoard().getHero().getWeaponSlot().getWeaponSlotAttack() > 0) {
+            if (heroReadyToAttack) {
+                if (currentPlayer.getBoard().getHero().getWeaponSlot().getCurrentDurability() != 0) {
 
-                ui.displayMessage("Do you want to attack an enemy minion or the enemy hero?");
-                ui.displayMessage("1. Enemy minion \n" + "2. Enemy hero");
-                switch (ui.getInput()) {
-                    case "1":
-                        if (!enemyPlayer.getBoard().getMinionsOnBoard().isEmpty()) {
-                            ui.displayMessage("Pick a minion to attack");
-                            currentPlayer.getBoard().heroAttackMinion(currentPlayer.getBoard().getHero(), enemyPlayer.getBoard().pickMinion(enemyPlayer.getBoard().getMinionsOnBoard()),enemyPlayer.getBoard());
+                    ui.displayMessage("Do you want to attack an enemy minion or the enemy hero?");
+                    ui.displayMessage("1. Enemy minion \n" + "2. Enemy hero");
+                    switch (ui.getInput()) {
+                        case "1":
+                            if (!enemyPlayer.getBoard().getMinionsOnBoard().isEmpty()) {
+                                ui.displayMessage("Pick a minion to attack");
+                                currentPlayer.getBoard().heroAttackMinion(currentPlayer.getBoard().getHero(), enemyPlayer.getBoard().pickMinion(enemyPlayer.getBoard().getMinionsOnBoard()), enemyPlayer.getBoard());
+                                heroReadyToAttack = false;
+                            } else {
+                                ui.displayMessage("There are no enemy minions to attack");
+                                playerChoiceMenu();
+                            }
+                            break;
+                        case "2":
+                            currentPlayer.getBoard().heroFace(currentPlayer.getBoard().getHero(), enemyPlayer.getBoard().getHero());
                             heroReadyToAttack = false;
-                        } else  {
-                            ui.displayMessage("There are no enemy minions to attack");
+                            break;
+                        default:
+                            ui.displayMessage("Your input was not valid, please try again.");
                             playerChoiceMenu();
-                        }
-                        break;
-                    case "2":
-                      currentPlayer.getBoard().heroFace(currentPlayer.getBoard().getHero(), enemyPlayer.getBoard().getHero());
-                        heroReadyToAttack = false;
-                        break;
-                    default:
-                        ui.displayMessage("Your input was not valid, please try again.");
-                        playerChoiceMenu();
+                    }
+                } else {
+                    ui.displayMessage("You have no weapon equipped.");
                 }
-            } else {
-               ui.displayMessage("You have no weapon equipped.");
-            }
 
-        }else{
-        ui.displayMessage("You have already attacked.");}
+            } else {
+                ui.displayMessage("You have already attacked.");
+            }
+        } else{
+            ui.displayMessage("You have no weapon equipped.");
+        }
     }
 
 

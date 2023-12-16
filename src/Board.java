@@ -306,9 +306,14 @@ public class Board {
 
 
         public void fireballMinion (int dmg, LinkedList<Minion> minionList){
-            Minion pickedMinion = pickMinion(minionList);
-            pickedMinion.loseHealth(dmg);
-            pickedMinion.minionDeath(pickedMinion, minionList);
+            if(!minionList.isEmpty()) {
+                Minion pickedMinion = pickMinion(minionList);
+
+                pickedMinion.loseHealth(dmg);
+                pickedMinion.minionDeath(pickedMinion, minionList);
+            } else {
+                ui.displayMessage("There are no minions to target.");
+            }
         }
 
         public void fireballHero (int dmg, Hero heroTarget){
@@ -316,39 +321,65 @@ public class Board {
         }
 
         public void fireballAny (int dmg, Board enemyBoard){
-
-            int input = ui.getNumericInputInt("Pick the desired type of target. \n 1. Minion \n 2. Heroes");
-            switch (input) {
-                case 1:
-                    int inputMinion = ui.getNumericInputInt("Would you like to target an enemy minion or a friendly minion? \n 1. Enemy \n 2. Friendly");
-                    switch (inputMinion) {
-                        case 1:
+            if(!(minionsOnBoard.isEmpty() && enemyBoard.getMinionsOnBoard().isEmpty())) {
+                int input = ui.getNumericInputInt("Pick the desired type of target. \n 1. Minion \n 2. Heroes");
+                switch (input) {
+                    case 1:
+                        if(minionsOnBoard.isEmpty()) {
                             fireballMinion(dmg, enemyBoard.minionsOnBoard);
-                            break;
-                        case 2:
+                        }
+                        else if (enemyBoard.getMinionsOnBoard().isEmpty()) {
                             fireballMinion(dmg, minionsOnBoard);
-                            break;
-                        default:
-                            ui.displayMessage("Your input was invalid. Please try again.");
-                            fireballAny(dmg,enemyBoard);
-                    }
-                    break;
-                case 2:
-                    int inputHero = ui.getNumericInputInt("Would you like to target an enemy hero or a friendly hero?");
-                    switch (inputHero) {
-                        case 1:
-                            fireballHero(dmg,enemyBoard.getHero());
+                        }
+                        else{
+                            int inputMinion = ui.getNumericInputInt("Would you like to target an enemy minion or a friendly minion? \n 1. Enemy \n 2. Friendly");
+                            switch (inputMinion) {
+                                case 1:
+                                    fireballMinion(dmg, enemyBoard.minionsOnBoard);
+                                    break;
+                                case 2:
+                                    fireballMinion(dmg, minionsOnBoard);
+                                    break;
+                                default:
+                                    ui.displayMessage("Your input was invalid. Please try again.");
+                                    fireballAny(dmg, enemyBoard);
+                            }
+                        }
 
-                            break;
-                        case 2:
-                            fireballHero(dmg,hero);
-                            break;
-                        default:
-                            ui.displayMessage("Your input was invalid. Please try again.");
-                            fireballAny(dmg,enemyBoard);
-                    } default:
+                        break;
+                    case 2:
+                        int inputHero = ui.getNumericInputInt("Would you like to target an enemy hero or a friendly hero? \n 1. Enemy \n 2. Friendly");
+                        switch (inputHero) {
+                            case 1:
+                                fireballHero(dmg, enemyBoard.getHero());
+
+                                break;
+                            case 2:
+                                fireballHero(dmg, hero);
+                                break;
+                            default:
+                                ui.displayMessage("Your input was invalid. Please try again.");
+                                fireballAny(dmg, enemyBoard);
+                        }
+                    default:
                         ui.displayMessage("Your input was invalid. Please try again.");
-                        fireballAny(dmg,enemyBoard);
+                        fireballAny(dmg, enemyBoard);
+                }
+            }
+            else{
+                int inputHero = ui.getNumericInputInt("Would you like to target an enemy hero or a friendly hero? \n 1. Enemy \n 2. Friendly");
+                switch (inputHero) {
+                    case 1:
+                        fireballHero(dmg, enemyBoard.getHero());
+
+                        break;
+                    case 2:
+                        fireballHero(dmg, hero);
+                        break;
+                    default:
+                        ui.displayMessage("Your input was invalid. Please try again.");
+                        fireballAny(dmg, enemyBoard);
+                }
             }
         }
         public int getCurrentMana () {
