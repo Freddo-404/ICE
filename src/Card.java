@@ -22,4 +22,7 @@ public abstract class Card {
     public void setCardName(String cardName) {
         this.cardName = cardName;
     }
+    public void setCardCost(int cardCost){
+        this.cardCost = cardCost;
+    }
 }

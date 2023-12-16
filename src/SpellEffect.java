@@ -120,7 +120,6 @@ public class SpellEffect extends Effect {
             case "Animal Companion":
                 Random ran1 = new Random();
                 int randomCompanion =3;
-
                 for (int i = 0; i < 3; i++) {
                     randomCompanion = ran1.nextInt(enemyBoard.getMinionsOnBoard().size() + 1);
                     switch (randomCompanion) {
@@ -161,6 +160,67 @@ public class SpellEffect extends Effect {
 
 
                 }
+
+                break;
+            case "Backstab":
+            ui.displayMessage("Do you want to Backstab an enemy minion or a friendly minion?");
+                Minion pickedMinion1 = enemyOrFriendlyMinion(myBoard, enemyBoard, ui);
+                if(pickedMinion1.getMinionCurrentHealth()==pickedMinion1.getMinionMaxHealth()){
+                    pickedMinion1.setMinionCurrentHealth(pickedMinion1.getMinionCurrentHealth()-2);
+                }else{
+                    ui.displayMessage("You can not target damaged minions");
+                    // skal returnere kortet og mana her hvis man ikke kan spille det
+break;
+                }
+            case"Shadowstep":
+                myBoard.getMinionsOnBoard().remove(myBoard.pickMinion(myBoard.getMinionsOnBoard()));
+                myBoard.pickMinion(myBoard.getMinionsOnBoard()).setCardCost(myBoard.pickMinion(myBoard.getMinionsOnBoard()).getCardCost()-2);
+                myBoard.getHand().getCardsInHand().add(myBoard.pickMinion(myBoard.getMinionsOnBoard()));
+                // den her skal også kigges på for jeg har cooked men over cooked
+
+                break;
+            case "Deadly Poison":
+                    if(myBoard.getHero().getWeaponSlot().getCurrentDurability()<0){
+                        myBoard.getHero().getWeaponSlot().setWeaponSlotAttack(myBoard.getHero().getWeaponSlot().getWeaponSlotAttack()+2);
+                }
+                    else{
+                       // skal returnere kortet og mana her hvis man ikke kan spille det
+                    }
+                break;
+            case "Preparation":
+             // skal kunne gøre så når man har spillet den skal den næste spell man spiller koste 3 mindre mana
+                break;
+            case "Cold Blood":
+                    ui.displayMessage("Do you want to add +2 attack to an enemy minion or friendly minion");
+                    Minion pickedMinion2 = enemyOrFriendlyMinion(myBoard, enemyBoard, ui);
+                    pickedMinion2.setMinionAttack(pickedMinion2.getMinionAttack()+2);
+                    // mangler combo hvis vi har tid så den giver 4 skade i stedet
+                break;
+            case "Eviscerate":
+                myBoard.fireballAny(2, enemyBoard);
+                ui.displayMessage("you deal 2 damage");
+
+                //mangler combo så den skader 4
+            case "Sap":
+                enemyBoard.getMinionsOnBoard().remove(enemyBoard.pickMinion(enemyBoard.getMinionsOnBoard()));
+                enemyBoard.getHand().getCardsInHand().add(enemyBoard.pickMinion(enemyBoard.getMinionsOnBoard()));
+                // det her virker nok slet ikke som det skal pls fix
+                break;
+            case "fan of Knives":
+                myBoard.drawCard(1);
+            for(Minion m : enemyBoard.getMinionsOnBoard()){
+                m.loseHealth(1);
+            }
+            for (Minion m : enemyBoard.getMinionsOnBoard()){
+                m.minionDeath(m, enemyBoard.getMinionsOnBoard());
+            }
+            ui.displayMessage("You use Fan of Knives and deal 1 damage to all enemy minions");
+            break;
+            case"Shiv":
+                myBoard.fireballAny(1, enemyBoard);
+                myBoard.drawCard(1);
+                ui.displayMessage("You deal 1 damage and draw a card");
+                break;
             default:
                 System.out.println("Spell missing in SpellEffect");
                 break;
@@ -169,6 +229,7 @@ public class SpellEffect extends Effect {
 
 
     }
+
 
 
     public Minion enemyOrFriendlyMinion(Board myBoard, Board enemyBoard, TextUI ui) {
