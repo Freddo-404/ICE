@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="Hero power update">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SpellEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SpellEffect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HeroPower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HeroPower.java" afterDir="false" />
+    </list>
+    <list id="74278b59-4c4a-4c64-8b3a-58e67507e64c" name="Changes by fmoes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +28,21 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="JonasHunter" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/Board.java">
+      <ranges>
+        <range start1="297" end1="300" start2="297" end2="305" changelist="96385433-c1f7-4915-a06c-2301203f431b" />
+        <range start1="307" end1="329" start2="312" end2="343" changelist="96385433-c1f7-4915-a06c-2301203f431b" />
+        <range start1="330" end1="338" start2="344" end2="353" changelist="74278b59-4c4a-4c64-8b3a-58e67507e64c" />
+        <range start1="339" end1="340" start2="354" end2="356" changelist="74278b59-4c4a-4c64-8b3a-58e67507e64c" />
+        <range start1="341" end1="341" start2="357" end2="372" changelist="74278b59-4c4a-4c64-8b3a-58e67507e64c" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -48,6 +62,7 @@
     "Application.Unnamed.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "marcusinmain2",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -173,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702656254603</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="bugfixes i game">
+      <option name="closed" value="true" />
+      <created>1702735011980</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1702735011980</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +225,7 @@
     <MESSAGE value="Minion attack stadig mange bugs" />
     <MESSAGE value="Jeg har ikke den musik fil, fred2" />
     <MESSAGE value="Hero power update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hero power update" />
+    <MESSAGE value="bugfixes i game" />
+    <option name="LAST_COMMIT_MESSAGE" value="bugfixes i game" />
   </component>
 </project>

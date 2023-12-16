@@ -27,9 +27,11 @@ public class HeroPower {
         }
     }
 
-    public void mageHeroPower(Board friendlyBoard, Board enemyBoard, TextUI ui){
-        friendlyBoard.fireballAny(1, enemyBoard);
-        ui.displayMessage("Your target is hit by Fireblast and loses 1 hp.");
+    public void mageHeroPower(Board friendlyBoard, Board enemyBoard, TextUI ui) {
+
+
+            friendlyBoard.fireballAny(1, enemyBoard);
+            ui.displayMessage("Your target is hit by Fireblast and loses 1 hp.");
 
 
     }

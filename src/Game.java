@@ -117,32 +117,35 @@ public class Game {
     }
 
     public void endTurn() {
+        /*try {
+            Thread.sleep(1300);*/
+            tempPlayer = currentPlayer;
+            currentPlayer = enemyPlayer;
+            enemyPlayer = tempPlayer;
 
-        tempPlayer = currentPlayer;
-        currentPlayer = enemyPlayer;
-        enemyPlayer = tempPlayer;
+            heroPowerUsed = false;
+            heroReadyToAttack = true;
 
-        heroPowerUsed = false;
-        heroReadyToAttack = true;
-
-        //Giver Mana
-        if (currentPlayer.getBoard().getMaxMana() < 10) {
-            currentPlayer.getBoard().setMaxMana(currentPlayer.getBoard().getMaxMana() + 1);
-        }
-        currentPlayer.getBoard().setCurrentMana(currentPlayer.getBoard().getMaxMana());
-
-
-        currentPlayer.getBoard().drawCard(1);
-
-        //Minion ready to attack
-        for (Minion m : currentPlayer.getBoard().getMinionsOnBoard()) {
-            m.setMinionReadyToAttack(true);
-        }
-        for (Minion m : enemyPlayer.getBoard().getMinionsOnBoard()) {
-            m.setMinionReadyToAttack(false);
-        }
+            //Giver Mana
+            if (currentPlayer.getBoard().getMaxMana() < 10) {
+                currentPlayer.getBoard().setMaxMana(currentPlayer.getBoard().getMaxMana() + 1);
+            }
+            currentPlayer.getBoard().setCurrentMana(currentPlayer.getBoard().getMaxMana());
 
 
+            currentPlayer.getBoard().drawCard(1);
+
+            //Minion ready to attack
+            for (Minion m : currentPlayer.getBoard().getMinionsOnBoard()) {
+                m.setMinionReadyToAttack(true);
+            }
+            for (Minion m : enemyPlayer.getBoard().getMinionsOnBoard()) {
+                m.setMinionReadyToAttack(false);
+            }
+
+        /*} catch(InterruptedException e){
+            ui.displayMessage("Something's gone terribly wrong.");
+        }*/
     }
 
     public void winCondition() {
