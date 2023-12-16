@@ -16,7 +16,6 @@ public class Hero {
     }
 
 
-
     public void loseHealth(int dmgTaken){
         setHeroCurrentHealth(getHeroCurrentHealth()-dmgTaken);
     }
