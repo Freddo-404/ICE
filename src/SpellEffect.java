@@ -7,33 +7,41 @@ public class SpellEffect extends Effect {
         this.spellName = spellName;
     }
 
-    public void useSpellEffect(Board myBoard, Board enemyBoard, TextUI ui) {
-
+    public Boolean useSpellEffect(Board myBoard, Board enemyBoard, TextUI ui) {
+        Boolean activateSpell = false;
         switch (spellName) {
             case "The coin":
                 myBoard.setCurrentMana(myBoard.getCurrentMana() + 1);
                 ui.displayMessage("You gain 1 mana.");
+                activateSpell = true;
                 break;
 
             //Mage spells
             case "Fireball":
                 myBoard.fireballAny(6, enemyBoard);
                 ui.displayMessage("Your target is hit by Fireball and loses 6 hp.");
+                activateSpell = true;
                 break;
             case "Arcane Intellect":
                 myBoard.drawCard(2);
                 ui.displayMessage("You draw 2 cards.");
+                activateSpell = true;
                 break;
             case "Polymorph":
-
                 ui.displayMessage("Do you want to Polymorph an enemy minion or a friendly minion?");
-                Minion pickedMinion = enemyOrFriendlyMinion(myBoard, enemyBoard, ui);
-
-                pickedMinion.setMinionCurrentHealth(1);
-                pickedMinion.setMinionMaxHealth(1);
-                pickedMinion.setMinionAttack(1);
-                pickedMinion.setCardName("Sheep");
-                ui.displayMessage("Your target is now a sheep. Mæææ!");
+                Minion pickedMinion = myBoard.enemyOrFriendlyMinion(enemyBoard, ui);
+                if(!(pickedMinion==null)) {
+                    pickedMinion.setMinionCurrentHealth(1);
+                    pickedMinion.setMinionMaxHealth(1);
+                    pickedMinion.setMinionAttack(1);
+                    pickedMinion.setCardName("Sheep");
+                    ui.displayMessage("Your target is now a sheep. Mæææ!");
+                    activateSpell = true;
+                }
+                else{
+                    ui.displayMessage("You couldn't find a target to use Polymorph on.");
+                    activateSpell = false;
+                }
                 break;
             case "Arcane Missiles":
                 Random ran = new Random();
@@ -79,9 +87,11 @@ public class SpellEffect extends Effect {
                     }
                 }
                 ui.displayMessage("You deal 3 damage randomly split among all enemy characters");
+                activateSpell = true;
                 break;
             case "Ice Lance":
                 ui.displayMessage("Fuck Ice Lance");
+                activateSpell = true;
                 break;
             case "Mirror Image":
                 for (int i = 0; i < 2; i++) {
@@ -93,38 +103,42 @@ public class SpellEffect extends Effect {
                         ui.displayMessage("Not all Mirror images got summoned since your board is full.");
                     }
                 }
+                activateSpell = true;
                 break;
             case "Frostbolt":
                 myBoard.fireballAny(3, enemyBoard);
                 //mangler frozen
                 ui.displayMessage("Your target is hit by Frostbolt and loses 3 hp. It's also frozen.");
+                activateSpell = true;
+                break;
             case "Pyroblast":
                 myBoard.fireballAny(10, enemyBoard);
                 //mangler frozen
                 ui.displayMessage("Your target is hit by a mighty Pyroblast and loses 10 hp. Rest in peace.");
+                activateSpell = true;
                 break;
             case "Flamestrike":
-                     for(Minion m : enemyBoard.getMinionsOnBoard()){
-                         m.loseHealth(4);
-                     }
+                for(Minion m : enemyBoard.getMinionsOnBoard()){
+                    m.loseHealth(4);
+                }
 
-                    for(Minion m : enemyBoard.getMinionsOnBoard()){
-                        m.minionDeath(m, enemyBoard.getMinionsOnBoard());
-                    }
-                    ui.displayMessage("You use Flamestrike and deal 4 damage to all enemy minion.");
+                for(Minion m : enemyBoard.getMinionsOnBoard()){
+                    m.minionDeath(m, enemyBoard.getMinionsOnBoard());
+                }
+                ui.displayMessage("You use Flamestrike and deal 4 damage to all enemy minion.");
+                activateSpell = true;
                 break;
 
             //Hunter spells
             case "Arcane Shot":
                 myBoard.fireballAny(2, enemyBoard);
                 ui.displayMessage("Your target is hit by Arcane Shot and loses 2 hp.");
+                activateSpell = true;
                 break;
             case "Animal Companion":
                 Random ran1 = new Random();
                 int randomCompanion;
-
-                for (int i = 0; i < 3; i++) {
-                    randomCompanion = ran1.nextInt(3);
+                randomCompanion = ran1.nextInt(3);
                     switch (randomCompanion) {
                         case 0:
                             if (myBoard.getMinionsOnBoard().size() < 7) {
@@ -161,8 +175,10 @@ public class SpellEffect extends Effect {
 
                     }
 
+                activateSpell = true;
+                break;
 
-                }
+
                 //Paladin spells
             case "Equality":
                 for (Minion m : myBoard.getMinionsOnBoard()){
@@ -174,6 +190,7 @@ public class SpellEffect extends Effect {
                     m.setMinionMaxHealth(1);
                 }
                 ui.displayMessage("The health of all minions is changed to 1. They all suck now, but at least they are equal :).");
+                activateSpell = true;
                 break;
             case "Consecration":
                 for(Minion m : enemyBoard.getMinionsOnBoard()){
@@ -186,67 +203,111 @@ public class SpellEffect extends Effect {
                 enemyBoard.getHero().loseHealth(2);
 
                 ui.displayMessage("You use Consecration and deal 2 damage to all enemies.");
+                activateSpell = true;
                 break;
             case "Divine favor":
                 while(enemyBoard.getHand().getCardsInHand().size()>myBoard.getHand().getCardsInHand().size()){
                     myBoard.drawCard(1);
                 }
                 ui.displayMessage("You draw cards until you have as many as your opponent.");
+                activateSpell = true;
                 break;
+
+
                 //Warlock spells
             case "Soul Fire":
                 myBoard.fireballAny(4, enemyBoard);
                 myBoard.discardCard(1);
 
                 ui.displayMessage("Your target is hit by Soul Fire and loses 4 hp. A random card from your card got discarded.");
+                activateSpell = true;
                 break;
 
-                break;
+
+                //Rogue spells
             case "Backstab":
             ui.displayMessage("Do you want to Backstab an enemy minion or a friendly minion?");
-                Minion pickedMinion1 = enemyOrFriendlyMinion(myBoard, enemyBoard, ui);
-                if(pickedMinion1.getMinionCurrentHealth()==pickedMinion1.getMinionMaxHealth()){
-                    pickedMinion1.setMinionCurrentHealth(pickedMinion1.getMinionCurrentHealth()-2);
-                }else{
-                    ui.displayMessage("You can not target damaged minions");
-                    // skal returnere kortet og mana her hvis man ikke kan spille det
-break;
-                }
-            case"Shadowstep":
-                myBoard.getMinionsOnBoard().remove(myBoard.pickMinion(myBoard.getMinionsOnBoard()));
-                myBoard.pickMinion(myBoard.getMinionsOnBoard()).setCardCost(myBoard.pickMinion(myBoard.getMinionsOnBoard()).getCardCost()-2);
-                myBoard.getHand().getCardsInHand().add(myBoard.pickMinion(myBoard.getMinionsOnBoard()));
-                // den her skal også kigges på for jeg har cooked men over cooked
 
+                Minion pickedMinion1 = myBoard.enemyOrFriendlyMinion(enemyBoard, ui);
+                if(!(pickedMinion1==null)) {
+                    if (pickedMinion1.getMinionCurrentHealth() == pickedMinion1.getMinionMaxHealth()) {
+                        pickedMinion1.loseHealth(2);
+                        pickedMinion1.minionDeath(pickedMinion1, myBoard.getMinionsOnBoard());
+                        activateSpell = true;
+                    } else {
+                        ui.displayMessage("You can not target a damaged minions");
+                        activateSpell = false;
+                    }
+                }
+                else{
+                    ui.displayMessage("You couldn't find a target to use Backstab on.");
+                    activateSpell = false;
+                }
+                break;
+            case "Shadowstep":
+                Minion pickedMinion2 = myBoard.pickMinion(myBoard.getMinionsOnBoard());
+                if(!(pickedMinion2==null)){
+                    pickedMinion2.setCardCost(pickedMinion2.getCardCost()-2);
+                    //mana cost burde også sættes op igen efter minionen bliver spillet igen. Det kræver dog at man holder styr på hvilke minions der tidligere er blevet shadowstepped.
+                    myBoard.getMinionsOnBoard().remove(pickedMinion2);
+                    if(myBoard.getHand().getCardsInHand().size()<10) {
+                        myBoard.getHand().getCardsInHand().add(pickedMinion2);
+                    }
+                    activateSpell = true;
+                }
+                else {
+                    ui.displayMessage("Your board is empty so you're unable to use Shadowstep.");
+                    activateSpell = false;
+                }
                 break;
             case "Deadly Poison":
-                    if(myBoard.getHero().getWeaponSlot().getCurrentDurability()<0){
+                    if(myBoard.getHero().getWeaponSlot().getCurrentDurability()>0){
                         myBoard.getHero().getWeaponSlot().setWeaponSlotAttack(myBoard.getHero().getWeaponSlot().getWeaponSlotAttack()+2);
-                }
+                        activateSpell = true;
+                    }
                     else{
-                       // skal returnere kortet og mana her hvis man ikke kan spille det
+                       ui.displayMessage("You have no weapon equipped to use Deadly Poison on.");
+                        activateSpell = false;
                     }
                 break;
             case "Preparation":
              // skal kunne gøre så når man har spillet den skal den næste spell man spiller koste 3 mindre mana
+                activateSpell = true;
                 break;
             case "Cold Blood":
-                    ui.displayMessage("Do you want to add +2 attack to an enemy minion or friendly minion");
-                    Minion pickedMinion2 = enemyOrFriendlyMinion(myBoard, enemyBoard, ui);
-                    pickedMinion2.setMinionAttack(pickedMinion2.getMinionAttack()+2);
+                    ui.displayMessage("Do you want to add +2 attack to a friendly minion or an enemy minion.");
+                    Minion pickedMinion3 = myBoard.friendlyOrEnemyMinion(enemyBoard, ui);
+                    if(!(pickedMinion3==null)) {
+                        pickedMinion3.setMinionAttack(pickedMinion3.getMinionAttack() + 2);
+                        activateSpell = true;
+                    }
+                    else{
+                        ui.displayMessage("You couldn't find a target to use Cold Blood on.");
+                        activateSpell = false;
+                    }
                     // mangler combo hvis vi har tid så den giver 4 skade i stedet
                 break;
             case "Eviscerate":
                 myBoard.fireballAny(2, enemyBoard);
                 ui.displayMessage("you deal 2 damage");
-
+                activateSpell = true;
                 //mangler combo så den skader 4
-            case "Sap":
-                enemyBoard.getMinionsOnBoard().remove(enemyBoard.pickMinion(enemyBoard.getMinionsOnBoard()));
-                enemyBoard.getHand().getCardsInHand().add(enemyBoard.pickMinion(enemyBoard.getMinionsOnBoard()));
-                // det her virker nok slet ikke som det skal pls fix
                 break;
-            case "fan of Knives":
+            case "Sap":
+                Minion pickedMinion4 = myBoard.pickMinion(enemyBoard.getMinionsOnBoard());
+                if(!(pickedMinion4==null)){
+                    enemyBoard.getMinionsOnBoard().remove(pickedMinion4);
+                    if(enemyBoard.getHand().getCardsInHand().size()<10) {
+                        enemyBoard.getHand().getCardsInHand().add(pickedMinion4);
+                    }
+                    activateSpell = true;
+                }
+                else {
+                    ui.displayMessage("Your opponent's board is empty so you're unable to use Sap.");
+                    activateSpell = false;
+                }
+                break;
+            case "Fan of Knives":
                 myBoard.drawCard(1);
             for(Minion m : enemyBoard.getMinionsOnBoard()){
                 m.loseHealth(1);
@@ -255,38 +316,26 @@ break;
                 m.minionDeath(m, enemyBoard.getMinionsOnBoard());
             }
             ui.displayMessage("You use Fan of Knives and deal 1 damage to all enemy minions");
+            activateSpell = true;
             break;
             case"Shiv":
                 myBoard.fireballAny(1, enemyBoard);
                 myBoard.drawCard(1);
-                ui.displayMessage("You deal 1 damage and draw a card");
+                ui.displayMessage("You deal 1 damage to your target and draw a card");
+                activateSpell = true;
                 break;
             default:
                 System.out.println("Spell missing in SpellEffect");
                 break;
 
         }
-
+        return activateSpell;
 
     }
 
 
 
-    public Minion enemyOrFriendlyMinion(Board myBoard, Board enemyBoard, TextUI ui) {
-        ui.displayMessage("1. Enemy minion \n 2. Friendly minion \n");
-        Minion minion = null;
-        switch (ui.getInput()){
-            case "1":
-                minion = myBoard.pickMinion(enemyBoard.getMinionsOnBoard());
-                break;
-            case "2":
-                minion = myBoard.pickMinion(myBoard.getMinionsOnBoard());
-                break;
-            default:
-                return enemyOrFriendlyMinion(myBoard, enemyBoard, ui);
-        }
-        return minion;
-    }
+
 
 
 

@@ -58,9 +58,12 @@ public class Board {
     }
     public void playSpell(Spell spell, Card card, Board myBoard, Board enemyBoard){
         if (currentMana >= spell.getCardCost()) {
-            currentMana = currentMana - spell.getCardCost();
-            spell.getSpellEffect().useSpellEffect(myBoard,enemyBoard,ui);
-            getHand().getCardsInHand().remove(card);
+            Boolean activated = spell.getSpellEffect().useSpellEffect(myBoard,enemyBoard,ui);
+            if(activated) {
+                currentMana = currentMana - spell.getCardCost();
+                getHand().getCardsInHand().remove(card);
+            }
+
         } else {
           ui.displayMessage("Card cost is too high.");
         }
@@ -304,6 +307,36 @@ public class Board {
         return minion;
     }
 
+    public Minion friendlyOrEnemyMinion(Board enemyBoard, TextUI ui) {
+        ui.displayMessage("1. Friendly minion \n 2. Enemy minion \n");
+        Minion minion = null;
+        switch (ui.getInput()){
+            case "1":
+                minion = pickMinion(getMinionsOnBoard());
+                break;
+            case "2":
+                minion = pickMinion(enemyBoard.getMinionsOnBoard());
+                break;
+            default:
+                return friendlyOrEnemyMinion(enemyBoard, ui);
+        }
+        return minion;
+    }
+        public Minion enemyOrFriendlyMinion(Board enemyBoard, TextUI ui) {
+            ui.displayMessage("1. Enemy minion \n 2. Friendly minion \n");
+            Minion minion = null;
+            switch (ui.getInput()){
+                case "1":
+                    minion = pickMinion(enemyBoard.getMinionsOnBoard());
+                    break;
+                case "2":
+                    minion = pickMinion(getMinionsOnBoard());
+                    break;
+                default:
+                    return enemyOrFriendlyMinion(enemyBoard, ui);
+        }
+            return minion;
+        }
 
         public void fireballMinion (int dmg, LinkedList<Minion> minionList){
             if(!minionList.isEmpty()) {
