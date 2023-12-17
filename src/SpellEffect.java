@@ -153,7 +153,7 @@ public class SpellEffect extends Effect {
                             if (myBoard.getMinionsOnBoard().size() < 7) {
                                 Minion animalCompanion2 = new Minion("Leokk", 3, 2, 4);
                                 myBoard.getMinionsOnBoard().add(animalCompanion2);
-                                ui.displayMessage("You summon a 2/4 Leokk.");
+                                ui.displayMessage("You summon a 2/4 Monkey.");
                             } else {
                                 ui.displayMessage("Not enough space on board for a companion");
                             }
