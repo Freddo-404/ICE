@@ -46,7 +46,7 @@ public class HeroPower {
     }
    public void paladinHeroPower(Board myBoard, TextUI ui){
         if(myBoard.getMinionsOnBoard().size()<7) {
-            Minion silverHandRecruit = new Minion("Silver Hand Recruit", 1, 1, 1);
+            Minion silverHandRecruit = new Minion("Silver Hand Recruit", 1, 1, 1,false);
             myBoard.getMinionsOnBoard().add(silverHandRecruit);
             ui.displayMessage("You use Reinforce. Summon a 1/1 Silver Hand Recruit.");
         }

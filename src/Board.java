@@ -234,9 +234,18 @@ public class Board {
             }
         }
     }
-
+public boolean CheckIfTaunt(Board enemyboard) {
+    for (Minion t : enemyboard.minionsOnBoard) {
+        if (t.getTaunt()) {
+            return true;
+        }
+    }
+        return false;
+}
     public void minionClash(Minion myMinion, Minion enemyMinion, Board enemyBoard) {
-
+       if (CheckIfTaunt(enemyBoard)){
+           //mangler at sige vores egen minions kun må angribe taunt minions
+       }
         enemyMinion.loseHealth(myMinion.getMinionAttack());
         myMinion.loseHealth(enemyMinion.getMinionAttack());
 

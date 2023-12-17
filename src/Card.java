@@ -4,6 +4,7 @@ public abstract class Card {
     private String cardName;
     private String heroClass;
     private int cardCost;
+    private boolean taunt;
 
     public Card(String cardName, int cardCost){
     this.cardName = cardName;
