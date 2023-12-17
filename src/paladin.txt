@@ -8,8 +8,8 @@ Spell; Name: Consecration; Mana: 3; Info: Deal 2 damage to all enemies
 Spell; Name: Consecration; Mana: 3; Info: Deal 2 damage to all enemies
 Spell; Name: Divine favor; Mana: 3; Info: Draw cards until you have as many as your opponent
 Spell; Name: Divine favor; Mana: 3; Info: Draw cards until you have as many as your opponent
-Weapon; Name: Truesilver Champion; Mana: 4; Attack: 4; Durability 2
-Weapon; Name: Truesilver Champion; Mana: 4; Attack: 4; Durability 2
+Weapon; Name: Truesilver Champion; Mana: 4; Attack: 4; Durability: 2
+Weapon; Name: Truesilver Champion; Mana: 4; Attack: 4; Durability: 2
 Minion; Name: Abusive Sergeant; Mana: 1; Attack: 1; Health: 1
 Minion; Name: Abusive Sergeant; Mana: 1; Attack: 1; Health: 1
 Minion; Name: Argent Squire; Mana: 1; Attack: 1; Health: 1
@@ -28,6 +28,3 @@ Minion; Name: Wolfrider; Mana: 3; Attack: 3; Health: 1
 Minion; Name: Wolfrider; Mana: 3; Attack: 3; Health: 1
 Minion; Name: Senjin Shieldmasta; Mana: 4; Attack: 3; Health: 5
 Minion; Name: Leeroy Jenkins; Mana: 5; Attack: 6; Health: 2
-
-
-

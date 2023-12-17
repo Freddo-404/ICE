@@ -1,26 +1,26 @@
 Spell; Name: Arcane Missiles; Mana: 1; Info: Deal 3 damage randomly split among all enemy characters
 Spell; Name: Arcane Missiles; Mana: 1; Info: Deal 3 damage randomly split among all enemy characters
-Minion; Name: Leper Gnome; Mana: 1 Attack: 2; Health: 1; Info: DEATHRATTLE deal 2 damage to the enemy hero
-Minion; Name: Leper Gnome; Mana: 1 Attack: 2; Health: 1; Info: DEATHRATTLE deal 2 damage to the enemy hero
-Spell; Name; Ice Lance; Mana 1; Info: FREEZE a character. If it was already FROZEN deal 4 damage instead
-Spell; Name; Ice Lance; Mana 1; Info: FREEZE a character. If it was already FROZEN deal 4 damage instead
-Minion; Name: Mana Wyrm; Mana: 1 Attack: 1; Health: 3; Info: Whenever you cast a spell gain 1+ attack
-Minion; Name: Mana Wyrm; Mana: 1 Attack: 1; Health: 3; Info: Whenever you cast a spell gain 1+ attack
+Minion; Name: Leper Gnome; Mana: 1; Attack: 2; Health: 1; Info: DEATHRATTLE deal 2 damage to the enemy hero
+Minion; Name: Leper Gnome; Mana: 1; Attack: 2; Health: 1; Info: DEATHRATTLE deal 2 damage to the enemy hero
+Spell; Name: Ice Lance; Mana: 1; Info: FREEZE a character. If it was already FROZEN deal 4 damage instead
+Spell; Name: Ice Lance; Mana: 1; Info: FREEZE a character. If it was already FROZEN deal 4 damage instead
+Minion; Name: Mana Wyrm; Mana: 1; Attack: 1; Health: 3; Info: Whenever you cast a spell gain 1+ attack
+Minion; Name: Mana Wyrm; Mana: 1; Attack: 1; Health: 3; Info: Whenever you cast a spell gain 1+ attack
 Spell; Name: Mirror Image; Mana: 1; Info: Summon two 0/2 minions with taunt
 Spell; Name: Mirror Image; Mana: 1; Info: Summon two 0/2 minions with taunt
-Minion; Name: Bloodmage Thalnos; Mana: 2 Attack: 1; Health: 1; Info: SPELLDAMAGE +1 DEATHRATTLE draw a card
-Minion; Name: Knife Juggler; Mana: 2 Attack: 3; Health: 2; Info: After you summon a minion deal 1 damage to a random enemy
-Minion; Name: Knife Juggler; Mana: 2 Attack: 3; Health: 2; Info: After you summon a minion deal 1 damage to a random enemy
+Minion; Name: Bloodmage Thalnos; Mana: 2; Attack: 1; Health: 1; Info: SPELLDAMAGE +1 DEATHRATTLE draw a card
+Minion; Name: Knife Juggler; Mana: 2; Attack: 3; Health: 2; Info: After you summon a minion deal 1 damage to a random enemy
+Minion; Name: Knife Juggler; Mana: 2; Attack: 3; Health: 2; Info: After you summon a minion deal 1 damage to a random enemy
 Spell; Name: Frostbolt; Mana: 2; Info: Deals 3 damage to a character and FREEZE it
 Spell; Name: Frostbolt; Mana: 2; Info: Deals 3 damage to a character and FREEZE it
 Minion; Name: Sorcerer's Apprentice; Mana: 2; Attack: 3; Health: 2; Info: Your spells cost 1 less
 Minion; Name: Sorcerer's Apprentice; Mana: 2; Attack: 3; Health: 2; Info: Your spells cost 1 less
 Minion; Name: Acolyte of Pain; Mana: 3; Attack: 1; Health: 3; Info: Whenever this minion takes damage draw a card
-Spell; Name; Arcane Intellect; Mana 3; Info: Draw 2 cards
-Spell; Name; Arcane Intellect; Mana 3; Info: Draw 2 cards
-Spell; Name; Fireball; Mana 4; Info: Deal 6 damage
-Spell; Name; Fireball; Mana 4; Info: Deal 6 damage
-Spell; Name; Polymorph; Mana 4; Info: Transform a minion into a 1/1 sheep
+Spell; Name: Arcane Intellect; Mana: 3; Info: Draw 2 cards
+Spell; Name: Arcane Intellect; Mana: 3; Info: Draw 2 cards
+Spell; Name: Fireball; Mana: 4; Info: Deal 6 damage
+Spell; Name: Fireball; Mana: 4; Info: Deal 6 damage
+Spell; Name: Polymorph; Mana: 4; Info: Transform a minion into a 1/1 sheep
 Minion; Name: Water Elemental; Mana: 4; Attack: 3; Health: 6; Info: FREEZE any character damage by this minion
 Minion; Name: Water Elemental; Mana: 4; Attack: 3; Health: 6; Info: FREEZE any character damage by this minion
 Minion; Name: Azure Drake; Mana: 5; Attack: 4; Health: 4; Info: SPELLDAMAGE +1 BATTLECRY draw a card
