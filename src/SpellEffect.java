@@ -121,7 +121,7 @@ public class SpellEffect extends Effect {
                 for(Minion m : enemyBoard.getMinionsOnBoard()){
                     m.loseHealth(4);
                 }
-
+                //Det her går galt fordi det er linkedlist, og når man fjerner dem bliver det rykket
                 for(Minion m : enemyBoard.getMinionsOnBoard()){
                     m.minionDeath(m, enemyBoard.getMinionsOnBoard());
                 }
@@ -232,6 +232,7 @@ public class SpellEffect extends Effect {
                 if(!(pickedMinion1==null)) {
                     if (pickedMinion1.getMinionCurrentHealth() == pickedMinion1.getMinionMaxHealth()) {
                         pickedMinion1.loseHealth(2);
+                        pickedMinion1.minionDeath(pickedMinion1, enemyBoard.getMinionsOnBoard());
                         pickedMinion1.minionDeath(pickedMinion1, myBoard.getMinionsOnBoard());
                         activateSpell = true;
                     } else {
@@ -247,6 +248,7 @@ public class SpellEffect extends Effect {
             case "Shadowstep":
                 Minion pickedMinion2 = myBoard.pickMinion(myBoard.getMinionsOnBoard());
                 if(!(pickedMinion2==null)){
+                    //gør så de ikke kan koste negativ mana
                     pickedMinion2.setCardCost(pickedMinion2.getCardCost()-2);
                     //mana cost burde også sættes op igen efter minionen bliver spillet igen. Det kræver dog at man holder styr på hvilke minions der tidligere er blevet shadowstepped.
                     myBoard.getMinionsOnBoard().remove(pickedMinion2);

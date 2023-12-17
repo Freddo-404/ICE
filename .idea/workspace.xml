@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="spells færdig?">
+    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="Rettelse i txt filer og fileio">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mage.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/mage.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/paladin.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/paladin.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rogue.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/rogue.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702771951216</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Rettelse i txt filer og fileio">
+      <option name="closed" value="true" />
+      <created>1702775139103</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1702775139103</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +218,7 @@
     <MESSAGE value="Jeg har ikke den musik fil, fred2" />
     <MESSAGE value="Hero power update" />
     <MESSAGE value="spells færdig?" />
-    <option name="LAST_COMMIT_MESSAGE" value="spells færdig?" />
+    <MESSAGE value="Rettelse i txt filer og fileio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rettelse i txt filer og fileio" />
   </component>
 </project>

@@ -270,45 +270,48 @@ public class Board {
     }
 
     public Minion pickMinion(LinkedList<Minion> minionList){
+
         ui.displayMinionsOnBoardlist(minionList);
         Minion minion = null;
-
-        try {
-            switch (ui.getInput()) {
-                case "1":
-                    minion = minionList.get(0);
-                    break;
-                case "2":
-                    minion = minionList.get(1);
-                    break;
-                case "3":
-                    minion = minionList.get(2);
-                    break;
-                case "4":
-                    minion = minionList.get(3);
-                    break;
-                case "5":
-                    minion = minionList.get(4);
-                    break;
-                case "6":
-                    minion = minionList.get(5);
-                    break;
-                case "7":
-                    minion = minionList.get(6);
-                    break;
-                default:
-                    ui.displayMessage("Your input was invalid, please try again");
-                    return pickMinion(minionList);
+        if(!minionList.isEmpty()) {
+            try {
+                switch (ui.getInput()) {
+                    case "1":
+                        minion = minionList.get(0);
+                        break;
+                    case "2":
+                        minion = minionList.get(1);
+                        break;
+                    case "3":
+                        minion = minionList.get(2);
+                        break;
+                    case "4":
+                        minion = minionList.get(3);
+                        break;
+                    case "5":
+                        minion = minionList.get(4);
+                        break;
+                    case "6":
+                        minion = minionList.get(5);
+                        break;
+                    case "7":
+                        minion = minionList.get(6);
+                        break;
+                    default:
+                        ui.displayMessage("Your input was invalid, please try again");
+                        return pickMinion(minionList);
+                }
+            } catch (IndexOutOfBoundsException e) {
+                ui.displayMessage("Please pick a minion from the list");
+                return pickMinion(minionList);
             }
-        } catch (IndexOutOfBoundsException e) {
-            ui.displayMessage("Please pick a minion from the list");
-            return pickMinion(minionList);
+            return minion;
         }
         return minion;
     }
 
     public Minion friendlyOrEnemyMinion(Board enemyBoard, TextUI ui) {
-        ui.displayMessage("1. Friendly minion \n 2. Enemy minion \n");
+        ui.displayMessage("1. Friendly minion \n2. Enemy minion \n");
         Minion minion = null;
         switch (ui.getInput()){
             case "1":
@@ -323,7 +326,7 @@ public class Board {
         return minion;
     }
         public Minion enemyOrFriendlyMinion(Board enemyBoard, TextUI ui) {
-            ui.displayMessage("1. Enemy minion \n 2. Friendly minion \n");
+            ui.displayMessage("1. Enemy minion \n2. Friendly minion \n");
             Minion minion = null;
             switch (ui.getInput()){
                 case "1":
