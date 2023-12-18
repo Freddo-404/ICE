@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="putMinionBoard fix">
+    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="taunt fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Minion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Minion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SpellEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SpellEffect.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702916731400</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="taunt fix">
+      <option name="closed" value="true" />
+      <created>1702917286049</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1702917286049</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +228,7 @@
     <MESSAGE value="Hero power update" />
     <MESSAGE value="display taunt" />
     <MESSAGE value="putMinionBoard fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="putMinionBoard fix" />
+    <MESSAGE value="taunt fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="taunt fix" />
   </component>
 </project>
