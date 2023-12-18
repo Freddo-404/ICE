@@ -217,13 +217,30 @@ public class Board {
                 if (hand.getCardsInHand().size() < hand.getMaxHandSize()) {
                     hand.getCardsInHand().add(deck.getCardsInDeck().poll());
                 } else {
-                    deck.getCardsInDeck().remove();
+                    Card discardedCard = deck.getCardsInDeck().poll();
+
+                    if (discardedCard instanceof Spell) {
+                        Spell spell = (Spell) discardedCard;
+                        ui.displayMessage("Your hand is full. Discarded: " + spell.getCardName() + ", Mana cost: " + spell.getCardCost());
+                    } else if (discardedCard instanceof Weapon) {
+                        Weapon weapon = (Weapon) discardedCard;
+                        ui.displayMessage("Your hand is full. Discarded: " + weapon.getCardName() + ", Mana cost: " + weapon.getCardCost() + ", Attack: " + weapon.getWeaponAttack() + ", Durability: " + weapon.getWeaponDurability());
+
+                    } else if (discardedCard instanceof Minion) {
+                        Minion minion = (Minion) discardedCard;
+                        ui.displayMessage("Your hand is full. Discarded: " + minion.getCardName() + ", Mana cost: " + minion.getCardCost() + ", Attack: " + minion.getMinionAttack() + ", Health: " + minion.getMinionMaxHealth());
+                    } else {
+                        System.out.println("Something with instanceof isn't working.");
+                    }
                 }
+
             } else {
                 drawFatigue();
             }
         }
     }
+
+
 
     public void drawFatigue() {
         setFatigueCount(getFatigueCount() + 1);
