@@ -1,10 +1,10 @@
 Minion; Name: Argent Squire; Mana: 1; Attack: 1; Health: 1; taunt: true
 Minion; Name: Argent Squire; Mana: 1; Attack: 1; Health: 1; taunt: true
-Minion; Name: Leper Gnome; Mana: 1; Attack: 2; Health: 1; taunt: false
-Minion; Name: Bluegill Warrior; Mana: 2; Attack: 2; Health: 1; taunt: false
-Minion; Name: Bluegill Warrior; Mana: 2; Attack: 2; Health: 1; taunt: false
-Minion; Name: Worgen Infiltrator; Mana: 1; Attack: 2; Health: 1; taunt: false
-Minion; Name: Worgen Infiltrator; Mana: 1; Attack: 2; Health: 1; taunt: false
+Minion; Name: Leper Gnome; Mana: 1; Attack: 2; Health: 1; taunt: true
+Minion; Name: Bluegill Warrior; Mana: 2; Attack: 2; Health: 1; taunt: true
+Minion; Name: Bluegill Warrior; Mana: 2; Attack: 2; Health: 1; taunt: true
+Minion; Name: Worgen Infiltrator; Mana: 1; Attack: 2; Health: 1; taunt: true
+Minion; Name: Worgen Infiltrator; Mana: 1; Attack: 2; Health: 1; taunt: true
 Spell; Name: Animal Companion; Mana: 3; Info: Summon a 4/3 minion
 Spell; Name: Animal Companion ; Mana: 3; Info: Summon a 4/3 minion
 Minion; Name: Knife Juggler; Mana: 2; Attack: 3; Health: 2; taunt: false

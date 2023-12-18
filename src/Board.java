@@ -8,6 +8,8 @@ public class Board {
     private int fatigueCount = 0;
     private int maxBoardSize = 7;
     private LinkedList<Minion> minionsOnBoard = new LinkedList<>();
+    private LinkedList<Minion> minionsWithTaunt = new LinkedList<>();
+
 
     private Hand hand = new Hand();
     private Deck deck;
@@ -51,6 +53,9 @@ public class Board {
                 putMinionBoard(minion);
                 currentMana = currentMana - minion.getCardCost();
                 getHand().getCardsInHand().remove(card);
+                if(minion.getTaunt()){
+                    minionsWithTaunt.add(minion);
+                }
             } else {
                 ui.displayMessage("Card cost is too high.");
             }
@@ -239,15 +244,14 @@ public class Board {
         for (Minion t : enemyboard.minionsOnBoard) {
             if (t.getTaunt()) {
                 return true;
+
             }
         }
         return false;
     }
 
     public void minionClash(Minion myMinion, Minion enemyMinion, Board enemyBoard) {
-        if (CheckIfTaunt(enemyBoard)){
 
-        }
         enemyMinion.loseHealth(myMinion.getMinionAttack());
         myMinion.loseHealth(enemyMinion.getMinionAttack());
 
@@ -284,6 +288,7 @@ public class Board {
 
         ui.displayMinionsOnBoardlist(minionList);
         Minion minion = null;
+
         if(!minionList.isEmpty()) {
             try {
                 switch (ui.getInput()) {
@@ -473,6 +478,11 @@ public class Board {
     public int getFatigueCount(){
         return fatigueCount;
     }
+
+    public LinkedList<Minion> getMinionsWithTaunt() {
+        return minionsWithTaunt;
+    }
+
     public void setFatigueCount(int fatigueCount) {
         this.fatigueCount = fatigueCount;
     }

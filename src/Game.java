@@ -171,12 +171,18 @@ public class Game {
                 ui.displayMessage("Pick a minion you want to attack with");
                 Minion pickedMinion = currentPlayer.getBoard().pickMinion(currentPlayer.getBoard().getMinionReadyToAttackList());
 
+
                 if (!enemyPlayer.getBoard().getMinionsOnBoard().isEmpty()) {
+                    if(enemyPlayer.getBoard().CheckIfTaunt(enemyPlayer.getBoard())){
+                        ui.displayMessage("One or more enemy minions have taunt and must be attacked first. ");
+                        currentPlayer.getBoard().minionClash(pickedMinion,enemyPlayer.getBoard().pickMinion(enemyPlayer.getBoard().getMinionsWithTaunt()),enemyPlayer.getBoard());
+                    }
                     ui.displayMessage("Do you want to attack an enemy minion or the enemy hero?");
                     ui.displayMessage("1. Enemy minion \n" + "2. Enemy hero");
                     switch (ui.getInput()) {
                         case "1":
                             ui.displayMessage("Pick a minion to attack");
+
                             currentPlayer.getBoard().minionClash(pickedMinion, enemyPlayer.getBoard().pickMinion(enemyPlayer.getBoard().getMinionsOnBoard()), enemyPlayer.getBoard());
                             break;
                         case "2":
