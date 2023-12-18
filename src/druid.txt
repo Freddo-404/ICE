@@ -12,8 +12,8 @@ Minion; Name: Druid of the Claw; Mana: 6; Attack: 4; Health: 6; taunt: false
 Minion; Name: Druid of the Claw; Mana: 6; Attack: 4; Health: 6; taunt: false
 Minion; Name: Ancient of Lore; Mana: 7; Attack: 7; Health: 7; taunt: false
 Minion; Name: Ancient of Lore; Mana: 7; Attack: 7; Health: 7; taunt: false
-Minion; Name: Argent Squire; Mana: 1; Attack: 1; Health: 1; taunt: true
-Minion; Name: Argent Squire; Mana: 1; Attack: 1; Health: 1; taunt: true
+Minion; Name: Argent Squire; Mana: 1; Attack: 1; Health: 1; taunt: false
+Minion; Name: Argent Squire; Mana: 1; Attack: 1; Health: 1; taunt: false
 Minion; Name: BloodMage; Mana: 2; Attack: 1; Health: 1; taunt: false
 Minion; Name: Loot Hoarder; Mana: 2; Attack: 2; Health: 1; taunt: false
 Minion; Name: Loot Hoarder; Mana: 2; Attack: 2; Health: 1; taunt: false
@@ -22,8 +22,8 @@ Minion; Name: Harvest Golem; Mana: 3; Attack: 2; Health: 3; taunt: false
 Minion; Name: Big Game Hunter; Mana: 4; Attack: 4; Health: 2; taunt: false
 Minion; Name: Big Game Hunter; Mana: 4; Attack: 4; Health: 2; taunt: false
 Minion; Name: Violet Teacher; Mana: 4; Attack: 3 Health: 5; taunt: false
-Minion; Name: Senjin Shieldmasta; Mana: 4; Attack: 3; Health: 5; taunt: false
-Minion; Name: Senjin Shieldmasta; Mana: 4; Attack: 3; Health:; taunt: false
+Minion; Name: Senjin Shieldmasta; Mana: 4; Attack: 3; Health: 5; taunt: taunt
+Minion; Name: Senjin Shieldmasta; Mana: 4; Attack: 3; Health:; taunt: taunt
 Minion; Name: Leeroy Jenkins; Mana: 5; Attack: 6; Health: 2; taunt: false
 Minion; Name: Azure Drake; Mana: 5; Attack: 4; Health: 5; taunt: false
 Minion; Name: Azure Drake; Mana: 5; Attack: 4; Health: 5; taunt: false

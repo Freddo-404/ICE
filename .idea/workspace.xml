@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="originalattack og health samt at man nu kan se hvilket kort der bliver discarded">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="TAUNT VIRKER">
+      <change beforePath="$PROJECT_DIR$/src/druid.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/druid.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,7 +309,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702910716919</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="TAUNT VIRKER">
+      <option name="closed" value="true" />
+      <created>1702912617475</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1702912617475</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +347,8 @@
     <MESSAGE value="Jeg har ikke den musik fil, fred2" />
     <MESSAGE value="Hero power update" />
     <MESSAGE value="originalattack og health samt at man nu kan se hvilket kort der bliver discarded" />
-    <option name="LAST_COMMIT_MESSAGE" value="originalattack og health samt at man nu kan se hvilket kort der bliver discarded" />
+    <MESSAGE value="TAUNT VIRKER" />
+    <option name="LAST_COMMIT_MESSAGE" value="TAUNT VIRKER" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
