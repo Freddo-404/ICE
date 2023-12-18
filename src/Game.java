@@ -237,58 +237,50 @@ public class Game {
         if (currentPlayer.getBoard().getHero().getWeaponSlot().getWeaponSlotAttack() > 0) {
             if (currentPlayer.getBoard().getHero().getFrozenCount() == 0) {
                 if (heroReadyToAttack) {
-
-
-            if (heroReadyToAttack) {
-                if (currentPlayer.getBoard().getHero().getWeaponSlot().getCurrentDurability() != 0) {
-                    if(enemyPlayer.getBoard().CheckIfTaunt(enemyPlayer.getBoard())) {
+                    if (enemyPlayer.getBoard().CheckIfTaunt(enemyPlayer.getBoard())) {
                         ui.displayMessage("One or more enemy minions have taunt and must be attacked first. ");
                         currentPlayer.getBoard().heroAttackMinion(currentPlayer.getBoard().getHero(), enemyPlayer.getBoard().pickMinion(enemyPlayer.getBoard().getMinionsWithTaunt()), enemyPlayer.getBoard());
                         heroReadyToAttack = false;
-                    }else{
-                    ui.displayMessage("Do you want to attack an enemy minion or the enemy hero?");
+                    } else {
+                        ui.displayMessage("Do you want to attack an enemy minion or the enemy hero?");
 
-                    ui.displayMessage("1. Enemy minion \n" + "2. Enemy hero");
-                    switch (ui.getInput()) {
-                        case "1":
-                            if (!enemyPlayer.getBoard().getMinionsOnBoard().isEmpty()) {
-                                ui.displayMessage("Pick a minion to attack");
-                                currentPlayer.getBoard().heroAttackMinion(currentPlayer.getBoard().getHero(), enemyPlayer.getBoard().pickMinion(enemyPlayer.getBoard().getMinionsOnBoard()), enemyPlayer.getBoard());
+                        ui.displayMessage("1. Enemy minion \n" + "2. Enemy hero");
+                        switch (ui.getInput()) {
+                            case "1":
+                                if (!enemyPlayer.getBoard().getMinionsOnBoard().isEmpty()) {
+                                    ui.displayMessage("Pick a minion to attack");
+                                    currentPlayer.getBoard().heroAttackMinion(currentPlayer.getBoard().getHero(), enemyPlayer.getBoard().pickMinion(enemyPlayer.getBoard().getMinionsOnBoard()), enemyPlayer.getBoard());
+                                    heroReadyToAttack = false;
+                                } else {
+                                    ui.displayMessage("There are no enemy minions to attack");
+                                    playerChoiceMenu();
+                                }
+
+                                break;
+                            case "2":
+                                currentPlayer.getBoard().heroFace(currentPlayer.getBoard().getHero(), enemyPlayer.getBoard().getHero());
                                 heroReadyToAttack = false;
-                            } else {
-                                ui.displayMessage("There are no enemy minions to attack");
-                                playerChoiceMenu();
-                            }
+                                break;
+                            default:
+                                ui.displayMessage("Your input was not valid, please try again.");
+                                //playerChoiceMenu();
+                        }
 
-                            break;
-                        case "2":
-                            currentPlayer.getBoard().heroFace(currentPlayer.getBoard().getHero(), enemyPlayer.getBoard().getHero());
-                            heroReadyToAttack = false;
-                            break;
-                        default:
-                            ui.displayMessage("Your input was not valid, please try again.");
-                            //playerChoiceMenu();
                     }
-                    }
-                } else {
-                    ui.displayMessage("You have no weapon equipped.");
-                }
-                else {
+
+                 } else{
                     ui.displayMessage("You have already attacked.");
                 }
 
-            }else{
+        }else {
                 ui.displayMessage("Your hero is frozen and is unable to attack.");
             }
 
-
-        } else{
+    } else {
             ui.displayMessage("You have no weapon equipped.");
         }
-    }
 
-
-
+}
 
 
 
