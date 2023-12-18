@@ -218,13 +218,7 @@ public class Board {
             }
         }
     }
-    public boolean CheckIfTaunt(Board enemyboard) {
-        for (Minion t : enemyboard.minionsOnBoard) {
-            if (t.getTaunt()) {
-                return true;
-            }
-        }
-        return false;
+
 
     public void drawFatigue() {
         setFatigueCount(getFatigueCount() + 1);
@@ -240,6 +234,14 @@ public class Board {
                 getHand().getCardsInHand().remove(ranNum);
             }
         }
+    }
+    public boolean CheckIfTaunt(Board enemyboard) {
+        for (Minion t : enemyboard.minionsOnBoard) {
+            if (t.getTaunt()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void minionClash(Minion myMinion, Minion enemyMinion, Board enemyBoard) {
