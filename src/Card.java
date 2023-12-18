@@ -4,10 +4,13 @@ public abstract class Card {
     private String cardName;
     private String heroClass;
     private int cardCost;
+    private int originalCost;
+
 
     public Card(String cardName, int cardCost){
     this.cardName = cardName;
     this.cardCost = cardCost;
+    this.originalCost = cardCost;
     }
 
     public String getCardName() {
@@ -17,6 +20,9 @@ public abstract class Card {
 
     public int getCardCost() {
         return cardCost;
+    }
+    public int getOriginalCost(){
+        return originalCost;
     }
 
     public void setCardName(String cardName) {

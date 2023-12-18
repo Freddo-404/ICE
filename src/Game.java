@@ -15,6 +15,7 @@ public class Game {
     private Boolean heroReadyToAttack;
 
 
+
     public void mainMenu() {
         ui.displayMessage("Hello and welcome to ScuffedStone! \n" + "\n" + "Please select a choice" + "\n" +
                 "1. Play \n" + "2. Quit");
@@ -90,7 +91,7 @@ public class Game {
     }
 
     public void playerChoiceMenu() {
-        ui.displayMessage("\n What would you like to do?");
+        ui.displayMessage("\nWhat would you like to do?");
         ui.displayMessage("1. Play card \n" + "2. Attack with minion \n" + "3. Attack with hero \n" + "4. Use Hero power \n" + "5. End turn");
         switch (ui.getInput()) {
 
@@ -125,6 +126,8 @@ public class Game {
 
             heroPowerUsed = false;
             heroReadyToAttack = true;
+            currentPlayer.getBoard().setCombo(false);
+
 
             //Giver Mana
             if (currentPlayer.getBoard().getMaxMana() < 10) {

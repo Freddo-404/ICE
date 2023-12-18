@@ -15,7 +15,7 @@ public class Board {
     private Deck deck;
     private Hero hero;
     private TextUI ui = new TextUI();
-
+    private Boolean combo = false;
     public Board(Hero hero, Deck deck) {
         this.hero = hero;
         this.deck = deck;
@@ -28,18 +28,24 @@ public class Board {
         if (card instanceof Minion) {
             Minion minion = (Minion) card;
             playMinion(minion, card);
+           combo = true;
 
         } else if (card instanceof Spell) {
             Spell spell = (Spell) card;
             playSpell(spell, card, myBoard, enemyPlayer);
+            combo = true;
+
         }
         else if (card instanceof Weapon) {
             Weapon weapon = (Weapon) card;
             playWeapon(weapon, card);
+            combo = true;
+
         }
        else {
         System.out.println("Something went wrong with instanceof");
         }
+       card.setCardCost(card.getOriginalCost());
     }
 
 
@@ -216,13 +222,30 @@ public class Board {
                 if (hand.getCardsInHand().size() < hand.getMaxHandSize()) {
                     hand.getCardsInHand().add(deck.getCardsInDeck().poll());
                 } else {
-                    deck.getCardsInDeck().remove();
+                    Card discardedCard = deck.getCardsInDeck().poll();
+
+                    if (discardedCard instanceof Spell) {
+                        Spell spell = (Spell) discardedCard;
+                        ui.displayMessage("Your hand is full. Discarded: " + spell.getCardName() + ", Mana cost: " + spell.getCardCost());
+                    } else if (discardedCard instanceof Weapon) {
+                        Weapon weapon = (Weapon) discardedCard;
+                        ui.displayMessage("Your hand is full. Discarded: " + weapon.getCardName() + ", Mana cost: " + weapon.getCardCost() + ", Attack: " + weapon.getWeaponAttack() + ", Durability: " + weapon.getWeaponDurability());
+
+                    } else if (discardedCard instanceof Minion) {
+                        Minion minion = (Minion) discardedCard;
+                        ui.displayMessage("Your hand is full. Discarded: " + minion.getCardName() + ", Mana cost: " + minion.getCardCost() + ", Attack: " + minion.getMinionAttack() + ", Health: " + minion.getMinionMaxHealth());
+                    } else {
+                        System.out.println("Something with instanceof isn't working.");
+                    }
                 }
+
             } else {
                 drawFatigue();
             }
         }
     }
+
+
 
 
     public void drawFatigue() {
@@ -377,13 +400,11 @@ public class Board {
                 int input = ui.getNumericInputInt("Pick the desired type of target. \n 1. Minion \n 2. Heroes");
                 switch (input) {
                     case 1:
-                        if(minionsOnBoard.isEmpty()) {
+                        if (minionsOnBoard.isEmpty()) {
                             fireballMinion(dmg, enemyBoard.minionsOnBoard);
-                        }
-                        else if (enemyBoard.getMinionsOnBoard().isEmpty()) {
+                        } else if (enemyBoard.getMinionsOnBoard().isEmpty()) {
                             fireballMinion(dmg, minionsOnBoard);
-                        }
-                        else{
+                        } else {
                             int inputMinion = ui.getNumericInputInt("Would you like to target an enemy minion or a friendly minion? \n 1. Enemy \n 2. Friendly");
                             switch (inputMinion) {
                                 case 1:
@@ -397,6 +418,7 @@ public class Board {
                                     fireballAny(dmg, enemyBoard);
                             }
                         }
+
 
                         break;
                     case 2:
@@ -413,14 +435,13 @@ public class Board {
                                 ui.displayMessage("Your input was invalid. Please try again.");
                                 fireballAny(dmg, enemyBoard);
                         }
-                    default:
-                        ui.displayMessage("Your input was invalid. Please try again.");
-                        fireballAny(dmg, enemyBoard);
+
                 }
+
             }
             else{
-                int inputHero = ui.getNumericInputInt("Would you like to target an enemy hero or a friendly hero? \n 1. Enemy \n 2. Friendly");
-                switch (inputHero) {
+                int inputHero2 = ui.getNumericInputInt("Would you like to target an enemy hero or a friendly hero? \n 1. Enemy \n 2. Friendly");
+                switch (inputHero2) {
                     case 1:
                         fireballHero(dmg, enemyBoard.getHero());
 
@@ -434,6 +455,8 @@ public class Board {
                 }
             }
         }
+
+
         public int getCurrentMana () {
             return currentMana;
         }
@@ -485,6 +508,12 @@ public class Board {
 
     public void setFatigueCount(int fatigueCount) {
         this.fatigueCount = fatigueCount;
+    }
+    public boolean getCombo(){
+        return combo;
+    }
+    public void setCombo(boolean combo){
+        this.combo = combo;
     }
 
 

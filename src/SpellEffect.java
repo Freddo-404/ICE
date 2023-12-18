@@ -248,14 +248,26 @@ public class SpellEffect extends Effect {
             case "Shadowstep":
                 Minion pickedMinion2 = myBoard.pickMinion(myBoard.getMinionsOnBoard());
                 if(!(pickedMinion2==null)){
-                    //gør så de ikke kan koste negativ mana
-                    pickedMinion2.setCardCost(pickedMinion2.getCardCost()-2);
-                    //mana cost burde også sættes op igen efter minionen bliver spillet igen. Det kræver dog at man holder styr på hvilke minions der tidligere er blevet shadowstepped.
-                    myBoard.getMinionsOnBoard().remove(pickedMinion2);
-                    if(myBoard.getHand().getCardsInHand().size()<10) {
+                    //gør så de ikke kan koste negativ mana (Dette skulle nu være fikset -fred2)
+                    if(pickedMinion2.getCardCost()>=2){
+                        pickedMinion2.setMinionReadyToAttack(false);
+                        pickedMinion2.setMinionMaxHealth(pickedMinion2.getOriginalHealth());
+                        //mana cost burde også sættes op igen efter minionen bliver spillet igen. Det kræver dog at man holder styr på hvilke minions der tidligere er blevet shadowstepped.
+                        myBoard.getMinionsOnBoard().remove(pickedMinion2);
+                        if(myBoard.getHand().getCardsInHand().size()<10) {
+                            myBoard.getHand().getCardsInHand().add(pickedMinion2);
+                            pickedMinion2.setCardCost(pickedMinion2.getCardCost()-2);
+                            pickedMinion2.setMinionAttack(pickedMinion2.getOriginalAttack());
+                        }
+                        activateSpell = true;
+                    }else {
+                        pickedMinion2.setMinionReadyToAttack(false);
+                        pickedMinion2.setCardCost(0);
+                        myBoard.getMinionsOnBoard().remove(pickedMinion2);
                         myBoard.getHand().getCardsInHand().add(pickedMinion2);
+                        activateSpell = true;
                     }
-                    activateSpell = true;
+
                 }
                 else {
                     ui.displayMessage("Your board is empty so you're unable to use Shadowstep.");
@@ -274,33 +286,54 @@ public class SpellEffect extends Effect {
                 break;
             case "Preparation":
              // skal kunne gøre så når man har spillet den skal den næste spell man spiller koste 3 mindre mana
+                ui.displayMessage("fuck preparation");
                 activateSpell = true;
                 break;
             case "Cold Blood":
+                if(myBoard.getCombo()==false) {
                     ui.displayMessage("Do you want to add +2 attack to a friendly minion or an enemy minion.");
                     Minion pickedMinion3 = myBoard.friendlyOrEnemyMinion(enemyBoard, ui);
-                    if(!(pickedMinion3==null)) {
+                    if (!(pickedMinion3 == null)) {
                         pickedMinion3.setMinionAttack(pickedMinion3.getMinionAttack() + 2);
                         activateSpell = true;
-                    }
-                    else{
+                    } else {
                         ui.displayMessage("You couldn't find a target to use Cold Blood on.");
                         activateSpell = false;
                     }
+                } else{
+                    ui.displayMessage("COMBO: Do you want to add +4 attack to a friendly minion or an enemy minion.");
+                    Minion pickedMinion3 = myBoard.friendlyOrEnemyMinion(enemyBoard, ui);
+                    if (!(pickedMinion3 == null)) {
+                        pickedMinion3.setMinionAttack(pickedMinion3.getMinionAttack() + 4);
+                        activateSpell = true;
+                    } else {
+                        ui.displayMessage("You couldn't find a target to use Cold Blood on.");
+                        activateSpell = false;
+                    }
+                }
                     // mangler combo hvis vi har tid så den giver 4 skade i stedet
                 break;
             case "Eviscerate":
-                myBoard.fireballAny(2, enemyBoard);
-                ui.displayMessage("you deal 2 damage");
-                activateSpell = true;
+                if(myBoard.getCombo()==false) {
+                    myBoard.fireballAny(2, enemyBoard);
+                    ui.displayMessage("you deal 2 damage");
+                    activateSpell = true;
+                }else{
+                    myBoard.fireballAny(4, enemyBoard);
+                    ui.displayMessage("COMBO: you deal 4 damage");
+                    activateSpell = true;
+                }
                 //mangler combo så den skader 4
                 break;
             case "Sap":
                 Minion pickedMinion4 = myBoard.pickMinion(enemyBoard.getMinionsOnBoard());
                 if(!(pickedMinion4==null)){
+                    pickedMinion4.setMinionReadyToAttack(false);
                     enemyBoard.getMinionsOnBoard().remove(pickedMinion4);
                     if(enemyBoard.getHand().getCardsInHand().size()<10) {
                         enemyBoard.getHand().getCardsInHand().add(pickedMinion4);
+                        pickedMinion4.setMinionMaxHealth(pickedMinion4.getOriginalAttack());
+                        pickedMinion4.setMinionMaxHealth(pickedMinion4.getOriginalHealth());
                     }
                     activateSpell = true;
                 }
@@ -310,7 +343,7 @@ public class SpellEffect extends Effect {
                 }
                 break;
             case "Fan of Knives":
-                myBoard.drawCard(1);
+
             for(Minion m : enemyBoard.getMinionsOnBoard()){
                 m.loseHealth(1);
             }
@@ -319,12 +352,13 @@ public class SpellEffect extends Effect {
             }
             ui.displayMessage("You use Fan of Knives and deal 1 damage to all enemy minions");
             activateSpell = true;
+            myBoard.drawCard(1);
             break;
             case"Shiv":
                 myBoard.fireballAny(1, enemyBoard);
-                myBoard.drawCard(1);
                 ui.displayMessage("You deal 1 damage to your target and draw a card");
                 activateSpell = true;
+                myBoard.drawCard(1);
                 break;
             default:
                 System.out.println("Spell missing in SpellEffect");
