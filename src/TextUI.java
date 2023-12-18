@@ -87,14 +87,18 @@ public class TextUI {
 
     public String displayMinion(Minion minion){
         String ready = "";
+        String taunt = "";
         if(minion.getFrozenCount()>0){
             ready="F";
         }
         if(minion.getMinionReadyToAttack()){
             ready="*";
         }
+        if(minion.getTaunt()){
+            taunt="T";
+        }
 
-        return ("["+minion.getMinionAttack()+"/"+minion.getMinionCurrentHealth())+"]"+ready;
+        return taunt+("["+minion.getMinionAttack()+"/"+minion.getMinionCurrentHealth())+"]"+ready;
 
     }
 
