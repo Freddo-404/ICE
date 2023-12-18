@@ -73,7 +73,7 @@ public class TextUI {
                 if(minion.getTaunt()){ taunt= ", Taunt.";
 
                 }
-                displayMessage(count  + ". " +"Minion: "+ minion.getCardName() + ", Mana cost: "+minion.getCardCost() + ", Attack: "+minion.getMinionAttack() + ", Health: "+minion.getMinionMaxHealth()+" " + taunt);
+                displayMessage(count  + ". " +"Minion: "+ minion.getCardName() + ", Mana cost: "+minion.getCardCost() + ", Attack: "+minion.getMinionAttack() + ", Health: "+minion.getMinionMaxHealth()+ taunt);
             }else{
                 System.out.println("Something with instanceof isn't working.");
             }

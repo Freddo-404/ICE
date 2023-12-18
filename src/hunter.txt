@@ -6,14 +6,14 @@ Minion; Name: Bluegill Warrior; Mana: 2; Attack: 2; Health: 1; taunt: true
 Minion; Name: Worgen Infiltrator; Mana: 1; Attack: 2; Health: 1; taunt: true
 Minion; Name: Worgen Infiltrator; Mana: 1; Attack: 2; Health: 1; taunt: true
 Spell; Name: Animal Companion; Mana: 3; Info: Summon a 4/3 minion
-Spell; Name: Animal Companion ; Mana: 3; Info: Summon a 4/3 minion
+Spell; Name: Animal Companion; Mana: 3; Info: Summon a 4/3 minion
 Minion; Name: Knife Juggler; Mana: 2; Attack: 3; Health: 2; taunt: false
 Minion; Name: Knife Juggler; Mana: 2; Attack: 3; Health: 3; taunt: false
 Minion; Name: Dire Wolf Alpha; Mana: 2; Attack: 2; Health: 2; taunt: false
 Minion; Name: Dire Wolf Alpha; Mana: 2; Attack: 2; Health: 2; taunt: false
 Spell; Name: Arcane Shot; Mana: 1; Info: Deal 2 damage
 Spell; Name: Arcane Shot; Mana: 1; Info: Deal 2 damage
-Minion; Name: IronBeak Owl; Mana: 3; Attack: 2; Health: 1; taunt: false
+Minion; Name: Ironbeak Owl; Mana: 3; Attack: 2; Health: 1; taunt: false
 Minion; Name: Ironbeak Owl; Mana: 3; Attack: 2; Health: 1; taunt: false
 Minion; Name: Shattered Sun Cleric; Mana: 3; Attack: 3; Health: 2; taunt: false
 Minion; Name: Shattered Sun Cleric; Mana: 3; Attack: 3; Health: 2; taunt: false

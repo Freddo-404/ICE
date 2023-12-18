@@ -61,31 +61,31 @@ public class SpellEffect extends Effect {
                             break;
                         case 1:
                             enemyBoard.getMinionsOnBoard().get(0).loseHealth(1);
-                            enemyBoard.getMinionsOnBoard().get(0).minionDeath(enemyBoard.getMinionsOnBoard().get(0),enemyBoard.getMinionsOnBoard());
+                            enemyBoard.getMinionsOnBoard().get(0).minionDeath(enemyBoard.getMinionsOnBoard().get(0),enemyBoard.getMinionsOnBoard(),enemyBoard.getMinionsWithTaunt());
                             break;
                         case 2:
                             enemyBoard.getMinionsOnBoard().get(1).loseHealth(1);
-                            enemyBoard.getMinionsOnBoard().get(1).minionDeath(enemyBoard.getMinionsOnBoard().get(1),enemyBoard.getMinionsOnBoard());
+                            enemyBoard.getMinionsOnBoard().get(1).minionDeath(enemyBoard.getMinionsOnBoard().get(1),enemyBoard.getMinionsOnBoard(),enemyBoard.getMinionsWithTaunt());
                             break;
                         case 3:
                             enemyBoard.getMinionsOnBoard().get(2).loseHealth(1);
-                            enemyBoard.getMinionsOnBoard().get(2).minionDeath(enemyBoard.getMinionsOnBoard().get(2),enemyBoard.getMinionsOnBoard());
+                            enemyBoard.getMinionsOnBoard().get(2).minionDeath(enemyBoard.getMinionsOnBoard().get(2),enemyBoard.getMinionsOnBoard(),enemyBoard.getMinionsWithTaunt());
                             break;
                         case 4:
                             enemyBoard.getMinionsOnBoard().get(3).loseHealth(1);
-                            enemyBoard.getMinionsOnBoard().get(3).minionDeath(enemyBoard.getMinionsOnBoard().get(3),enemyBoard.getMinionsOnBoard());
+                            enemyBoard.getMinionsOnBoard().get(3).minionDeath(enemyBoard.getMinionsOnBoard().get(3),enemyBoard.getMinionsOnBoard(),enemyBoard.getMinionsWithTaunt());
                             break;
                         case 5:
                             enemyBoard.getMinionsOnBoard().get(4).loseHealth(1);
-                            enemyBoard.getMinionsOnBoard().get(4).minionDeath(enemyBoard.getMinionsOnBoard().get(4),enemyBoard.getMinionsOnBoard());
+                            enemyBoard.getMinionsOnBoard().get(4).minionDeath(enemyBoard.getMinionsOnBoard().get(4),enemyBoard.getMinionsOnBoard(),enemyBoard.getMinionsWithTaunt());
                             break;
                         case 6:
                             enemyBoard.getMinionsOnBoard().get(5).loseHealth(1);
-                            enemyBoard.getMinionsOnBoard().get(5).minionDeath(enemyBoard.getMinionsOnBoard().get(5),enemyBoard.getMinionsOnBoard());
+                            enemyBoard.getMinionsOnBoard().get(5).minionDeath(enemyBoard.getMinionsOnBoard().get(5),enemyBoard.getMinionsOnBoard(),enemyBoard.getMinionsWithTaunt());
                             break;
                         case 7:
                             enemyBoard.getMinionsOnBoard().get(6).loseHealth(1);
-                            enemyBoard.getMinionsOnBoard().get(6).minionDeath(enemyBoard.getMinionsOnBoard().get(6),enemyBoard.getMinionsOnBoard());
+                            enemyBoard.getMinionsOnBoard().get(6).minionDeath(enemyBoard.getMinionsOnBoard().get(6),enemyBoard.getMinionsOnBoard(),enemyBoard.getMinionsWithTaunt());
                             break;
                         default:
                             ui.displayMessage("Something went wrong with ranNum in Arcane Missiles.");
@@ -124,13 +124,7 @@ public class SpellEffect extends Effect {
                 activateSpell = true;
                 break;
             case "Flamestrike":
-                for(Minion m : enemyBoard.getMinionsOnBoard()){
-                    m.loseHealth(4);
-                }
-                //Det her går galt fordi det er linkedlist, og når man fjerner dem bliver det rykket
-                for(Minion m : enemyBoard.getMinionsOnBoard()){
-                    m.minionDeath(m, enemyBoard.getMinionsOnBoard());
-                }
+                myBoard.flamestrike(4,enemyBoard);
                 ui.displayMessage("You use Flamestrike and deal 4 damage to all enemy minion.");
                 activateSpell = true;
                 break;
@@ -150,7 +144,7 @@ public class SpellEffect extends Effect {
                             if (myBoard.getMinionsOnBoard().size() < 7) {
                                 Minion animalCompanion = new Minion("Misha", 3, 4, 3,true);
                                 myBoard.getMinionsOnBoard().add(animalCompanion);
-                                ui.displayMessage("You summon a 4/3 BJØRN with taunt.");
+                                ui.displayMessage("You summon a 4/3 bear with taunt.");
                             } else {
                                 ui.displayMessage("Not enough space on board for a companion");
                             }
@@ -199,12 +193,7 @@ public class SpellEffect extends Effect {
                 activateSpell = true;
                 break;
             case "Consecration":
-                for(Minion m : enemyBoard.getMinionsOnBoard()){
-                    m.loseHealth(2);
-                }
-                for(Minion m : enemyBoard.getMinionsOnBoard()){
-                    m.minionDeath(m, enemyBoard.getMinionsOnBoard());
-                }
+                myBoard.flamestrike(2,enemyBoard);
 
                 enemyBoard.getHero().loseHealth(2);
 
@@ -238,8 +227,8 @@ public class SpellEffect extends Effect {
                 if(!(pickedMinion1==null)) {
                     if (pickedMinion1.getMinionCurrentHealth() == pickedMinion1.getMinionMaxHealth()) {
                         pickedMinion1.loseHealth(2);
-                        pickedMinion1.minionDeath(pickedMinion1, enemyBoard.getMinionsOnBoard());
-                        pickedMinion1.minionDeath(pickedMinion1, myBoard.getMinionsOnBoard());
+                        pickedMinion1.minionDeath(pickedMinion1, enemyBoard.getMinionsOnBoard(),enemyBoard.getMinionsWithTaunt());
+                        pickedMinion1.minionDeath(pickedMinion1, myBoard.getMinionsOnBoard(), myBoard.getMinionsWithTaunt());
                         activateSpell = true;
                     } else {
                         ui.displayMessage("You can not target a damaged minions");
@@ -350,15 +339,11 @@ public class SpellEffect extends Effect {
                 break;
             case "Fan of Knives":
 
-            for(Minion m : enemyBoard.getMinionsOnBoard()){
-                m.loseHealth(1);
-            }
-            for (Minion m : enemyBoard.getMinionsOnBoard()){
-                m.minionDeath(m, enemyBoard.getMinionsOnBoard());
-            }
+                myBoard.drawCard(1);
+            myBoard.flamestrike(1,enemyBoard);
             ui.displayMessage("You use Fan of Knives and deal 1 damage to all enemy minions");
             activateSpell = true;
-            myBoard.drawCard(1);
+
             break;
             case"Shiv":
                 myBoard.fireballAny(1, enemyBoard,false);

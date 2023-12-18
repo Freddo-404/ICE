@@ -24,9 +24,13 @@ public class Minion extends Card {
 
     }
 
-    public void minionDeath(Minion minion, LinkedList<Minion> cardsOnBoard){
+    public void minionDeath(Minion minion, LinkedList<Minion> cardsOnBoard, LinkedList<Minion> tauntList){
         if (minionCurrentHealth <= 0){
             cardsOnBoard.remove(minion);
+            if(minion.getTaunt()){
+                tauntList.remove(minion);
+            }
+
         }
     }
     public boolean getTaunt(){

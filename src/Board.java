@@ -279,8 +279,8 @@ public class Board {
         enemyMinion.loseHealth(myMinion.getMinionAttack());
         myMinion.loseHealth(enemyMinion.getMinionAttack());
 
-        myMinion.minionDeath(myMinion, minionsOnBoard);
-        enemyMinion.minionDeath(enemyMinion, enemyBoard.getMinionsOnBoard());
+        myMinion.minionDeath(myMinion, minionsOnBoard, minionsWithTaunt);
+        enemyMinion.minionDeath(enemyMinion, enemyBoard.getMinionsOnBoard(), enemyBoard.getMinionsWithTaunt());
 
         myMinion.setMinionReadyToAttack(false);
 
@@ -303,7 +303,7 @@ public class Board {
         enemyMinion.loseHealth(hero.getWeaponSlot().getWeaponSlotAttack());
         hero.getWeaponSlot().loseDurability();
         hero.getWeaponSlot().destroyWeapon();
-        enemyMinion.minionDeath(enemyMinion, enemyBoard.getMinionsOnBoard());
+        enemyMinion.minionDeath(enemyMinion, enemyBoard.getMinionsOnBoard(), enemyBoard.getMinionsWithTaunt());
         hero.loseHealth(enemyMinion.getMinionAttack());
 
     }
@@ -381,14 +381,14 @@ public class Board {
             return minion;
         }
 
-        public void fireballMinion (int dmg, LinkedList<Minion> minionList, boolean freeze){
+        public void fireballMinion (int dmg, LinkedList<Minion> minionList, LinkedList<Minion> tauntList , boolean freeze){
             if(!minionList.isEmpty()) {
                 Minion pickedMinion = pickMinion(minionList);
 
                 //Ice lance
                 if(freeze && dmg==0 && pickedMinion.getFrozenCount()>0){
                     pickedMinion.loseHealth(4);
-                    pickedMinion.minionDeath(pickedMinion, minionList);
+                    pickedMinion.minionDeath(pickedMinion, minionList, tauntList);
                     ui.displayMessage("Your target is hit by Ice Lance and loses 4 hp.");
                 }
                 else if(freeze){
@@ -397,7 +397,7 @@ public class Board {
                 }
 
                 pickedMinion.loseHealth(dmg);
-                pickedMinion.minionDeath(pickedMinion, minionList);
+                pickedMinion.minionDeath(pickedMinion, minionList, tauntList);
             } else {
                 ui.displayMessage("There are no minions to target.");
             }
@@ -423,17 +423,17 @@ public class Board {
                 switch (input) {
                     case 1:
                         if (minionsOnBoard.isEmpty()) {
-                            fireballMinion(dmg, enemyBoard.minionsOnBoard,freeze);
+                            fireballMinion(dmg, enemyBoard.minionsOnBoard,enemyBoard.minionsWithTaunt,freeze);
                         } else if (enemyBoard.getMinionsOnBoard().isEmpty()) {
-                            fireballMinion(dmg, minionsOnBoard,freeze);
+                            fireballMinion(dmg, minionsOnBoard, minionsWithTaunt,freeze);
                         } else {
                             int inputMinion = ui.getNumericInputInt("Would you like to target an enemy minion or a friendly minion? \n 1. Enemy \n 2. Friendly");
                             switch (inputMinion) {
                                 case 1:
-                                    fireballMinion(dmg, enemyBoard.minionsOnBoard,freeze);
+                                    fireballMinion(dmg, enemyBoard.minionsOnBoard, enemyBoard.minionsWithTaunt,freeze);
                                     break;
                                 case 2:
-                                    fireballMinion(dmg, minionsOnBoard,freeze);
+                                    fireballMinion(dmg, minionsOnBoard, minionsWithTaunt,freeze);
                                     break;
                                 default:
                                     ui.displayMessage("Your input was invalid. Please try again.");
@@ -480,6 +480,15 @@ public class Board {
             }
         }
 
+        public void flamestrike(int dmg, Board enemyBoard){
+            for(Minion m : enemyBoard.getMinionsOnBoard()){
+                m.loseHealth(dmg);
+            }
+            //Det her går galt fordi det er linkedlist, og når man fjerner dem bliver det rykket
+            for(int i=enemyBoard.getMinionsOnBoard().size()-1; i>-1; i--){
+                enemyBoard.getMinionsOnBoard().get(i).minionDeath(enemyBoard.getMinionsOnBoard().get(i), enemyBoard.getMinionsOnBoard(),enemyBoard.getMinionsWithTaunt());
+            }
+        }
 
         public int getCurrentMana () {
             return currentMana;
