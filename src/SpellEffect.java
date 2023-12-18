@@ -261,6 +261,7 @@ public class SpellEffect extends Effect {
                         }
                         activateSpell = true;
                     }else {
+                        pickedMinion2.setMinionReadyToAttack(false);
                         pickedMinion2.setCardCost(0);
                         myBoard.getMinionsOnBoard().remove(pickedMinion2);
                         myBoard.getHand().getCardsInHand().add(pickedMinion2);
