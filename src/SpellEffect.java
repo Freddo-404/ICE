@@ -11,9 +11,15 @@ public class SpellEffect extends Effect {
         Boolean activateSpell = false;
         switch (spellName) {
             case "The coin":
-                myBoard.setCurrentMana(myBoard.getCurrentMana() + 1);
-                ui.displayMessage("You gain 1 mana.");
-                activateSpell = true;
+                if(myBoard.getCurrentMana()<10) {
+                    myBoard.setCurrentMana(myBoard.getCurrentMana() + 1);
+                    ui.displayMessage("You gain 1 mana.");
+                    activateSpell = true;
+                }else{
+                    myBoard.setCurrentMana(myBoard.getCurrentMana());
+                    ui.displayMessage("Your mana is full.");
+                    activateSpell = true;
+                }
                 break;
 
             //Mage spells
