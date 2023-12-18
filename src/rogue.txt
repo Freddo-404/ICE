@@ -1,30 +1,30 @@
-Spell; Name: Backstab; Mana: 0; Info: Deal 2 damage to a undamaged minion
-Spell; Name: Backstab; Mana: 0; Info: Deal 2 damage to a undamaged minion
-Spell; Name: Preparation; Mana: 0; Info: The next spell you play cost 3 less
-Spell; Name: Preparation; Mana: 0; Info: The next spell you play cost 3 less
-Spell; Name: Shadowstep; Mana: 0; Info: Return a friendly minion to your hand. It cost 2 less mana
-Spell; Name: Shadowstep; Mana: 0; Info: Return a friendly minion to your hand. It cost 2 less mana
-Spell; Name: Cold Blood; Mana: 1; Info: Give a minion +2 attack COMBO give a minion +4 attack
-Spell; Name: Cold Blood; Mana: 1; Info: Give a minion +2 attack COMBO give a minion +4 attack
+Spell; Name: Backstab; Mana: 0; Info: Deal 2 damage to an undamaged minion
+Spell; Name: Backstab; Mana: 0; Info: Deal 2 damage to an undamaged minion
+Spell; Name: Preparation; Mana: 0; Info: The next spell you play costs 3 less
+Spell; Name: Preparation; Mana: 0; Info: The next spell you play costs 3 less
+Spell; Name: Shadowstep; Mana: 0; Info: Return a friendly minion to your hand. It costs 2 less mana
+Spell; Name: Shadowstep; Mana: 0; Info: Return a friendly minion to your hand. It costs 2 less mana
+Spell; Name: Cold Blood; Mana: 1; Info: Give a minion +2 attack. COMBO: Give a minion +4 attack
+Spell; Name: Cold Blood; Mana: 1; Info: Give a minion +2 attack. COMBO: Give a minion +4 attack
 Spell; Name: Deadly Poison; Mana: 1; Info: Give your weapon +2 attack
 Spell; Name: Deadly Poison; Mana: 1; Info: Give your weapon +2 attack
-Minion; Name: Leper Gnome; Mana: 1; Attack: 2; Health: 1; Info: DEATHRATTLE deal 2 damage to the enemy hero
-Minion; Name: Leper Gnome; Mana: 1; Attack: 2; Health: 1; Info: DEATHRATTLE deal 2 damage to the enemy hero
-Spell; Name: Eviscerate; Mana: 2; Info: Deal 2 damage COMBO deal 4 damage
-Spell; Name: Eviscerate; Mana: 2; Info: Deal 2 damage COMBO deal 4 damage
-Spell; Name: Sap; Mana: 2; Info: Return an enemy minion to your oppenents hand
-Spell; Name: Sap; Mana: 2; Info: Return an enemy minion to your oppenents hand
+Minion; Name: Leper Gnome; Mana: 1; Attack: 2; Health: 1; taunt: false; Info: DEATHRATTLE: Deal 2 damage to the enemy hero
+Minion; Name: Leper Gnome; Mana: 1; Attack: 2; Health: 1; taunt: false; Info: DEATHRATTLE: Deal 2 damage to the enemy hero
+Spell; Name: Eviscerate; Mana: 2; Info: Deal 2 damage. COMBO: Deal 4 damage
+Spell; Name: Eviscerate; Mana: 2; Info: Deal 2 damage. COMBO: Deal 4 damage
+Spell; Name: Sap; Mana: 2; Info: Return an enemy minion to your opponent's hand
+Spell; Name: Sap; Mana: 2; Info: Return an enemy minion to your opponent's hand
 Spell; Name: Shiv; Mana: 2; Info: Deal 1 damage and draw a card
 Spell; Name: Shiv; Mana: 2; Info: Deal 1 damage and draw a card
-Minion; Name: Edwin Vancleef; Mana: 2; Attack: 2; Health: 2; Info: COMBO gain 2/2 for each card played this turn
-Minion; Name: Bloodmage Thalnos; Mana: 2; Attack: 1; Health: 1; Info: SPELLDAMAGE +1 DEATHRATTLE draw a card
+Minion; Name: Edwin Vancleef; Mana: 2; Attack: 2; Health: 2; taunt: false; Info: COMBO: Gain +2/+2 for each card played this turn
+Minion; Name: Bloodmage Thalnos; Mana: 2; Attack: 1; Health: 1; taunt: false; Info: SPELL DAMAGE +1. DEATHRATTLE: Draw a card
 Spell; Name: Fan of Knives; Mana: 2; Info: Deal 1 damage to all enemy minions and draw a card
 Spell; Name: Fan of Knives; Mana: 2; Info: Deal 1 damage to all enemy minions and draw a card
-Minion; Name: SI 7 Agent; Mana: 3; Attack: 3; Health: 3; Info: COMBO deal 2 damage
-Minion; Name: SI 7 Agent; Mana: 3; Attack: 3; Health: 3; Info: COMBO deal 2 damage
-Minion; Name: Earthen Ring Farseer; Mana: 3; Attack: 3; Health: 3; Info: BATTLECRY heal 3
-Minion; Name: Leeroy Jenkins; Mana: 4; Attack: 6; Health: 2; Info: Summon two 1/1 Whelps for your opponenet
-Minion; Name: Azure Drake; Mana: 5; Attack: 4; Health: 4; Info: SPELLDAMAGE +1 BATTLECRY draw a card
-Minion; Name: Azure Drake; Mana: 5; Attack: 4; Health: 4; Info: SPELLDAMAGE +1 BATTLECRY draw a card
-Minion; Name: Gadgetzan Auctioneer; Mana: 5; Attack: 4; Health: 4; Info: Whenever you cast a spell draw a card
-Minion; Name: Gadgetzan Auctioneer; Mana: 5; Attack: 4; Health: 4; Info: Whenever you cast a spell draw a card
+Minion; Name: SI:7 Agent; Mana: 3; Attack: 3; Health: 3; taunt: false; Info: COMBO: Deal 2 damage
+Minion; Name: SI:7 Agent; Mana: 3; Attack: 3; Health: 3; taunt: false; Info: COMBO: Deal 2 damage
+Minion; Name: Earthen Ring Farseer; Mana: 3; Attack: 3; Health: 3; taunt: false; Info: BATTLECRY: Heal 3
+Minion; Name: Leeroy Jenkins; Mana: 4; Attack: 6; Health: 2; taunt: false; Info: Summon two 1/1 Whelps for your opponent
+Minion; Name: Azure Drake; Mana: 5; Attack: 4; Health: 4; taunt: false; Info: SPELL DAMAGE +1. BATTLECRY: Draw a card
+Minion; Name: Azure Drake; Mana: 5; Attack: 4; Health: 4; taunt: false; Info: SPELL DAMAGE +1. BATTLECRY: Draw a card
+Minion; Name: Gadgetzan Auctioneer; Mana: 5; Attack: 4; Health: 4; taunt: false; Info: Whenever you cast a spell, draw a card
+Minion; Name: Gadgetzan Auctioneer; Mana: 5; Attack: 4; Health: 4; taunt: false; Info: Whenever you cast a spell, draw a card

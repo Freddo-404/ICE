@@ -1,31 +1,30 @@
-Minion; Name: Flame Imp; Mana: 1; Attack: 3; Health: 2
-Minion; Name: Flame Imp; Mana: 1; Attack: 3; Health: 2
+Minion; Name: Flame Imp; Mana: 1; Attack: 3; Health: 2; taunt: false
+Minion; Name: Flame Imp; Mana: 1; Attack: 3; Health: 2; taunt: false
 Spell; Name: Soul Fire; Mana: 1; Info: Deal 4 damage but discards a random card
 Spell; Name: Soul Fire; Mana: 1; Info: Deal 4 damage but discards a random card
-Minion; Name: VoidWalker; Mana: 1; Attack: 1; Health: 3
-Minion; Name: VoidWalker; Mana: 1; Attack: 1; Health: 3
-Minion; Name: Abusive Sergeant; Mana: 1; Attack: 1; Health: 1
-Minion; Name: Abusive Sergeant; Mana: 1; Attack: 1; Health: 1
-Minion; Name: Argent Squire; Mana: 1; Attack: 1; Health: 1
-Minion; Name: Argent Squire; Mana: 1; Attack: 1; Health: 1
-Minion; Name: Elven Archer; Mana: 1; Attack: 1; Health: 1
-Minion; Name: Elven Archer; Mana: 1; Attack: 1; Health: 1
-Minion; Name: ShieldBearer; Mana: 1; Attack: 0; Health: 4
-Minion; Name: ShieldBearer; Mana: 1; Attack: 0; Health: 4
-Minion; Name: Young Priestess; Mana: 1; Attack: 2; Health: 1
-Minion; Name: Young Priestess; Mana: 1; Attack: 2; Health: 1
-Minion; Name: Amani Berserker; Mana: 2; Attack: 2; Health: 3
-Minion; Name: Amani Berserker; Mana: 2; Attack: 2; Health: 3
-Minion; Name: Dire Wolf Alpha; Mana: 2; Attack: 2; Health: 2
-Minion; Name: Dire Wolf Alpha; Mana: 2; Attack: 2; Health: 2
-Minion; Name: Knife Juggler; Mana: 2; Attack: 3; Health: 2
-Minion; Name: Knife Juggler; Mana: 2; Attack: 3; Health: 2
-Minion; Name: IronBeak Owl; Mana: 3; Attack: 2; Health: 1
-Minion; Name: Ironbeak Owl; Mana: 3; Attack: 2; Health: 1
-Minion; Name: Shattered Sun Cleric; Mana: 3; Attack: 3; Health: 2
-Minion; Name: Shattered Sun Cleric; Mana: 3; Attack: 3; Health: 2
-Minion; Name: Dark Iron Dwarf; Mana: 4; Attack: 4; Health: 4
-Minion; Name: Dark Iron Dwarf; Mana: 4; Attack: 4; Health: 4
-Minion; Name: Defender of Argus; Mana: 3; Attack: 3; Health: 3
-Minion; Name: Defender of Argus; Mana: 3; Attack: 3; Health: 3
-
+Minion; Name: VoidWalker; Mana: 1; Attack: 1; Health: 3; taunt: false
+Minion; Name: VoidWalker; Mana: 1; Attack: 1; Health: 3; taunt: false
+Minion; Name: Abusive Sergeant; Mana: 1; Attack: 1; Health: 1; taunt: false
+Minion; Name: Abusive Sergeant; Mana: 1; Attack: 1; Health: 1; taunt: false
+Minion; Name: Argent Squire; Mana: 1; Attack: 1; Health: 1; taunt: true
+Minion; Name: Argent Squire; Mana: 1; Attack: 1; Health: 1; taunt: true
+Minion; Name: Elven Archer; Mana: 1; Attack: 1; Health: 1; taunt: false
+Minion; Name: Elven Archer; Mana: 1; Attack: 1; Health: 1; taunt: false
+Minion; Name: ShieldBearer; Mana: 1; Attack: 0; Health: 4; taunt: false
+Minion; Name: ShieldBearer; Mana: 1; Attack: 0; Health: 4; taunt: false
+Minion; Name: Young Priestess; Mana: 1; Attack: 2; Health: 1; taunt: false
+Minion; Name: Young Priestess; Mana: 1; Attack: 2; Health: 1; taunt: false
+Minion; Name: Amani Berserker; Mana: 2; Attack: 2; Health: 3; taunt: false
+Minion; Name: Amani Berserker; Mana: 2; Attack: 2; Health: 3; taunt: false
+Minion; Name: Dire Wolf Alpha; Mana: 2; Attack: 2; Health: 2; taunt: false
+Minion; Name: Dire Wolf Alpha; Mana: 2; Attack: 2; Health: 2; taunt: false
+Minion; Name: Knife Juggler; Mana: 2; Attack: 3; Health: 2; taunt: false
+Minion; Name: Knife Juggler; Mana: 2; Attack: 3; Health: 2; taunt: false
+Minion; Name: IronBeak Owl; Mana: 3; Attack: 2; Health: 1; taunt: false
+Minion; Name: Ironbeak Owl; Mana: 3; Attack: 2; Health: 1; taunt: false
+Minion; Name: Shattered Sun Cleric; Mana: 3; Attack: 3; Health: 2; taunt: false
+Minion; Name: Shattered Sun Cleric; Mana: 3; Attack: 3; Health: 2; taunt: false
+Minion; Name: Dark Iron Dwarf; Mana: 4; Attack: 4; Health: 4; taunt: false
+Minion; Name: Dark Iron Dwarf; Mana: 4; Attack: 4; Health: 4; taunt: false
+Minion; Name: Defender of Argus; Mana: 3; Attack: 3; Health: 3; taunt: false
+Minion; Name: Defender of Argus; Mana: 3; Attack: 3; Health: 3; taunt: false
