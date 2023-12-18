@@ -19,8 +19,8 @@ Minion; Name: Shattered Sun Cleric; Mana: 3; Attack: 3; Health: 2; taunt: false
 Minion; Name: Shattered Sun Cleric; Mana: 3; Attack: 3; Health: 2; taunt: false
 Minion; Name: Dark Iron Dwarf; Mana: 4; Attack: 4; Health: 4; taunt: false
 Minion; Name: Dark Iron Dwarf; Mana: 4; Attack: 4; Health: 4; taunt: false
-Minion; Name: Defender of Argus; Mana: 3; Attack: 3; Health: 3; taunt: false
-Minion; Name: Defender of Argus; Mana: 3; Attack: 3; Health: 3; taunt: false
+Minion; Name: Defender of Argus; Mana: 3; Attack: 3; Health: 3; taunt: true
+Minion; Name: Defender of Argus; Mana: 3; Attack: 3; Health: 3; taunt: true
 Minion; Name: Leeroy Jenkins; Mana: 5; Attack: 6; Health: 2; taunt: false
 Minion; Name: Wolfrider; Mana: 3; Attack: 3; Health: 1; taunt: false
 Minion; Name: Wolfrider; Mana: 3; Attack: 3; Health: 1; taunt: false
