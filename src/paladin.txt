@@ -26,5 +26,5 @@ Minion; Name: Ironbeak Owl; Mana: 3; Attack: 1; Health: 1; taunt: false
 Minion; Name: Ironbeak Owl; Mana: 3; Attack: 1; Health: 1; taunt: false
 Minion; Name: Wolfrider; Mana: 3; Attack: 3; Health: 1; taunt: false
 Minion; Name: Wolfrider; Mana: 3; Attack: 3; Health: 1; taunt: false
-Minion; Name: Senjin Shieldmasta; Mana: 4; Attack: 3; Health: 5; taunt: false
+Minion; Name: Senjin Shieldmasta; Mana: 4; Attack: 3; Health: 5; taunt: true
 Minion; Name: Leeroy Jenkins; Mana: 5; Attack: 6; Health: 2; taunt: false
