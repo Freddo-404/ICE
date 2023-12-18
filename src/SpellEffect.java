@@ -144,7 +144,7 @@ public class SpellEffect extends Effect {
                             if (myBoard.getMinionsOnBoard().size() < 7) {
                                 Minion animalCompanion = new Minion("Misha", 3, 4, 3,true);
                                 myBoard.getMinionsOnBoard().add(animalCompanion);
-                                ui.displayMessage("You summon a 4/3 BJØRN with taunt.");
+                                ui.displayMessage("You summon a 4/3 bear with taunt.");
                             } else {
                                 ui.displayMessage("Not enough space on board for a companion");
                             }
