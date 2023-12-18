@@ -245,7 +245,9 @@ public class Board {
     }
 
     public void minionClash(Minion myMinion, Minion enemyMinion, Board enemyBoard) {
+        if (CheckIfTaunt(enemyBoard)){
 
+        }
         enemyMinion.loseHealth(myMinion.getMinionAttack());
         myMinion.loseHealth(enemyMinion.getMinionAttack());
 
