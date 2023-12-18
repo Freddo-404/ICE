@@ -18,7 +18,7 @@ public class SpellEffect extends Effect {
 
             //Mage spells
             case "Fireball":
-                myBoard.fireballAny(6, enemyBoard);
+                myBoard.fireballAny(6, enemyBoard,false);
                 ui.displayMessage("Your target is hit by Fireball and loses 6 hp.");
                 activateSpell = true;
                 break;
@@ -90,7 +90,8 @@ public class SpellEffect extends Effect {
                 activateSpell = true;
                 break;
             case "Ice Lance":
-                ui.displayMessage("Fuck Ice Lance");
+                myBoard.fireballAny(0, enemyBoard,true);
+
                 activateSpell = true;
                 break;
             case "Mirror Image":
@@ -106,13 +107,12 @@ public class SpellEffect extends Effect {
                 activateSpell = true;
                 break;
             case "Frostbolt":
-                myBoard.fireballAny(3, enemyBoard);
-                //mangler frozen
+                myBoard.fireballAny(3, enemyBoard,true);
                 ui.displayMessage("Your target is hit by Frostbolt and loses 3 hp. It's also frozen.");
                 activateSpell = true;
                 break;
             case "Pyroblast":
-                myBoard.fireballAny(10, enemyBoard);
+                myBoard.fireballAny(10, enemyBoard,false);
                 //mangler frozen
                 ui.displayMessage("Your target is hit by a mighty Pyroblast and loses 10 hp. Rest in peace.");
                 activateSpell = true;
@@ -131,7 +131,7 @@ public class SpellEffect extends Effect {
 
             //Hunter spells
             case "Arcane Shot":
-                myBoard.fireballAny(2, enemyBoard);
+                myBoard.fireballAny(2, enemyBoard,false);
                 ui.displayMessage("Your target is hit by Arcane Shot and loses 2 hp.");
                 activateSpell = true;
                 break;
@@ -216,7 +216,7 @@ public class SpellEffect extends Effect {
 
                 //Warlock spells
             case "Soul Fire":
-                myBoard.fireballAny(4, enemyBoard);
+                myBoard.fireballAny(4, enemyBoard,false);
                 myBoard.discardCard(1);
 
                 ui.displayMessage("Your target is hit by Soul Fire and loses 4 hp. A random card from your card got discarded.");
@@ -311,11 +311,11 @@ public class SpellEffect extends Effect {
                 break;
             case "Eviscerate":
                 if(myBoard.getCombo()==false) {
-                    myBoard.fireballAny(2, enemyBoard);
+                    myBoard.fireballAny(2, enemyBoard,false);
                     ui.displayMessage("you deal 2 damage");
                     activateSpell = true;
                 }else{
-                    myBoard.fireballAny(4, enemyBoard);
+                    myBoard.fireballAny(4, enemyBoard,false);
                     ui.displayMessage("COMBO: you deal 4 damage");
                     activateSpell = true;
                 }
@@ -347,7 +347,7 @@ public class SpellEffect extends Effect {
             activateSpell = true;
             break;
             case"Shiv":
-                myBoard.fireballAny(1, enemyBoard);
+                myBoard.fireballAny(1, enemyBoard,false);
                 myBoard.drawCard(1);
                 ui.displayMessage("You deal 1 damage to your target and draw a card");
                 activateSpell = true;

@@ -80,6 +80,9 @@ public class TextUI {
 
     public String displayMinion(Minion minion){
         String ready = "";
+        if(minion.getFrozenCount()>0){
+            ready="F";
+        }
         if(minion.getMinionReadyToAttack()){
             ready="*";
         }
@@ -101,8 +104,19 @@ public class TextUI {
 
 
     public void displayBoard(Board myBoard,Board enemyBoard){
+        String friendlyFrozon = "";
+        String enemyFrozon = "";
+        if(myBoard.getHero().getFrozenCount()>0){
+            friendlyFrozon="F";
+        }
+        if(enemyBoard.getHero().getFrozenCount()>0){
+            enemyFrozon="F";
+        }
+
+
         String str = "";
-        str+= "________"+"Weapon: "+enemyBoard.getHero().getWeaponSlot().getWeaponSlotAttack()+"/"+enemyBoard.getHero().getWeaponSlot().getCurrentDurability()+"_________HERO HEALTH: "+enemyBoard.getHero().getHeroCurrentHealth()+"________deck: "+enemyBoard.getDeck().getCardsInDeck().size()+"_______"+"\n";
+
+        str+= "________"+"Weapon: "+enemyBoard.getHero().getWeaponSlot().getWeaponSlotAttack()+"/"+enemyBoard.getHero().getWeaponSlot().getCurrentDurability()+"_________HERO HEALTH: "+enemyBoard.getHero().getHeroCurrentHealth()+" "+enemyFrozon+"_______deck: "+enemyBoard.getDeck().getCardsInDeck().size()+"_______"+"\n";
         str+="|                                                 mana: "+enemyBoard.getCurrentMana()+"/"+enemyBoard.getMaxMana()+"      "+"\n";
         str+= displayMinionsOnBoard(enemyBoard.getMinionsOnBoard())+"\n";
         str+="|                                                                |"+"\n";
@@ -113,7 +127,7 @@ public class TextUI {
         str+="|                                                                |"+"\n";
         str+=displayMinionsOnBoard(myBoard.getMinionsOnBoard())+"\n";
         str+="|                                                 mana: "+myBoard.getCurrentMana()+"/"+myBoard.getMaxMana()+"      "+"\n";
-        str+="|_______"+"Weapon: "+myBoard.getHero().getWeaponSlot().getWeaponSlotAttack()+"/"+myBoard.getHero().getWeaponSlot().getCurrentDurability()+"________HERO HEALTH: "+myBoard.getHero().getHeroCurrentHealth()+"________deck: "+myBoard.getDeck().getCardsInDeck().size()+"_______|"+"\n";
+        str+="|_______"+"Weapon: "+myBoard.getHero().getWeaponSlot().getWeaponSlotAttack()+"/"+myBoard.getHero().getWeaponSlot().getCurrentDurability()+"________HERO HEALTH: "+myBoard.getHero().getHeroCurrentHealth()+" "+friendlyFrozon+"_______deck: "+myBoard.getDeck().getCardsInDeck().size()+"_______|"+"\n";
         displayMessage(str);
     }
 

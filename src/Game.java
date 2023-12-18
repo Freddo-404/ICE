@@ -138,9 +138,34 @@ public class Game {
 
             currentPlayer.getBoard().drawCard(1);
 
+
+
+            //Frozon count
+            for (Minion m : currentPlayer.getBoard().getMinionsOnBoard()) {
+                if(m.getFrozenCount()>0) {
+                    m.setFrozenCount(m.getFrozenCount() - 1);
+                }
+            }
+            for (Minion m : enemyPlayer.getBoard().getMinionsOnBoard()) {
+                if(m.getFrozenCount()>0) {
+                    m.setFrozenCount(m.getFrozenCount() - 1);
+                }
+            }
+            if(currentPlayer.getBoard().getHero().getFrozenCount()>0){
+                currentPlayer.getBoard().getHero().setFrozenCount(currentPlayer.getBoard().getHero().getFrozenCount()-1);
+            }
+            if(enemyPlayer.getBoard().getHero().getFrozenCount()>0){
+                enemyPlayer.getBoard().getHero().setFrozenCount(enemyPlayer.getBoard().getHero().getFrozenCount()-1);
+            }
+
             //Minion ready to attack
             for (Minion m : currentPlayer.getBoard().getMinionsOnBoard()) {
-                m.setMinionReadyToAttack(true);
+                if(m.getFrozenCount()==0) {
+                    m.setMinionReadyToAttack(true);
+                }
+                else{
+                    m.setMinionReadyToAttack(false);
+                }
             }
             for (Minion m : enemyPlayer.getBoard().getMinionsOnBoard()) {
                 m.setMinionReadyToAttack(false);
@@ -187,7 +212,7 @@ public class Game {
                             break;
                         default:
                             ui.displayMessage("Your input was not valid, please try again.");
-                            playerChoiceMenu();
+                            //playerChoiceMenu();
                     }
                 } else {
                     currentPlayer.getBoard().minionFace(pickedMinion, enemyPlayer.getBoard().getHero());
@@ -204,8 +229,9 @@ public class Game {
 
     public void attackWithWeapon() {
         if (currentPlayer.getBoard().getHero().getWeaponSlot().getWeaponSlotAttack() > 0) {
-            if (heroReadyToAttack) {
-                if (currentPlayer.getBoard().getHero().getWeaponSlot().getCurrentDurability() != 0) {
+            if (currentPlayer.getBoard().getHero().getFrozenCount() == 0) {
+                if (heroReadyToAttack) {
+
 
                     ui.displayMessage("Do you want to attack an enemy minion or the enemy hero?");
                     ui.displayMessage("1. Enemy minion \n" + "2. Enemy hero");
@@ -217,7 +243,6 @@ public class Game {
                                 heroReadyToAttack = false;
                             } else {
                                 ui.displayMessage("There are no enemy minions to attack");
-                                playerChoiceMenu();
                             }
                             break;
                         case "2":
@@ -226,15 +251,18 @@ public class Game {
                             break;
                         default:
                             ui.displayMessage("Your input was not valid, please try again.");
-                            playerChoiceMenu();
+                            //playerChoiceMenu();
                     }
-                } else {
-                    ui.displayMessage("You have no weapon equipped.");
+                }
+                else {
+                    ui.displayMessage("You have already attacked.");
                 }
 
-            } else {
-                ui.displayMessage("You have already attacked.");
+            }else{
+                ui.displayMessage("Your hero is frozen and is unable to attack.");
             }
+
+
         } else{
             ui.displayMessage("You have no weapon equipped.");
         }

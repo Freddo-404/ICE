@@ -7,6 +7,7 @@ public class Minion extends Card {
     private int minionMaxHealth;
     private Boolean minionReadyToAttack;
     private MinionEffect effect;
+    private int frozenCount;
 
     public Minion(String cardName, int cardCost, int minionAttack, int minionMaxHealth) {
         super(cardName, cardCost);
@@ -57,4 +58,13 @@ public class Minion extends Card {
     public Boolean getMinionReadyToAttack() {
         return minionReadyToAttack;
     }
+
+    public int getFrozenCount() {
+        return frozenCount;
+    }
+
+    public void setFrozenCount(int frozenCount) {
+        this.frozenCount = frozenCount;
+    }
+
 }

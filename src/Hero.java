@@ -5,6 +5,7 @@ public class Hero {
     private int heroMaxHealth;
     private WeaponSlot weaponSlot = new WeaponSlot(0,0);
     private boolean heroReadyToAttack;
+    private int frozenCount;
 
     private HeroPower heroPower = new HeroPower();
 
@@ -13,6 +14,7 @@ public class Hero {
         this.heroClass = heroClass;
         this.heroCurrentHealth = 30;
         this.heroMaxHealth = 30;
+        this.frozenCount = 0;
     }
 
 
@@ -57,4 +59,13 @@ public class Hero {
     public String getHeroName() {
         return heroName;
     }
+
+    public int getFrozenCount() {
+        return frozenCount;
+    }
+
+    public void setFrozenCount(int frozenCount) {
+        this.frozenCount = frozenCount;
+    }
+
 }
