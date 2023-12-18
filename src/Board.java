@@ -141,9 +141,8 @@ public class Board {
                     minionsOnBoard.add(minion);}
                 break;
             default:
-                hand.getCardsInHand().add(minion);
-                setCurrentMana(getCurrentMana()+ minion.getCardCost());
                 ui.displayMessage("Your input was not valid, please try again.");
+                putMinionBoard(minion);
                 break;
 
         }
