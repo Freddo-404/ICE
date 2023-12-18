@@ -7,20 +7,30 @@ public class Minion extends Card {
     private int minionMaxHealth;
     private Boolean minionReadyToAttack;
     private MinionEffect effect;
+    private boolean taunt;
+    private int originalAttack;
+    private int originalHealth;
     private int frozenCount;
 
-    public Minion(String cardName, int cardCost, int minionAttack, int minionMaxHealth) {
+    public Minion(String cardName, int cardCost, int minionAttack, int minionMaxHealth, boolean taunt) {
         super(cardName, cardCost);
         this.minionAttack = minionAttack;
         this.minionMaxHealth = minionMaxHealth;
         this.minionCurrentHealth = minionMaxHealth;
         this.minionReadyToAttack = false;
+        this.taunt = taunt;
+        this.originalAttack = minionAttack;
+        this.originalHealth = minionMaxHealth;
+
     }
 
     public void minionDeath(Minion minion, LinkedList<Minion> cardsOnBoard){
         if (minionCurrentHealth <= 0){
             cardsOnBoard.remove(minion);
         }
+    }
+    public boolean getTaunt(){
+        return taunt;
     }
     public void loseHealth(int dmgTaken){
         setMinionCurrentHealth(getMinionCurrentHealth()-dmgTaken);
@@ -58,6 +68,13 @@ public class Minion extends Card {
     public Boolean getMinionReadyToAttack() {
         return minionReadyToAttack;
     }
+    public int getOriginalAttack(){
+        return originalAttack;
+    }
+    public int getOriginalHealth(){
+        return originalHealth;
+    }
+
 
     public int getFrozenCount() {
         return frozenCount;

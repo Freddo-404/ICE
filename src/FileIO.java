@@ -22,7 +22,8 @@ public class FileIO implements FileEditor {
                         int cardCost1 = Integer.parseInt(row[2].split(": ")[1]);
                         int minionAttack = Integer.parseInt(row[3].split(": ")[1]);
                         int minionMaxHealth = Integer.parseInt(row[4].split(": ")[1]);
-                        Minion minion = new Minion(cardName1,cardCost1,minionAttack,minionMaxHealth);
+                        boolean taunt  = Boolean.parseBoolean(row[5].split(": ")[1]);
+                        Minion minion = new Minion(cardName1,cardCost1,minionAttack,minionMaxHealth,taunt);
                         data.add(minion);
                         break;
                     case "Spell":

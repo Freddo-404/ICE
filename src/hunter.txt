@@ -1,30 +1,30 @@
-Minion; Name: Argent Squire; Mana: 1; Attack: 1; Health: 1
-Minion; Name: Argent Squire; Mana: 1; Attack: 1; Health: 1
-Minion; Name: Leper Gnome; Mana: 1; Attack: 2; Health: 1
-Minion; Name: Bluegill Warrior; Mana: 2; Attack: 2; Health: 1
-Minion; Name: Bluegill Warrior; Mana: 2; Attack: 2; Health: 1
-Minion; Name: Worgen Infiltrator; Mana: 1; Attack: 2; Health: 1
-Minion; Name: Worgen Infiltrator; Mana: 1; Attack: 2; Health: 1
+Minion; Name: Argent Squire; Mana: 1; Attack: 1; Health: 1; taunt: true
+Minion; Name: Argent Squire; Mana: 1; Attack: 1; Health: 1; taunt: true
+Minion; Name: Leper Gnome; Mana: 1; Attack: 2; Health: 1; taunt: true
+Minion; Name: Bluegill Warrior; Mana: 2; Attack: 2; Health: 1; taunt: true
+Minion; Name: Bluegill Warrior; Mana: 2; Attack: 2; Health: 1; taunt: true
+Minion; Name: Worgen Infiltrator; Mana: 1; Attack: 2; Health: 1; taunt: true
+Minion; Name: Worgen Infiltrator; Mana: 1; Attack: 2; Health: 1; taunt: true
 Spell; Name: Animal Companion; Mana: 3; Info: Summon a 4/3 minion
 Spell; Name: Animal Companion ; Mana: 3; Info: Summon a 4/3 minion
-Minion; Name: Knife Juggler; Mana: 2; Attack: 3; Health: 2
-Minion; Name: Knife Juggler; Mana: 2; Attack: 3; Health: 3
-Minion; Name: Dire Wolf Alpha; Mana: 2; Attack: 2; Health: 2
-Minion; Name: Dire Wolf Alpha; Mana: 2; Attack: 2; Health: 2
+Minion; Name: Knife Juggler; Mana: 2; Attack: 3; Health: 2; taunt: false
+Minion; Name: Knife Juggler; Mana: 2; Attack: 3; Health: 3; taunt: false
+Minion; Name: Dire Wolf Alpha; Mana: 2; Attack: 2; Health: 2; taunt: false
+Minion; Name: Dire Wolf Alpha; Mana: 2; Attack: 2; Health: 2; taunt: false
 Spell; Name: Arcane Shot; Mana: 1; Info: Deal 2 damage
 Spell; Name: Arcane Shot; Mana: 1; Info: Deal 2 damage
-Minion; Name: IronBeak Owl; Mana: 3; Attack: 2; Health: 1
-Minion; Name: Ironbeak Owl; Mana: 3; Attack: 2; Health: 1
-Minion; Name: Shattered Sun Cleric; Mana: 3; Attack: 3; Health: 2
-Minion; Name: Shattered Sun Cleric; Mana: 3; Attack: 3; Health: 2
-Minion; Name: Dark Iron Dwarf; Mana: 4; Attack: 4; Health: 4
-Minion; Name: Dark Iron Dwarf; Mana: 4; Attack: 4; Health: 4
-Minion; Name: Defender of Argus; Mana: 3; Attack: 3; Health: 3
-Minion; Name: Defender of Argus; Mana: 3; Attack: 3; Health: 3
-Minion; Name: Leeroy Jenkins; Mana: 5; Attack: 6; Health: 2
-Minion; Name: Wolfrider; Mana: 3; Attack: 3; Health: 1
-Minion; Name: Wolfrider; Mana: 3; Attack: 3; Health: 1
-Minion; Name: Thornmantle Musician; Mana: 1; Attack: 1; Health: 3
-Minion; Name: Batty Guest; Mana: 1; Attack: 1; Health: 1
-Minion; Name: Jeweled Macaw; Mana: 1; Attack: 1; Health: 2
-Minion; Name: Jeweled Macaw; Mana: 1; Attack: 1; Health: 2
+Minion; Name: IronBeak Owl; Mana: 3; Attack: 2; Health: 1; taunt: false
+Minion; Name: Ironbeak Owl; Mana: 3; Attack: 2; Health: 1; taunt: false
+Minion; Name: Shattered Sun Cleric; Mana: 3; Attack: 3; Health: 2; taunt: false
+Minion; Name: Shattered Sun Cleric; Mana: 3; Attack: 3; Health: 2; taunt: false
+Minion; Name: Dark Iron Dwarf; Mana: 4; Attack: 4; Health: 4; taunt: false
+Minion; Name: Dark Iron Dwarf; Mana: 4; Attack: 4; Health: 4; taunt: false
+Minion; Name: Defender of Argus; Mana: 3; Attack: 3; Health: 3; taunt: false
+Minion; Name: Defender of Argus; Mana: 3; Attack: 3; Health: 3; taunt: false
+Minion; Name: Leeroy Jenkins; Mana: 5; Attack: 6; Health: 2; taunt: false
+Minion; Name: Wolfrider; Mana: 3; Attack: 3; Health: 1; taunt: false
+Minion; Name: Wolfrider; Mana: 3; Attack: 3; Health: 1; taunt: false
+Minion; Name: Thornmantle Musician; Mana: 1; Attack: 1; Health: 3; taunt: false
+Minion; Name: Batty Guest; Mana: 1; Attack: 1; Health: 1; taunt: false
+Minion; Name: Jeweled Macaw; Mana: 1; Attack: 1; Health: 2; taunt: false
+Minion; Name: Jeweled Macaw; Mana: 1; Attack: 1; Health: 2; taunt: false

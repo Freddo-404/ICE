@@ -97,9 +97,9 @@ public class SpellEffect extends Effect {
             case "Mirror Image":
                 for (int i = 0; i < 2; i++) {
                     if (myBoard.getMinionsOnBoard().size() < 7) {
-                        Minion mirrorImage = new Minion("Mirror Image", 1, 0, 2);
+                        Minion mirrorImage = new Minion("Mirror Image", 1, 0, 2,true);
                         myBoard.getMinionsOnBoard().add(mirrorImage);
-                        ui.displayMessage("You summon a 0/2 Mirror Image.");
+                        ui.displayMessage("You summon a 0/2 Mirror Image with taunt.");
                     } else {
                         ui.displayMessage("Not all Mirror images got summoned since your board is full.");
                     }
@@ -142,16 +142,16 @@ public class SpellEffect extends Effect {
                     switch (randomCompanion) {
                         case 0:
                             if (myBoard.getMinionsOnBoard().size() < 7) {
-                                Minion animalCompanion = new Minion("Misha", 3, 4, 3);
+                                Minion animalCompanion = new Minion("Misha", 3, 4, 3,true);
                                 myBoard.getMinionsOnBoard().add(animalCompanion);
-                                ui.displayMessage("You summon a 4/3 BJØRN.");
+                                ui.displayMessage("You summon a 4/3 BJØRN with taunt.");
                             } else {
                                 ui.displayMessage("Not enough space on board for a companion");
                             }
                             break;
                         case 1:
                             if (myBoard.getMinionsOnBoard().size() < 7) {
-                                Minion animalCompanion2 = new Minion("Leokk", 3, 2, 4);
+                                Minion animalCompanion2 = new Minion("Leokk", 3, 2, 4,false);
                                 myBoard.getMinionsOnBoard().add(animalCompanion2);
                                 ui.displayMessage("You summon a 2/4 Monkey.");
                             } else {
@@ -161,7 +161,7 @@ public class SpellEffect extends Effect {
                             break;
                         case 2:
                             if (myBoard.getMinionsOnBoard().size() < 7) {
-                                Minion animalCompanion3 = new Minion("Animal Companion", 3, 4, 2);
+                                Minion animalCompanion3 = new Minion("Animal Companion", 3, 4, 2,false);
                                 myBoard.getMinionsOnBoard().add(animalCompanion3);
                                 ui.displayMessage("You summon a 4/2 Huffer.");
                             } else {
@@ -250,14 +250,18 @@ public class SpellEffect extends Effect {
                 if(!(pickedMinion2==null)){
                     //gør så de ikke kan koste negativ mana (Dette skulle nu være fikset -fred2)
                     if(pickedMinion2.getCardCost()>=2){
-                        pickedMinion2.setCardCost(pickedMinion2.getCardCost()-2);
+                        pickedMinion2.setMinionReadyToAttack(false);
+                        pickedMinion2.setMinionMaxHealth(pickedMinion2.getOriginalHealth());
                         //mana cost burde også sættes op igen efter minionen bliver spillet igen. Det kræver dog at man holder styr på hvilke minions der tidligere er blevet shadowstepped.
                         myBoard.getMinionsOnBoard().remove(pickedMinion2);
                         if(myBoard.getHand().getCardsInHand().size()<10) {
                             myBoard.getHand().getCardsInHand().add(pickedMinion2);
+                            pickedMinion2.setCardCost(pickedMinion2.getCardCost()-2);
+                            pickedMinion2.setMinionAttack(pickedMinion2.getOriginalAttack());
                         }
                         activateSpell = true;
                     }else {
+                        pickedMinion2.setMinionReadyToAttack(false);
                         pickedMinion2.setCardCost(0);
                         myBoard.getMinionsOnBoard().remove(pickedMinion2);
                         myBoard.getHand().getCardsInHand().add(pickedMinion2);
@@ -324,9 +328,12 @@ public class SpellEffect extends Effect {
             case "Sap":
                 Minion pickedMinion4 = myBoard.pickMinion(enemyBoard.getMinionsOnBoard());
                 if(!(pickedMinion4==null)){
+                    pickedMinion4.setMinionReadyToAttack(false);
                     enemyBoard.getMinionsOnBoard().remove(pickedMinion4);
                     if(enemyBoard.getHand().getCardsInHand().size()<10) {
                         enemyBoard.getHand().getCardsInHand().add(pickedMinion4);
+                        pickedMinion4.setMinionMaxHealth(pickedMinion4.getOriginalAttack());
+                        pickedMinion4.setMinionMaxHealth(pickedMinion4.getOriginalHealth());
                     }
                     activateSpell = true;
                 }
@@ -336,7 +343,7 @@ public class SpellEffect extends Effect {
                 }
                 break;
             case "Fan of Knives":
-                myBoard.drawCard(1);
+
             for(Minion m : enemyBoard.getMinionsOnBoard()){
                 m.loseHealth(1);
             }
@@ -345,6 +352,7 @@ public class SpellEffect extends Effect {
             }
             ui.displayMessage("You use Fan of Knives and deal 1 damage to all enemy minions");
             activateSpell = true;
+            myBoard.drawCard(1);
             break;
             case"Shiv":
                 myBoard.fireballAny(1, enemyBoard,false);

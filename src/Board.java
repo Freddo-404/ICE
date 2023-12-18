@@ -8,6 +8,8 @@ public class Board {
     private int fatigueCount = 0;
     private int maxBoardSize = 7;
     private LinkedList<Minion> minionsOnBoard = new LinkedList<>();
+    private LinkedList<Minion> minionsWithTaunt = new LinkedList<>();
+
 
     private Hand hand = new Hand();
     private Deck deck;
@@ -57,6 +59,9 @@ public class Board {
                 putMinionBoard(minion);
                 currentMana = currentMana - minion.getCardCost();
                 getHand().getCardsInHand().remove(card);
+                if(minion.getTaunt()){
+                    minionsWithTaunt.add(minion);
+                }
             } else {
                 ui.displayMessage("Card cost is too high.");
             }
@@ -217,13 +222,31 @@ public class Board {
                 if (hand.getCardsInHand().size() < hand.getMaxHandSize()) {
                     hand.getCardsInHand().add(deck.getCardsInDeck().poll());
                 } else {
-                    deck.getCardsInDeck().remove();
+                    Card discardedCard = deck.getCardsInDeck().poll();
+
+                    if (discardedCard instanceof Spell) {
+                        Spell spell = (Spell) discardedCard;
+                        ui.displayMessage("Your hand is full. Discarded: " + spell.getCardName() + ", Mana cost: " + spell.getCardCost());
+                    } else if (discardedCard instanceof Weapon) {
+                        Weapon weapon = (Weapon) discardedCard;
+                        ui.displayMessage("Your hand is full. Discarded: " + weapon.getCardName() + ", Mana cost: " + weapon.getCardCost() + ", Attack: " + weapon.getWeaponAttack() + ", Durability: " + weapon.getWeaponDurability());
+
+                    } else if (discardedCard instanceof Minion) {
+                        Minion minion = (Minion) discardedCard;
+                        ui.displayMessage("Your hand is full. Discarded: " + minion.getCardName() + ", Mana cost: " + minion.getCardCost() + ", Attack: " + minion.getMinionAttack() + ", Health: " + minion.getMinionMaxHealth());
+                    } else {
+                        System.out.println("Something with instanceof isn't working.");
+                    }
                 }
+
             } else {
                 drawFatigue();
             }
         }
     }
+
+
+
 
     public void drawFatigue() {
         setFatigueCount(getFatigueCount() + 1);
@@ -239,6 +262,15 @@ public class Board {
                 getHand().getCardsInHand().remove(ranNum);
             }
         }
+    }
+    public boolean CheckIfTaunt(Board enemyboard) {
+        for (Minion t : enemyboard.minionsOnBoard) {
+            if (t.getTaunt()) {
+                return true;
+
+            }
+        }
+        return false;
     }
 
     public void minionClash(Minion myMinion, Minion enemyMinion, Board enemyBoard) {
@@ -279,6 +311,7 @@ public class Board {
 
         ui.displayMinionsOnBoardlist(minionList);
         Minion minion = null;
+
         if(!minionList.isEmpty()) {
             try {
                 switch (ui.getInput()) {
@@ -491,6 +524,11 @@ public class Board {
     public int getFatigueCount(){
         return fatigueCount;
     }
+
+    public LinkedList<Minion> getMinionsWithTaunt() {
+        return minionsWithTaunt;
+    }
+
     public void setFatigueCount(int fatigueCount) {
         this.fatigueCount = fatigueCount;
     }

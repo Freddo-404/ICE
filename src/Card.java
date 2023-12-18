@@ -6,6 +6,7 @@ public abstract class Card {
     private int cardCost;
     private int originalCost;
 
+
     public Card(String cardName, int cardCost){
     this.cardName = cardName;
     this.cardCost = cardCost;

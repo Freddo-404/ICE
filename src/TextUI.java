@@ -56,6 +56,9 @@ public class TextUI {
     public void displayHand(Player player) {
         displayMessage(player.getPlayerName() + "'s hand:");
         int count = 1;
+
+
+
         for (Card c : player.getBoard().getHand().getCardsInHand()) {
 
             if (c instanceof Spell) {
@@ -65,8 +68,12 @@ public class TextUI {
                 Weapon weapon = (Weapon) c;
                 displayMessage(count + ". " + "Weapon: "+weapon.getCardName()+ ", Mana cost: "+weapon.getCardCost()+ ", Attack: "+weapon.getWeaponAttack()+", Durability: "+weapon.getWeaponDurability());
             } else if (c instanceof Minion) {
+                String taunt= "";
                 Minion minion = (Minion) c;
-                displayMessage(count  + ". " +"Minion: "+ minion.getCardName() + ", Mana cost: "+minion.getCardCost() + ", Attack: "+minion.getMinionAttack() + ", Health: "+minion.getMinionMaxHealth());
+                if(minion.getTaunt()){ taunt= ", Taunt.";
+
+                }
+                displayMessage(count  + ". " +"Minion: "+ minion.getCardName() + ", Mana cost: "+minion.getCardCost() + ", Attack: "+minion.getMinionAttack() + ", Health: "+minion.getMinionMaxHealth()+" " + taunt);
             }else{
                 System.out.println("Something with instanceof isn't working.");
             }
