@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="putMinionBoard fix">
+    <list default="true" id="96385433-c1f7-4915-a06c-2301203f431b" name="Changes" comment="mana coin patched og fejlen med at pladsere minions hvis du skriver forkert er også patched">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClassDiagramICE.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassDiagramICE.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Fred-1-frozen" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,7 +46,8 @@
     "Application.Unnamed.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "opdater-klassediagram",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -81,6 +83,7 @@
       <workItem from="1701860532929" duration="16634000" />
       <workItem from="1702030822095" duration="1223000" />
       <workItem from="1702469473665" duration="3410000" />
+      <workItem from="1702922360675" duration="390000" />
     </task>
     <task id="LOCAL-00001" summary="i am inside your walls">
       <option name="closed" value="true" />

@@ -5,6 +5,7 @@
 
 class Main
 abstract Card
+class BackgroundMusic
 class Board
 class Hero
 class Game
@@ -36,7 +37,7 @@ class WeaponEffect
  Board-- Hand
  Board -- Hero
  Game-- TextUI
-
+BackgroundMusic -- Game
  Game -- Player
  Main-- Game
  Deck o-- FileEditor
@@ -58,28 +59,53 @@ class Main {
 
 
 }
+class BackgroundMusic{
++static void playbackGroundMusic(String filePath)
+}
+class SpellEffect{
+-String spellName;
++SpellEffect(String spellName)
++Boolean useSpellEffect(Board myBoard, Board enemyBoard, TextUI ui)
+}
+class Weapon{
+-int weaponAttack
+-int weaponDurability
+-WeaponEffect effect
++Weapon(String cardName, int cardCost, int weaponAttack, int weaponDurability)
++int getWeaponAttack()
++int getWeaponDurability()
+}
 abstract Card {
 -String cardName
 -String heroClass
 -int cardCost
+-int originalCost
 
-
++String getCardCost()
++int getCardCost()
++int getOriginalCost()
++void setCardName()
++void setCardCost()
 }
 interface FileEditor {
-+LinkedList<Card> readDeck(String path)
 
 }
 class FileIO {
--Scanner scan
-+LinkedList<Card> readDeck(String path)
++public LinkedList<Card> readDeckData(String cardPath)
 
 }
 class WeaponSlot {
 -int weaponAttack
 -int currentDurability
 
-+String equipWeapon()
-+String useWeapon()
++WeaponSlot(int weaponSlotAttack, int currentDurability)
++void equipWeapon(Weapon weapon)
++boolean destroyWeapon()
++void loseDurability()
++void setWeaponSlotAttack(int weaponSlotAttack)
++int getCurrentDurability()
++void setCurrentDurability(int currentDurabillity)
++int getWeaponSlotAttack()
 
 }
 
@@ -88,62 +114,134 @@ class Game {
 -TextUI ui
 -Player player1
 -Player player2
+-Player currentPlayer
+-Player enemyPlayer
+-Player tempPlayer
+-boolean heroPowerUsed
+-boolean gameOver
+-boolean heroReadyToAttack
+
 
 +void mainMenu()
 +void gameLoop()
++void startUp()
++void initializeGame()
++void playerChoiceMenu()
++void endTurn
 +void winCondition()
++void attackWithMinion()
++void attackWithWeapon()
++void heroPower()
 
 }
 class Hero {
 -String heroName
 -String heroClass
--int heroHealth
--HeroPower heroPower
+-int heroCurrentHealth
+-int heroMaxHealth
+-WeaponSlot weaponSlot
+-boolean heroReadyToAttack
+-int frozenCount
+
++void loseHealth(int dmgTaken)
++boolean heroDeath()
++void equipWeapon(Weapon weapon)
++String getHeroClass()
++HeroPower getHeroPower()
++int getHeroCurrentHealth()
++void setHeroCurrentHealth()
++WeaponSlot getWeaponSlot()
++String getHeroName()
++int getFrozenCount()
++void setFrozenCount(int frozenCount)
 
 }
 class Hand {
 -int maxHandSize
 -LinkedList<Card> cardsInHand
 +LinkedList<Card> getHand()
++int getMaxHandSize()
 
 }
 class TextUI {
+#Scanner scan
++String getInput()
 +void displayMessage(String msg)
-+void displayHand(Hand hand)
-+void displayBoard(Board board)
-+void displayEnemyBoard(Board board)
++int getNumericInputInt(String msg)
++void displayMinionsOnBoardlist(LinkedList<Minion> minionsOnBoard)
++void displayHand(Player player)
++void displayNumberOfCardsInHand(Player enemyPlayer)
++String displayMinion(Minion minion)
++String displayMinionsOnBoard(LinkedList<Minion> minionsOnBoard)
++void displayBoard(Board myBoard, Board enemyBoard)
++void displayGame(Player currentPlayer, Player enemyPlayer)
 
 }
 class Board {
 -int maxMana
+-int currentMana
+-int fatigueCount
 -int maxBoardSize
--LinkedList<Card> cardsOnBoard
+-LinkedList<Minion> minionsOnBoard
+-LinkedList<Minion> minionsWithTaunt
 -Hand hand
 -Deck deck
 -Hero hero
 -TextUI ui
-
-+String playCard()
-+String drawCard()
-+String drawFatigue()
-
-+String minionClash(Minion m1, Minion m2)
-+String minionFace(Minion minion, Hero hero)
-
+-Boolean combo
++Board(Hero hero, Deck deck)
++void playCard(Card card, Board myBoard, Board enemyPlayer)
++void playMinion(Minion minion, Card card)
++void playSpell(Spell spell, Card card, Board myBoard, Board enemyBoard)
++void playWeapon(Weapon weapon, Card card)
++void putMinionBoard(Minion minion)
++void pickCard(Player currentPlayer, Player enemyPlayer)
++void startHandCurrentPlayer()
++void startHandEnemyPlayer()
++void drawCard(int amount)
++void drawFatigue()
++void discardCard(int amount)
++boolean CheckIfTaunt(Board enemyboard)
++void minionClash(Minion myMinion, Minion enemyMinion, Board enemyBoard)
++void minionFace(Minion minion, Hero hero)
++void heroFace(Hero h1, Hero h2)
++void heroAttackMinion(Hero hero, Minion enemyMinion, Board enemyBoard)
++Minion pickMinion(LinkedList<Minion> minionList)
++Minion friendlyOrEnemyMinion(Board enemyBoard, TextUI ui)
++Minion enemyOrFriendlyMinion(Board enemyBoard, TextUI ui)
++void fireballMinion (int dmg, LinkedList<Minion> minionList, boolean freeze)
++void fireballHero (int dmg, Hero heroTarget, boolean freeze)
++void fireballAny (int dmg, Board enemyBoard, Boolean freeze)
++int getCurrentMana ()
++LinkedList<Minion> getMinionReadyToAttackList()
++void setCurrentMana(int currentMana)
++int getMaxMana()
++void setMaxMana(int maxMana)
++Deck getDeck()
++Hero getHero()
++LinkedList<Minion> getMinionsOnBoard()
++Hand getHand()
++int getFatigueCount()
++LinkedList<Minion> getMinionsWithTaunt()
++void setFatigueCount(int fatigueCount)
++boolean getCombo()
++void setCombo(boolean combo)
 }
+
 class Deck {
 -LinkedList<Card> cardsInDeck
--int fatigueCount
--FileIO io
++DeckLinkedList<Card> cardsInDeck()
++LinkedList<Card> cardsInDeck()
 
 }
 class Player {
 -String playerName
 -Board board
--int mana
--TextUI ui
-
-+void playerChoiceMenu()
+-FileIO io
++public Player(String PlayerName)
++void chooseHero(TextUI ui)
++String playerName()
++Board getBoard()
 
 }
 
@@ -151,36 +249,52 @@ class Minion {
 -int minionAttack
 -int minionCurrentHealth
 -int minionMaxHealth
--minionEffect effect
+-Boolean minionReadyToAttack;
+-MinionEffect effect;
+-boolean taunt;
+-int originalAttack;
+-int originalHealth;
+-int frozenCount;
++Minion(String cardName, int cardCost, int minionAttack, int minionMaxHealth, boolean taunt)
++void minionDeath(Minion minion, LinkedList<Minion> cardsOnBoard, LinkedList<Minion> tauntList)
++boolean getTaunt()
++void loseHealth(int dmgTaken)
++int getMinionMaxHealth()
++int getMinionAttack()
++int getMinionCurrentHealth()
++void setMinionCurrentHealth(int newMinionHealth)
++void setMinionMaxHealth(int minionMaxHealth)
++void setMinionAttack(int minionAttack)
++void setMinionReadyToAttack(Boolean minionReadyToAttack)
++Boolean getMinionReadyToAttack()
++int getOriginalAttack()
++int getOriginalHealth()
++int getFrozenCount()
++void setFrozenCount(int frozenCount)
 
-+void setMinionHealth(int health)
-
-}
 
 class Weapon {
 -int weaponAttack
 -int weaponDurability
 -weaponEffect effect
-
++Weapon(String cardName, int CardCost, int weaponAttack, int weaponDurability)
++int getWeaponAttack()
++int getWeaponDurability()
 }
-class Spell {
--spellEffect effect
+class Spell{
+-spellEffect spellEffect
++Spell(String cardname, int cardCost)
++SpellEffect getSpellEffect()
 
 }
 
 class HeroPower {
-
-
-+String useHeroPower(Hero hero)
-
-+String mageHeroPower()
-+String hunterHeroPower()
-+String warlockHeroPower()
-+String paladinHeroPower()
-+String rogueHeroPower()
-
-
-
++void useHeroPower(String heroClass, Board friendlyBoard, Board enemyBoard, TextUI ui)
++void mageHeroPower(Board friendlyBoard, Board enemyBoard, TextUI ui)
++void hunterHeroPower(Hero enemyHero, TextUI ui)
++void warlockHeroPower(Board myBoard, TextUI ui)
++void paladinHeroPower(Board myBoard, TextUI ui)
++void rogueHeroPower(Hero hero, TextUI ui)
 }
 
 
