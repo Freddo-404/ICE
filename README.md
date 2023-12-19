@@ -3,7 +3,7 @@ In order to get the music to run download this file: [hearthstonemusic.wav.zip](
 !!!REMEMBER TO CHANGE THE FILE NAME IN GAME CLASS OR OUTCOMMENT "BackgroundMusic.playBackgroundMusic" in game class under  public void startUp()
 
 SCUFFEDSTONE FUNKTIONSKRAV:
-Deck: Der skal være 2 decks bestående af 30 kort. Kun bestående af minions som har attack power, Health Points og en mana cost. Hvis ens deck løber tør for kort, så trækker man fatigue kort i stedet. fatiguekort fungere således: Første fatiguekort=-1 HP andet fatiguekort= -2 HP osv.
+Deck: Der skal være 2 decks bestående af 30 kort. Disse decks består af minions som har attack power, Health Points og en mana cost, spells og weapons. Hvis ens deck løber tør for kort, så trækker man fatigue kort i stedet. fatiguekort fungere således: Første fatiguekort=-1 HP andet fatiguekort= -2 HP osv.
 
 Card: Der er 3 typer card. 
 Minions; et kort det spilles på board som har attack, health og evt. taunt. Taunt: denne/disse minions skal angibes først og fjernes før man kan angribe minions der ikke har taunt eller angribe heroen.
